@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-5 ">
+    <fd-order-list (orderSelected)="selectedOrder = $event"></fd-order-list>
+    </div>
+
+    <div class="col-md-4">
+    <fd-order-detail [selectedOrder]="selectedOrder"></fd-order-detail>
+    </div>
+
+    <div class="col-md-3">
+      <fd-priceestimate></fd-priceestimate>
+    </div>
+  </div>
+</div>
