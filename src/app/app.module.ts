@@ -19,6 +19,9 @@ import { CreateUserComponent } from './user-login/create-user/create-user.compon
 import { IntroPageComponent } from './intro-page/intro-page.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { routing} from "./app.routing";
+import { FaqPageComponent } from './faq-page/faq-page.component';
+import { ContactPageComponent } from './contact-page/contact-page.component';
+import { AboutPageComponent } from './about-page/about-page.component';
 
 
 @NgModule({
@@ -36,6 +39,9 @@ import { routing} from "./app.routing";
     CreateUserComponent,
     IntroPageComponent,
     UserLoginComponent,
+    FaqPageComponent,
+    ContactPageComponent,
+    AboutPageComponent,
   ],
   imports: [
     BrowserModule,
