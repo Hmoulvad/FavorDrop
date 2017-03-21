@@ -15,6 +15,11 @@ import { DropdownDirective } from './dropdown.directive';
 import {OrderService} from "./order-module/order.service";
 import {ShoppingListService} from "./shopping-list/shopping-list.service";
 import { PriceestimateComponent } from './order-module/priceestimate/priceestimate.component';
+import { CreateUserComponent } from './user-login/create-user/create-user.component';
+import { IntroPageComponent } from './intro-page/intro-page.component';
+import { UserLoginComponent } from './user-login/user-login.component';
+import { routing} from "./app.routing";
+
 
 @NgModule({
   declarations: [
@@ -28,11 +33,15 @@ import { PriceestimateComponent } from './order-module/priceestimate/priceestima
     ShoppingListAddComponent,
     DropdownDirective,
     PriceestimateComponent,
+    CreateUserComponent,
+    IntroPageComponent,
+    UserLoginComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    routing
   ],
   providers: [OrderService, ShoppingListService],
   bootstrap: [AppComponent]
