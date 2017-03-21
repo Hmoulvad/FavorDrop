@@ -11,5 +11,4 @@ export class UserLoginComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }
