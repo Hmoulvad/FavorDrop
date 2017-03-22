@@ -15,7 +15,6 @@ import { DropdownDirective } from './dropdown.directive';
 import {OrderService} from "./order-module/order.service";
 import {ShoppingListService} from "./shopping-list/shopping-list.service";
 import { PriceestimateComponent } from './order-module/priceestimate/priceestimate.component';
-<<<<<<< Updated upstream
 import { CreateUserComponent } from './user-login/create-user/create-user.component';
 import { IntroPageComponent } from './intro-page/intro-page.component';
 import { UserLoginComponent } from './user-login/user-login.component';
@@ -23,10 +22,7 @@ import { routing} from "./app.routing";
 import { FaqPageComponent } from './faq-page/faq-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { AboutPageComponent } from './about-page/about-page.component';
-
-=======
 import { FooterComponent } from './footer/footer.component';
->>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
@@ -40,16 +36,13 @@ import { FooterComponent } from './footer/footer.component';
     ShoppingListAddComponent,
     DropdownDirective,
     PriceestimateComponent,
-<<<<<<< Updated upstream
     CreateUserComponent,
     IntroPageComponent,
     UserLoginComponent,
     FaqPageComponent,
     ContactPageComponent,
     AboutPageComponent,
-=======
     FooterComponent,
->>>>>>> Stashed changes
   ],
   imports: [
     BrowserModule,
