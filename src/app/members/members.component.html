@@ -1,0 +1,15 @@
+<div class="form-container" id="toolbar">
+  <header [@fallIn]="state">
+    <button (click)="logout()" class="basic-btn">Logout</button>
+  </header>
+  <div id="page" [@moveInLeft]="state">
+    <h2>Hi, {{ name.auth.displayName }}</h2>
+
+    <img src="src/app/login/assets/images/filler.png" />
+
+
+    <hr>
+    <button (click)="sendVerification()" class="basic-btn">Send Email Verificartion</button>
+  </div>
+
+</div>
