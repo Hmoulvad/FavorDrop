@@ -23,11 +23,7 @@ import { FaqPageComponent } from './faq-page/faq-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { FooterComponent } from './footer/footer.component';
-import {LoginComponent} from "./login/login.component";
-import {EmailComponent} from "./email/email.component";
-import {SignupComponent} from "./signup/signup.component";
-import {MembersComponent} from "./members/members.component";
-import {AuthGuard} from "./auth.service";
+import {AuthService} from "./auth.service";
 import {AngularFireModule} from "angularfire2";
 
 export const firebaseConfig = {
@@ -57,10 +53,6 @@ export const firebaseConfig = {
     ContactPageComponent,
     AboutPageComponent,
     FooterComponent,
-    LoginComponent,
-    EmailComponent,
-    SignupComponent,
-    MembersComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +61,7 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     routing
   ],
-  providers: [OrderService, ShoppingListService, AuthGuard],
+  providers: [OrderService, ShoppingListService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
