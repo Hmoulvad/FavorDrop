@@ -3,38 +3,19 @@
     <h1>
       Log in
     </h1>
-    <br>
+    <form class="col-md-6 col-md-offset-3" (ngSubmit)="onSignin(f)" #f="ngForm">
+      <div class="form-group col-md-12">
+        <label for="email">Mail</label>
+        <input type="email" id="email" name="email" ngModel class="form-control">
+      </div>
+      <div class="form-group col-md-12">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" ngModel class="form-control">
+      </div>
+      <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
+      <br>
+      <a [routerLink]="['/sign-up']" routerLinkActive="active">No account? <strong>Create one here</strong></a>
+    </form>
   </div>
 </div>
-
-<div class="row">
-  <form class="col-md-6 col-md-offset-3" (ngSubmit)="onSubmit(f)" #f = "ngForm">
-    <div class="form-group col-md-12">
-      <label for="InputEmail1">Email address</label>
-      <input type="email" class="form-control" id="InputEmail1" placeholder="Email" required [(ngModel)]="user.email" name = "email">
-    </div>
-    <div class="form-group col-md-12">
-      <label for="InputPassword">Password</label>
-      <input type="password" class="form-control" id="InputPassword" placeholder="Password" required [(ngModel)]="user.password" name = "password">
-    </div>
-
-    <div class="col-md-12">
-      <button type="submit" class="btn btn-success">Submit</button>
-    </div>
-  </form>
-</div>
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <hr>
-    <span class="error" *ngIf="error">{{ error }}</span>
-
-    <button class="btn btn-primary" (click)="loginFb()" id="fb">Login With Facebook</button>
-    <button class="btn btn-danger" (click)="loginGoogle()" id="google">Login With Google</button>
-    <br>
-    <a [routerLink]="['/sign-up']" routerLinkActive="active">No account? <strong>Create one here</strong></a>
-  </div>
-</div>
-
-
-
 
