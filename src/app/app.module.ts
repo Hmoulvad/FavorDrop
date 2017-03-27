@@ -25,6 +25,8 @@ import { AboutPageComponent } from './about-page/about-page.component';
 import { FooterComponent } from './footer/footer.component';
 import {AuthService} from "./auth.service";
 import {AngularFireModule} from "angularfire2";
+import { OrderEditComponent } from './order-module/order-edit/order-edit.component';
+import { OrderStartComponent } from './order-module/order-start.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAYoXaVqer-feXLG-zIN0avkvbxDVYtzq4",
@@ -53,6 +55,10 @@ export const firebaseConfig = {
     ContactPageComponent,
     AboutPageComponent,
     FooterComponent,
+    LoginComponent,
+    SignupComponent,
+    OrderEditComponent,
+    OrderStartComponent,
   ],
   imports: [
     BrowserModule,
