@@ -1,4 +1,4 @@
-import {Component, OnInit, EventEmitter, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {OrderService} from "../order.service";
 import {Order} from "../order";
 
@@ -16,6 +16,4 @@ export class OrderListComponent implements OnInit {
     this.orders = this.orderService.getOrders();
   }
 
-  onSelected(order: Order) {
-  }
 }
