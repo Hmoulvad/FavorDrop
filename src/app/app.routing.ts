@@ -15,14 +15,12 @@ const APP_ROUTES: Routes = [
   { path: 'intro-page', component: IntroPageComponent},
   { path: 'about-page', component: AboutPageComponent},
   { path: 'faq-page', component: FaqPageComponent},
-  { path: 'contact-page', component: ContactPageComponent}
-
+  { path: 'contact-page', component: ContactPageComponent},
 ];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(APP_ROUTES)
-
   ],
 
 })
