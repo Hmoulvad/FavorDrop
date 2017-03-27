@@ -29,6 +29,7 @@ import {SignupComponent} from "./signup/signup.component";
 import {MembersComponent} from "./members/members.component";
 import {AuthGuard} from "./auth.service";
 import {AngularFireModule} from "angularfire2";
+import { OrderEditComponent } from './order-module/order-edit/order-edit.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAYoXaVqer-feXLG-zIN0avkvbxDVYtzq4",
@@ -61,6 +62,7 @@ export const firebaseConfig = {
     EmailComponent,
     SignupComponent,
     MembersComponent,
+    OrderEditComponent,
   ],
   imports: [
     BrowserModule,
