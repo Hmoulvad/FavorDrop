@@ -10,24 +10,9 @@
       <ul class="nav navbar-nav navbar-right">
         <li routerLinkActive="active"><a [routerLink]="['/order-module']">Bestilling</a></li>
         <li routerLinkActive="active"><a [routerLink]="['/about-page']">Om FavorDrop</a></li>
-        <li routerLinkActive="active"><a [routerLink]="['/user-login']">Opret</a></li>
+        <li routerLinkActive="active"><a [routerLink]="['/user-login']">Log Ind</a></li>
         <li routerLinkActive="active"><a [routerLink]="['/faq-page']">FAQ</a></li>
         <li routerLinkActive="active"><a [routerLink]="['/contact-page']">Kontakt</a></li>
-      </ul>
-
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown" fdDropdown="">
-          <a [routerLink]="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Log in <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><button class="banner">Facebook</button></li>
-            <li><button class="banner">Google+</button></li>
-            <li role="separator" class="divider"></li>
-            <li><input type="email" placeholder="E-mail"></li>
-            <li><input type="password" placeholder="Password"></li>
-            <li role="separator" class="divider"></li>
-            <li><a [routerLink]="">Log ud</a></li>
-          </ul>
-        </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

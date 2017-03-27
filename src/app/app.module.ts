@@ -55,8 +55,6 @@ export const firebaseConfig = {
     ContactPageComponent,
     AboutPageComponent,
     FooterComponent,
-    LoginComponent,
-    SignupComponent,
     OrderEditComponent,
     OrderStartComponent,
   ],
