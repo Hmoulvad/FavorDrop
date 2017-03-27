@@ -10,8 +10,6 @@ import {Order} from "../order";
 export class OrderListComponent implements OnInit {
   orders: Order[] = [];
 
-  @Output() orderSelected = new EventEmitter<Order>();
-
   constructor(private orderService: OrderService) {}
 
   ngOnInit() {
@@ -19,6 +17,5 @@ export class OrderListComponent implements OnInit {
   }
 
   onSelected(order: Order) {
-    this.orderSelected.emit(order)
   }
 }
