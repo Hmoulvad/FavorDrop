@@ -1,14 +1,12 @@
-import { CanActivate, Router } from '@angular/router';
-import { AngularFireAuth } from "angularfire2/angularfire2";
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs/Rx";
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/take';
 import * as firebase from 'firebase';
+import {Router} from "@angular/router";
 
 @Injectable()
-export class AuthService implements CanActivate {
+export class AuthService {
   token: string;
 
   signupUser(email: string, password: string) {
@@ -31,8 +29,8 @@ export class AuthService implements CanActivate {
       .catch(
         error => console.log((error))
       );
-
   }
+
   getToken() {
     firebase.auth().currentUser.getToken()
       .then(
@@ -43,23 +41,12 @@ export class AuthService implements CanActivate {
   isAuthenticated() {
     return this.token != null;
   }
-
-  getToken() {
-    return firebase.auth().currentUser.getToken();
+  logout(){
+    firebase.auth().signOut();
+    this.token = null;
   }
 
-
-  constructor(private auth: AngularFireAuth, private router: Router) {
-  }
-
-  canActivate(): Observable<boolean> {
-    return Observable.from(this.auth)
-      .take(1)
-      .map(state => !!state)
-      .do(authenticated => {
-        if
-        (!authenticated) this.router.navigate(['/login']);
-      })
+  constructor(private router: Router) {
   }
 }
 
