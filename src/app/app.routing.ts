@@ -8,6 +8,7 @@ import {FaqPageComponent} from "./faq-page/faq-page.component";
 import {ContactPageComponent} from "./contact-page/contact-page.component";
 import {ORDER_ROUTES} from "./order-module/order.routes";
 import {CreateUserComponent} from "./user-login/create-user/create-user.component";
+import {OrderResultComponent} from "./order-result/order-result.component";
 
 const APP_ROUTES: Routes = [
   //PathMatch sættes til full, for at sikre at der ikke henvises til Intro, hvis man skriver mellemrum først.
@@ -19,14 +20,15 @@ const APP_ROUTES: Routes = [
   { path: 'faq-page', component: FaqPageComponent},
   { path: 'contact-page', component: ContactPageComponent},
   { path: 'sign-up', component: CreateUserComponent},
+  { path: 'order-result', component: OrderResultComponent},
 ];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(APP_ROUTES)
   ],
-
 })
-export class AppModule { }
+export class AppModule {
 
+}
 export const routing = RouterModule.forRoot(APP_ROUTES);

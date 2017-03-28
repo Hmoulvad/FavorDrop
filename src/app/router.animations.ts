@@ -14,7 +14,6 @@ export function moveIn() {
     ])
   ]);
 }
-
 export function fallIn() {
   return trigger('fallIn', [
     transition(':enter', [
@@ -27,7 +26,6 @@ export function fallIn() {
     ])
   ]);
 }
-
 export function moveInLeft() {
   return trigger('moveInLeft', [
     transition(':enter', [

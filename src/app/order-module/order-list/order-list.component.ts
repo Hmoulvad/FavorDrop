@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {OrderService} from "../order.service";
 import {Order} from "../order";
+import {AuthService} from "../../auth.service";
+import {Router} from "@angular/router";
+
 
 @Component({
   selector: 'fd-order-list',
@@ -10,10 +13,16 @@ import {Order} from "../order";
 export class OrderListComponent implements OnInit {
   orders: Order[] = [];
 
-  constructor(private orderService: OrderService) {}
+
+  constructor(private orderService: OrderService, private Mot: AuthService, private Rout: Router) {
+  }
 
   ngOnInit() {
     this.orders = this.orderService.getOrders();
   }
-
+  authertest() {
+    if(this.Mot.isAuthenticated()) {
+      this.Rout.navigate(['/order-result'])
+    }
+  }
 }
