@@ -27,6 +27,11 @@ export class AuthService implements CanActivate {
       );
   }
 
+  getToken() {
+    return firebase.auth().currentUser.getToken();
+  }
+
+
   constructor(private auth: AngularFireAuth, private router: Router) {
   }
 
