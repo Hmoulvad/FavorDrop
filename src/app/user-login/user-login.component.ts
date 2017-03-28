@@ -14,11 +14,6 @@ export class UserLoginComponent implements OnInit{
 
 
   constructor(private authService: AuthService, private  rout: Router, private af: AngularFire) {
-    this.af.auth.subscribe(auth => {
-      if(auth){
-        this.rout.navigateByUrl('/members')
-      }
-    });
     }
     ngOnInit(){
     }
@@ -30,6 +25,7 @@ export class UserLoginComponent implements OnInit{
     const password = form.value.password;
     this.authService.signinUser(email, password);
     if (this.authService.isAuthenticated()) {
+      this.rout.navigate(['/'])
     }
     else {
       console.log("john, du har tastet forkert")
