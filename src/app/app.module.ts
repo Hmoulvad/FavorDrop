@@ -27,6 +27,8 @@ import {AuthService} from "./auth.service";
 import {AngularFireModule} from "angularfire2";
 import { OrderEditComponent } from './order-module/order-edit/order-edit.component';
 import { OrderStartComponent } from './order-module/order-start.component';
+import {Router} from "@angular/router";
+import { OrderResultComponent } from './order-result/order-result.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAYoXaVqer-feXLG-zIN0avkvbxDVYtzq4",
@@ -57,6 +59,7 @@ export const firebaseConfig = {
     FooterComponent,
     OrderEditComponent,
     OrderStartComponent,
+    OrderResultComponent,
   ],
   imports: [
     BrowserModule,
