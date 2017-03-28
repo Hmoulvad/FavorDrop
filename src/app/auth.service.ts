@@ -6,10 +6,10 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/take';
 import * as firebase from 'firebase';
-import {error} from "selenium-webdriver";
 
 @Injectable()
 export class AuthService implements CanActivate {
+  token: string;
 
   signupUser(email: string, password: string) {
   firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -21,10 +21,27 @@ export class AuthService implements CanActivate {
   signinUser(email: string, password: string) {
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then(
-        response => console.log(response)
+        response => {
+          this.router.navigate(['/']);
+          firebase.auth().currentUser.getToken()
+            .then(
+              (token: string) => this.token = token)
+        }
       )
-      .catch(error => console.log(error)
+      .catch(
+        error => console.log((error))
       );
+
+  }
+  getToken() {
+    firebase.auth().currentUser.getToken()
+      .then(
+        (token: string) => this.token = token
+      );
+    return this.token;
+  }
+  isAuthenticated() {
+    return this.token != null;
   }
 
   getToken() {

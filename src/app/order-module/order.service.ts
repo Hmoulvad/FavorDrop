@@ -1,4 +1,4 @@
-import {Injectable, EventEmitter} from '@angular/core';
+import {Injectable} from '@angular/core'
 import {Order} from "./order";
 
 @Injectable()
@@ -20,6 +20,13 @@ export class OrderService {
   addOrder (name : string, address: string, comment: string) {
     this.orders.push(new Order(name, address, comment));
     this.counter++;
+  }
+  getOrderIndex(id: number) {
+    return  this.orders[id];
+  }
+
+  deleteOrder(order: Order) {
+    this.orders.splice(this.orders.indexOf(order), 1)
   }
 
 }
