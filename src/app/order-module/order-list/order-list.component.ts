@@ -4,7 +4,6 @@ import {Order} from "../order";
 import {AuthService} from "../../auth.service";
 import {Router} from "@angular/router";
 
-
 @Component({
   selector: 'fd-order-list',
   templateUrl: './order-list.component.html',
@@ -23,6 +22,9 @@ export class OrderListComponent implements OnInit {
   authertest() {
     if(this.Mot.isAuthenticated()) {
       this.Rout.navigate(['/order-result'])
+    }
+    else {
+    console.log("user not logged in")
     }
   }
 }
