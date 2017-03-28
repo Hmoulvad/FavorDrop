@@ -14,6 +14,11 @@ export class UserLoginComponent implements OnInit{
 
 
   constructor(private authService: AuthService, private  rout: Router, private af: AngularFire) {
+    this.af.auth.subscribe(auth => {
+      if(auth){
+        this.rout.navigateByUrl('/members')
+      }
+    });
     }
     ngOnInit(){
     }
@@ -37,6 +42,7 @@ export class UserLoginComponent implements OnInit{
     }).then(
       (success) => {
         this.rout.navigate(['/']);
+        this.authService.token = "facebook";
       }).catch(
       (err) => {
         this.error = err;
@@ -50,10 +56,10 @@ export class UserLoginComponent implements OnInit{
     }).then(
       (success) => {
         this.rout.navigate(['/']);
+        this.authService.token = "google";
       }).catch(
       (err) => {
         this.error = err;
       })
   }
-
 }
