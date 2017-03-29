@@ -25,6 +25,7 @@ export class UserLoginComponent implements OnInit{
     const password = form.value.password;
     this.authService.signinUser(email, password);
     if (this.authService.isAuthenticated()) {
+      this.rout.navigate(['/'])
     }
     else {
       console.log("john, du har tastet forkert")
@@ -37,6 +38,7 @@ export class UserLoginComponent implements OnInit{
     }).then(
       (success) => {
         this.rout.navigate(['/']);
+        this.authService.token = "facebook";
       }).catch(
       (err) => {
         this.error = err;
@@ -50,10 +52,10 @@ export class UserLoginComponent implements OnInit{
     }).then(
       (success) => {
         this.rout.navigate(['/']);
+        this.authService.token = "google";
       }).catch(
       (err) => {
         this.error = err;
       })
   }
-
 }
