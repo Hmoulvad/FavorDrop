@@ -7,6 +7,7 @@ import {ORDER_ROUTES} from "./order-module/order.routes";
 import {CreateUserComponent} from "./user-login/create-user/create-user.component";
 import {OrderResultComponent} from "./order-result/order-result.component";
 import {HelpPageComponent} from "./help-page/help-page.component";
+import {ProfilePageComponent} from "./profile-page/profile-page.component";
 
 const APP_ROUTES: Routes = [
   //PathMatch sættes til full, for at sikre at der ikke henvises til Intro, hvis man skriver mellemrum først.
@@ -17,6 +18,7 @@ const APP_ROUTES: Routes = [
   { path: 'sign-up', component: CreateUserComponent},
   { path: 'order-result', component: OrderResultComponent},
   { path: 'help-page', component: HelpPageComponent},
+  { path: 'profile-page', component: ProfilePageComponent},
 
 ];
 
