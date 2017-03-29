@@ -12,10 +12,9 @@
           <li routerLinkActive="active"><a [routerLink]="['/user-login']">Log Ind</a></li>
         </template>
         <li routerLinkActive="active"><a [routerLink]="['/order-module']">Bestilling</a></li>
-        <li routerLinkActive="active"><a [routerLink]="['/about-page']">Om FavorDrop</a></li>
-        <li routerLinkActive="active"><a [routerLink]="['/faq-page']">FAQ</a></li>
-        <li routerLinkActive="active"><a [routerLink]="['/contact-page']">Kontakt</a></li>
+        <li routerLinkActive="active"><a [routerLink]="['/help-page']">Hjælp</a></li>
         <template [ngIf]="authService.isAuthenticated()">
+          <li routerLinkActive="active"><a [routerLink]="['/help-page']">Profile</a></li>
           <li><a (click)="logout()" routerLink="/user-login">Log Ud</a></li>
         </template>
 
