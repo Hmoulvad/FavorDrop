@@ -3,12 +3,12 @@ import {OrderModuleComponent} from "./order-module/order-module.component";
 import {IntroPageComponent} from "./intro-page/intro-page.component";
 import {NgModule} from "@angular/core";
 import {UserLoginComponent} from "./user-login/user-login.component";
-import {AboutPageComponent} from "./about-page/about-page.component";
-import {FaqPageComponent} from "./faq-page/faq-page.component";
-import {ContactPageComponent} from "./contact-page/contact-page.component";
 import {ORDER_ROUTES} from "./order-module/order.routes";
 import {CreateUserComponent} from "./user-login/create-user/create-user.component";
 import {OrderResultComponent} from "./order-result/order-result.component";
+import {HelpPageComponent} from "./help-page/help-page.component";
+import {ProfilePageComponent} from "./profile-page/profile-page.component";
+import {CreateUser2Component} from "./user-login/create-user2/create-user2.component";
 
 const APP_ROUTES: Routes = [
   //PathMatch sættes til full, for at sikre at der ikke henvises til Intro, hvis man skriver mellemrum først.
@@ -16,11 +16,12 @@ const APP_ROUTES: Routes = [
   { path: 'user-login', component: UserLoginComponent},
   { path: 'order-module', component: OrderModuleComponent, children: ORDER_ROUTES },
   { path: 'intro-page', component: IntroPageComponent},
-  { path: 'about-page', component: AboutPageComponent},
-  { path: 'faq-page', component: FaqPageComponent},
-  { path: 'contact-page', component: ContactPageComponent},
   { path: 'sign-up', component: CreateUserComponent},
   { path: 'order-result', component: OrderResultComponent},
+  { path: 'help-page', component: HelpPageComponent},
+  { path: 'profile-page', component: ProfilePageComponent},
+  { path: 'create-user', component: CreateUser2Component},
+  { path: 'create-user2', component: ProfilePageComponent},
 ];
 
 @NgModule({
