@@ -1,3 +1,5 @@
-body{
-  background-color: black;
+div {
+  /*background-image: url('/../assets/burger1.png');*/
+  height: 1800px;
+  width: 1200px;
 }
