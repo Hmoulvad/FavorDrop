@@ -1,23 +1,24 @@
 <div class="row">
   <div class="col-xs-12">
-    <form id="shopping-list-add">
-      <div class="row">
+    <form id="shopping-list-add" #f="ngForm" (ngSubmit)="newOrder(order.value,address.value,comment.value) ; f.reset()">
+      <div class="form-group">
+        <div class="row">
         <div class="col-sm-2 form-group">
-          <label for="order-name">Ordre</label>
+          <label for="order-name">Ordre *</label>
           <input
             type="text"
             id="order-name"
-            required
+            required minlength="3"
             #order
             class="form-control">
         </div>
 
         <div class="col-sm-4 form-group">
-          <label for="order-address">Adresse / Pickup</label>
+          <label for="order-address">Adresse / Pickup *</label>
           <input
             type="text"
             id="order-address"
-            required
+            required minlength="5"
             #address
             class="form-control">
         </div>
@@ -27,16 +28,11 @@
           <input
             type="text"
             id="order-comment"
-            required
             #comment
             class="form-control">
         </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12">
-          <button class="btn btn-success" type="submit" (click)="newOrder(order.value,address.value,comment.value)">Tilføj</button>
-          <button class="btn btn-primary" type="button">Fjern</button>
         </div>
+        <button class="btn btn-primary" type="submit" >Tilføj ordre</button>
       </div>
     </form>
   </div>
