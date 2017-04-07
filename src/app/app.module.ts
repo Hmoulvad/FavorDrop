@@ -30,6 +30,8 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { CreateUser2Component } from './user-login/create-user2/create-user2.component';
 import {ServerService} from "./server.service";
 import { EditPasswordComponent } from './profile-page/edit-password/edit-password.component';
+import { AddressComponent } from './profile-page/address/address.component';
+import { OrderHistoryComponent } from './profile-page/order-history/order-history.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAYoXaVqer-feXLG-zIN0avkvbxDVYtzq4",
@@ -62,6 +64,8 @@ export const firebaseConfig = {
     ProfilePageComponent,
     CreateUser2Component,
     EditPasswordComponent,
+    AddressComponent,
+    OrderHistoryComponent,
   ],
   imports: [
     BrowserModule,
