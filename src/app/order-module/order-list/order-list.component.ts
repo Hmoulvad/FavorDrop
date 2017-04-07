@@ -3,6 +3,7 @@ import {OrderService} from "../order.service";
 import {Order} from "../order";
 import {AuthService} from "../../auth.service";
 import {Router} from "@angular/router";
+import {ServerService} from "../../server.service";
 
 @Component({
   selector: 'fd-order-list',
@@ -13,7 +14,7 @@ export class OrderListComponent implements OnInit {
   orders: Order[] = [];
 
 
-  constructor(private orderService: OrderService, private Mot: AuthService, private Rout: Router) {
+  constructor(private orderService: OrderService, private Mot: AuthService, private Rout: Router, private serverService: ServerService) {
   }
 
   ngOnInit() {
@@ -26,5 +27,12 @@ export class OrderListComponent implements OnInit {
     else {
     console.log("user not logged in")
     }
+  }
+  onSave() {
+    this.serverService.TransmitOrderToDB(this.orders)
+      .subscribe(
+        (response) => console.log(response),
+        (error) => console.log(error)
+      );
   }
 }

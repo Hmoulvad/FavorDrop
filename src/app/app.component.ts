@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import * as firebase from 'firebase';
+import {ServerService} from "./server.service";
 
 @Component({
   selector: 'fd-root',
@@ -8,6 +9,9 @@ import * as firebase from 'firebase';
 })
 export class AppComponent implements OnInit{
 
+  constructor(private serverService: ServerService) {
+
+  }
 
   ngOnInit(){
     firebase.initializeApp({
