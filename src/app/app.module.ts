@@ -15,7 +15,7 @@ import { DropdownDirective } from './dropdown.directive';
 import { OrderService} from "./order-module/order.service";
 import { ShoppingListService} from "./shopping-list/shopping-list.service";
 import { PriceestimateComponent } from './order-module/priceestimate/priceestimate.component';
-import { CreateUserComponent } from './user-login/create-user/create-user.component';
+import { CreateUserComponent } from './user-login/create-intro/create-intro.component';
 import { IntroPageComponent } from './intro-page/intro-page.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { routing} from "./app.routing";

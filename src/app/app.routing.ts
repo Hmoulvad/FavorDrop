@@ -4,7 +4,7 @@ import {IntroPageComponent} from "./intro-page/intro-page.component";
 import {NgModule} from "@angular/core";
 import {UserLoginComponent} from "./user-login/user-login.component";
 import {ORDER_ROUTES} from "./order-module/order.routes";
-import {CreateUserComponent} from "./user-login/create-user/create-user.component";
+import {CreateUserComponent} from "./user-login/create-intro/create-intro.component";
 import {OrderResultComponent} from "./order-result/order-result.component";
 import {HelpPageComponent} from "./help-page/help-page.component";
 import {ProfilePageComponent} from "./profile-page/profile-page.component";
@@ -16,12 +16,11 @@ const APP_ROUTES: Routes = [
   { path: 'user-login', component: UserLoginComponent},
   { path: 'order-module', component: OrderModuleComponent, children: ORDER_ROUTES },
   { path: 'intro-page', component: IntroPageComponent},
-  { path: 'sign-up', component: CreateUserComponent},
   { path: 'order-result', component: OrderResultComponent},
   { path: 'help-page', component: HelpPageComponent},
   { path: 'profile-page', component: ProfilePageComponent},
-  { path: 'create-user', component: CreateUser2Component},
-  { path: 'create-user2', component: ProfilePageComponent},
+  { path: 'create-intro', component: CreateUserComponent},
+  { path: 'create-user2', component: CreateUser2Component},
 ];
 
 @NgModule({

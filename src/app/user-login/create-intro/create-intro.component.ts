@@ -4,8 +4,8 @@ import {AuthService} from "../../auth.service";
 
 @Component({
   selector: 'fd-create-user',
-  templateUrl: 'create-user.component.html',
-  styleUrls: ['create-user.component.css']
+  templateUrl: 'create-intro.component.html',
+  styleUrls: ['create-intro.component.css']
 })
 export class CreateUserComponent implements OnInit {
 
