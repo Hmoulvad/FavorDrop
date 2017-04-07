@@ -47,7 +47,7 @@ export class AuthService {
     this.token = null;
   }
   Usermail(){
-    this.mail = firebase.auth().currentUser.email.toString();
+    this.mail = firebase.auth().currentUser.email.toString( );
     return this.mail;
   }
   constructor(private router: Router) {

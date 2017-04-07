@@ -29,6 +29,7 @@ import { HelpPageComponent } from './help-page/help-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { CreateUser2Component } from './user-login/create-user2/create-user2.component';
 import {ServerService} from "./server.service";
+import { EditPasswordComponent } from './profile-page/edit-password/edit-password.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAYoXaVqer-feXLG-zIN0avkvbxDVYtzq4",
@@ -60,6 +61,7 @@ export const firebaseConfig = {
     HelpPageComponent,
     ProfilePageComponent,
     CreateUser2Component,
+    EditPasswordComponent,
   ],
   imports: [
     BrowserModule,

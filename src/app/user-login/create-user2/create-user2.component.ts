@@ -8,6 +8,7 @@ import {AuthService} from "../../auth.service";
 })
 export class CreateUser2Component implements OnInit {
   mail = this.authService.Usermail();
+
   constructor(private authService: AuthService) {
   }
     ngOnInit() {
