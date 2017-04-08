@@ -8,6 +8,7 @@ import {Router} from "@angular/router";
 @Injectable()
 export class AuthService {
   token: string;
+  mail: string;
 
   signupUser(email: string, password: string) {
   firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -45,8 +46,12 @@ export class AuthService {
     firebase.auth().signOut();
     this.token = null;
   }
-
+  Usermail(){
+    this.mail = firebase.auth().currentUser.email.toString( );
+    return this.mail;
+  }
   constructor(private router: Router) {
   }
+
 }
 
