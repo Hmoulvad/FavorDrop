@@ -1,3 +1,37 @@
-<p>
-  profile-page works!
-</p>
+<h1>Profil</h1>
+<div>
+  <aside>
+    <nav class="col-md-6 col-md-offset-3">
+      <ul>
+        <li routerLinkActive="active"><a [routerLink]="['/profile-page']">Brugerinformation</a></li>
+        <li routerLinkActive="active"><a [routerLink]="['/profile-page']">Ordrehistorik</a></li>
+        <li routerLinkActive="active"><a [routerLink]="['/address']">Leveringsadresse</a></li>
+      </ul>
+    </nav>
+  </aside>
+</div>
+<div>
+  <form class="col-md-6 col-md-offset-3">
+    <div class="form-group">
+      <label for="name">Navn</label>
+      <input type="text" class="form-control" id="name" placeholder="Dit fulde navn">
+    </div>
+    <div class="form-group">
+      <label for="mail">E-mail</label>
+      <input type="email" class="form-control" id="mail" placeholder="Din E-mail">
+    </div>
+    <div class="form-group">
+      <label for="mail">Adgangskode</label>
+      <input type="password" class="form-control" id="password" placeholder="***********">
+    </div>
+    <button class="btn btn-default" type="button" a [routerLink]="['/edit-password']" routerLinkActive="active"
+            >Skift Password</button>
+    <div class="form-group">
+      <label for="phone">Telefon nummer</label>
+      <input type="password" class="form-control" id="phone" placeholder="Dit telefon nummer">
+    </div>
+    <button type="submit" class="btn btn-default">Gem ændringer</button>
+  </form>
+</div>
+
+
