@@ -7,8 +7,8 @@ import {Router} from "@angular/router";
 
 @Injectable()
 export class AuthService {
+  name: string;
   token: string;
-  mail: string;
 
   signupUser(email: string, password: string) {
   firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -22,22 +22,13 @@ export class AuthService {
       .then(
         response => {
           this.router.navigate(['/']);
-          firebase.auth().currentUser.getToken()
-            .then(
-              (token: string) => this.token = token)
+          this.token = response.uid;
+          console.log(this.token);
         }
       )
       .catch(
         error => console.log((error))
       );
-  }
-
-  getToken() {
-    firebase.auth().currentUser.getToken()
-      .then(
-        (token: string) => this.token = token
-      );
-    return this.token;
   }
   isAuthenticated() {
     return this.token != null;
@@ -46,10 +37,7 @@ export class AuthService {
     firebase.auth().signOut();
     this.token = null;
   }
-  Usermail(){
-    this.mail = firebase.auth().currentUser.email.toString( );
-    return this.mail;
-  }
+
   constructor(private router: Router) {
   }
 

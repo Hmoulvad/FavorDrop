@@ -7,7 +7,6 @@ import {AuthService} from "../../auth.service";
   styleUrls: ['./create-user2.component.css']
 })
 export class CreateUser2Component implements OnInit {
-  mail = this.authService.Usermail();
 
   constructor(private authService: AuthService) {
   }
