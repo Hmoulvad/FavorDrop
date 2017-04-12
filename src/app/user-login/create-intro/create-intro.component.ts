@@ -19,7 +19,6 @@ export class CreateUserComponent implements OnInit {
     const email = form.value.email;
     const password = form.value.password;
     this.authService.signupUser(email, password);
-    this.rout.navigate(['/']);
+    this.rout.navigate(['/user-login']);
   }
-
 }
