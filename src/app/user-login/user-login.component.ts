@@ -13,7 +13,6 @@ import Promise = firebase.Promise;
 export class UserLoginComponent implements OnInit{
   error : any;
 
-
   constructor(private authService: AuthService, private  rout: Router, private af: AngularFire) {
     }
     ngOnInit(){
@@ -39,8 +38,9 @@ export class UserLoginComponent implements OnInit{
       (success) => {
         this.authService.token = success.uid;
         this.authService.name = success.auth.displayName;
+        this.authService.mail = success.facebook.email;
         console.log("UID: " + success.uid);
-        console.log(success.auth.displayName);
+        console.log(success.facebook.email);
         this.rout.navigate(['/']);
       }).catch(
       (err) => {
@@ -56,7 +56,7 @@ export class UserLoginComponent implements OnInit{
     }).then(
       (success) => {
         this.authService.token = success.uid;
-        console.log("UID: " + success.uid);
+        console.log("UID: " + success.google.email);
         this.rout.navigate(['/']);
       }).catch(
       (err) => {

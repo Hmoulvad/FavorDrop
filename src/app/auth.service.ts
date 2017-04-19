@@ -4,12 +4,12 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/take';
 import * as firebase from 'firebase';
 import {Router} from "@angular/router";
-import {parseHttpResponse} from "selenium-webdriver/http";
 
 @Injectable()
 export class AuthService {
   name: string;
   token: string;
+  mail: string;
 
   signupUser(email: string, password: string) {
   firebase.auth().createUserWithEmailAndPassword(email, password)
