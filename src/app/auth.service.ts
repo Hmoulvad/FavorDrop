@@ -4,6 +4,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/take';
 import * as firebase from 'firebase';
 import {Router} from "@angular/router";
+import {ServerService} from "./server.service";
 
 @Injectable()
 export class AuthService {
@@ -11,14 +12,18 @@ export class AuthService {
   token: string;
   mail: string;
 
+
+
+
   signupUser(email: string, password: string) {
   firebase.auth().createUserWithEmailAndPassword(email, password)
     .catch(
       error => console.log(error)
-    ).then(reponse => {
+    ).then(response => {
     this.signinUser(email,password);
   })
   }
+
 
   signinUser(email: string, password: string) {
     firebase.auth().signInWithEmailAndPassword(email, password)
@@ -41,7 +46,7 @@ export class AuthService {
     this.token = null;
   }
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private serverService: ServerService) {
   }
 
 }

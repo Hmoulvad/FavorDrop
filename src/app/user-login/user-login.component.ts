@@ -33,7 +33,7 @@ export class UserLoginComponent implements OnInit{
   loginFb() {
     this.af.auth.login({
       provider: AuthProviders.Facebook,
-      method: AuthMethods.Popup,
+      method: AuthMethods.Popup
     }).then(
       (success) => {
         this.authService.token = success.uid;
