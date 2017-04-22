@@ -20,9 +20,12 @@ export class OrderListComponent implements OnInit {
   ngOnInit() {
     this.orders = this.orderService.getOrders();
   }
+  dbtest() {
+    this.Mot.dbcall();
+  }
   authertest() {
     if(this.Mot.isAuthenticated()) {
-      this.Rout.navigate(['/order-result'])
+      this.Rout.navigate(['/order-result']);
     }
     else {
     console.log("user not logged in")

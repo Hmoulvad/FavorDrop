@@ -6,11 +6,13 @@ import * as firebase from 'firebase';
 import {Router} from "@angular/router";
 import {ServerService} from "./server.service";
 
+
 @Injectable()
 export class AuthService {
   name: string;
   token: string;
   mail: string;
+  dbtest: any;
 
 
 
@@ -47,6 +49,17 @@ export class AuthService {
   }
 
   constructor(private router: Router, private serverService: ServerService) {
+  }
+  //Testing through Firebase.DB
+  dbcall(){
+    var ref = firebase.database().ref("orders/completed");
+    ref.once("value")
+      .then(function(snapshot) {
+        var key = snapshot.key;
+        var childkey = snapshot.child("-KiFM0IhWsu3AKbYCFD6")
+        return console.log(key + childkey);
+      })
+
   }
 
 }

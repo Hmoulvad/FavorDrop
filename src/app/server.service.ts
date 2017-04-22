@@ -7,7 +7,7 @@ import {Http, Headers, Response} from "@angular/http";
     constructor(private http: Http) {}
 
     TransmitOrderToDB(DBorders: any[]) {
-      return this.http.put('https://favordrop.firebaseio.com/piske.json', DBorders);
+      return this.http.put('https://favordrop.firebaseio.com/OrderFromAngular.json', DBorders);
 
     }
 
