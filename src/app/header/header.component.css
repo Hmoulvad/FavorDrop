@@ -1,3 +1,15 @@
 nav{
   font-family: "Avenir Next";
+  font-size: 125%;
+  background-color: #ffffff;
+  max-width: 100%;
+}
+img{
+  width:111px;
+  height:60px;
+  position: absolute;
+  top: 0px;
+}
+.navbar-header{
+  height: 56px;
 }

@@ -1,10 +1,17 @@
-img{
-  max-width: 900px;
-  max-height: 900px;
-  display: block;
-  margin: 0 auto;
-}
 h1{
   font-family: "Avenir Next";
   text-align: center;
+}
+#container{
+  position: relative;
+  background-color: #F9F9F9;
+  max-width: 100%;
+
+}
+#container img{
+  position: relative;
+  max-height: 70%;
+  max-width: 70%;
+  left: 140px;
+
 }

@@ -1,8 +1,8 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <a class="navbar-brand" [routerLink]="'/'">Favor Drop</a>
+      <div class="navbar-header">
+      <a class="navbar-brand" [routerLink]="'/'"><img src="assets/favordroplogo250.png"></a>
       <template [ngIf]="authService.isAuthenticated()">
         <a class="navbar-brand">{{name}}</a>
       </template>
@@ -17,7 +17,7 @@
         <li routerLinkActive="active"><a [routerLink]="['/order-module']">Bestilling</a></li>
         <li routerLinkActive="active"><a [routerLink]="['/help-page']">Hjælp</a></li>
         <template [ngIf]="authService.isAuthenticated()">
-          <li routerLinkActive="active"><a [routerLink]="['/profile-page']">Profile</a></li>
+          <li id="profilelist" routerLinkActive="active"><a [routerLink]="['/profile-page']">Profil</a></li>
           <li><a (click)="logout()" routerLink="/user-login">Log Ud</a></li>
         </template>
       </ul>
