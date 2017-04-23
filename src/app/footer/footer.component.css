@@ -1,0 +1,11 @@
+.row{
+  left: 30px;
+  bottom: 5px;
+  position: fixed;
+}
+.row2{
+  left: 1240px;
+  bottom: 5px;
+  position: fixed;
+}
+
