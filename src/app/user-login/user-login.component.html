@@ -11,17 +11,22 @@
       <div class="form-group col-md-12">
         <label for="password">Password</label>
         <input type="password" id="password" name="password" ngModel class="form-control">
-      </div>
-      <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
-      <br>
-    </form>
-    <button (click)="loginFb()" id="fb">Login With Facebook</button><br>
-    <button (click)="loginGoogle()" id="google">Login With Google</button>
-    <br>
-    <span>
+        <br>
+        <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
+        <br>
+        <br>
+        <button (click)="loginFb()" id="fb">Login With Facebook</button><br>
+        <br>
+        <button (click)="loginGoogle()" id="google">Login With Google</button>
+        <br>
+        <span>
       <hr>
     </span>
-    <a [routerLink]="['/create-intro']" routerLinkActive="active">No account? <strong>Create one here</strong></a>
+        <a [routerLink]="['/create-intro']" routerLinkActive="active">No account? <strong>Create one here</strong></a>
+      </div>
+
+    </form>
+
   </div>
 </div>
 
