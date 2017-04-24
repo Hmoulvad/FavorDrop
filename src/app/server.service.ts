@@ -13,10 +13,8 @@ import {AuthService} from "./auth.service";
     }
 
     CreateUserInDB(user: any){
-      const body = JSON.stringify(user)
-      const headers = new Headers({'Access-Control-Allow-Origin': '*','Access-Control-Allow-Methods':['OPTIONS', 'GET', 'POST'], 'Access-Control-Allow-Headers': 'Content-Type'});
-      return this.http.put('http://52.213.91.0:8080/FavorDrop_war/clients/'+this.auth.token, body);
-
-    }
-
+        const body = JSON.stringify(user)
+        return this.http.put('http://52.213.91.0:8080/FavorDrop_war/clients/'+this.auth.token, body);
+      }
 }
+

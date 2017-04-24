@@ -74,7 +74,7 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     routing
   ],
-  providers: [OrderService, ShoppingListService, AuthService, ServerService],
+  providers: [AuthService, ServerService, OrderService, ShoppingListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

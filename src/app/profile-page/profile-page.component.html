@@ -1,23 +1,43 @@
-<h1>Profil</h1>
-<div>
-  <aside>
-    <nav class="col-md-6 col-md-offset-3">
-      <ul>
-        <li routerLinkActive="active"><a [routerLink]="['/profile-page']">Brugerinformation</a></li>
-        <li routerLinkActive="active"><a [routerLink]="['/profile-page']">Ordrehistorik</a></li>
-        <li routerLinkActive="active"><a [routerLink]="['/address']">Leveringsadresse</a></li>
-      </ul>
-      <label class="inputs" for="name">navn</label>
-      <input type="text" id="name" #name>
-      <br>
-      <label class="inputs" for="email">mail</label>
-      <input type="email" id="email" #mail>
-      <br>
-      <label class="inputs" for="phone">phone</label>
-      <input type="phone" id="phone" #phone>
-      <button (click)="CreateinDB(token, name.value, mail.value, phone.value)">Submit</button>
-    </nav>
-  </aside>
+<div id="mySidenav" class="sidenav">
+  <li routerLinkActive="active"><a [routerLink]="['/profile-page']">Brugerinformation</a></li>
+  <li routerLinkActive="active"><a [routerLink]="['/profile-page']">Ordrehistorik</a></li>
+  <li routerLinkActive="active"><a [routerLink]="['/address']">Leveringsadresse</a></li>
 </div>
+    <div id="divtop" class="divtop">
+      <div>
+        <form class="col-md-6 col-md-offset-3">
+          <div class="form-group">
+            <h1>Din Profil</h1>
+            <label for="name">Navn</label>
+            <input type="text" class="form-control" id="name" placeholder="name">
+          </div>
+          <div class="form-group">
+            <label for="mail">Email</label>
+            <input type="email" class="form-control" id="mail" placeholder="mail">
+          </div>
+          <div class="form-group">
+            <label for="phone">Telefon</label>
+            <input type="number" class="form-control" id="phone" placeholder="">
+          </div>
+          <span>
+      <hr>
+       </span>
+          <div class="form-group">
+            <label for="address">Adresse</label>
+            <input type="text" class="form-control" id="address" placeholder="">
+          </div>
+          <div class="form-group">
+            <label for="city">By eller område</label>
+            <input type="email" class="form-control" id="city" placeholder="">
+          </div>
+          <div class="form-group">
+            <label for="zip">Postnummer</label>
+            <input type="number" class="form-control" id="zip" placeholder="">
+          </div>
+          <button (click)="CreateinDB(token, name.value, mail.value, phone.value)" type="submit" class="btn btn-default">Gem ændringer</button>
+        </form>
+      </div>
+</div>
+
 
 

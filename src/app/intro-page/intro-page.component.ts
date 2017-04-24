@@ -11,5 +11,5 @@ export class IntroPageComponent implements OnInit {
   }
   ngOnInit() {
   }
-
 }
+
