@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Order} from "./order";
+import {OrderService} from "./order.service";
 
 @Component({
   selector: 'fd-order-module',
@@ -10,7 +11,12 @@ export class OrderModuleComponent implements OnInit {
 
   selectedOrder: Order;
 
-  constructor() { }
+  constructor(private orderService: OrderService) { }
+
+  anyOrder() {
+    if (this.orderService.getOrders().length > 0 )
+      return true;
+  }
 
   ngOnInit() {
   }

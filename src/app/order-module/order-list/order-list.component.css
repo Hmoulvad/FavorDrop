@@ -7,3 +7,7 @@ p{
 h1{
   font-family: "Avenir Next";
 }
+
+#buttonNewOrder {
+  padding-bottom: 5px;
+}

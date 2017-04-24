@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'fd-order-start',
   template: `
-     <h1>Please select an order</h1>
+     <h1>Tilføj en ordre</h1>
   `,
   styles: []
 })
