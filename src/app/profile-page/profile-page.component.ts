@@ -1,7 +1,5 @@
 import {Component, OnInit, group} from '@angular/core';
 import {ServerService} from "../server.service";
-import {formGroupNameProvider} from "@angular/forms/src/directives/reactive_directives/form_group_name";
-import {NgForm} from "@angular/forms";
 import {AuthService} from "../auth.service";
 
 
@@ -16,7 +14,7 @@ export class ProfilePageComponent implements OnInit {
   constructor(private serverService: ServerService, private authService: AuthService) { }
 
   ngOnInit() {
-
+//ROUTE PROTECTION TODO
   }
   userinfo() {
 

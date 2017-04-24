@@ -5,8 +5,6 @@ import 'rxjs/add/operator/take';
 import * as firebase from 'firebase';
 import {Router} from "@angular/router";
 import {ServerService} from "./server.service";
-
-
 @Injectable()
 export class AuthService {
   name: string;
@@ -48,7 +46,7 @@ export class AuthService {
     this.token = null;
   }
 
-  constructor(private router: Router, private serverService: ServerService) {
+  constructor(private router: Router) {
   }
   //Testing through Firebase.DB
   dbcall(){

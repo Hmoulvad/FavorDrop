@@ -7,15 +7,17 @@
         <li routerLinkActive="active"><a [routerLink]="['/profile-page']">Ordrehistorik</a></li>
         <li routerLinkActive="active"><a [routerLink]="['/address']">Leveringsadresse</a></li>
       </ul>
+      <label class="inputs" for="name">navn</label>
+      <input type="text" id="name" #name>
+      <br>
+      <label class="inputs" for="email">mail</label>
+      <input type="email" id="email" #mail>
+      <br>
+      <label class="inputs" for="phone">phone</label>
+      <input type="phone" id="phone" #phone>
+      <button (click)="CreateinDB(token, name.value, mail.value, phone.value)">Submit</button>
     </nav>
   </aside>
 </div>
-<label for="name">navn</label>
-<input type="text" id="name" #name>
-<label for="email">mail</label>
-<input type="email" id="email" #mail>
-<label for="phone">phone</label>
-<input type="phone" id="phone" #phone>
-<button (click)="CreateinDB(token, name.value, mail.value, phone.value)">Submit</button>
 
 
