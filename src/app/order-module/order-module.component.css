@@ -18,3 +18,10 @@
   padding-bottom: 50px;
   padding-left: 80px;
 }
+
+#acceptOrder {
+  position: absolute;
+  right: 20px;
+  width: 200px;
+  height: 120px;
+}

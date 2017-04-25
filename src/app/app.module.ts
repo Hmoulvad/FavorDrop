@@ -19,10 +19,8 @@ import { CreateUserComponent } from './user-login/create-intro/create-intro.comp
 import { IntroPageComponent } from './intro-page/intro-page.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { routing} from "./app.routing";
-import { FooterComponent } from './footer/footer.component';
 import {AuthService} from "./auth.service";
 import {AngularFireModule} from "angularfire2";
-import { OrderEditComponent } from './order-module/order-edit/order-edit.component';
 import { OrderStartComponent } from './order-module/order-start.component';
 import { OrderResultComponent } from './order-result/order-result.component';
 import { HelpPageComponent } from './help-page/help-page.component';
@@ -56,8 +54,6 @@ export const firebaseConfig = {
     CreateUserComponent,
     IntroPageComponent,
     UserLoginComponent,
-    FooterComponent,
-    OrderEditComponent,
     OrderStartComponent,
     OrderResultComponent,
     HelpPageComponent,

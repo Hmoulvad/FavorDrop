@@ -7,8 +7,8 @@ import {subscribeOn} from "rxjs/operator/subscribeOn";
 export class OrderService {
 
   private orders: Order[] = [
-  new Order('10 Hamburgers', 'Rantzausgade 28B, 5TH 2200','Uden bolle, Wrapped i Bacon'),
-  new Order('Malk De Koijn Plakat', 'Rantzausgade 28B, 5TH 2200', 'To Back To From time'),
+  //new Order('10 Hamburgers', 'Rantzausgade 28B, 5TH 2200','Uden bolle, Wrapped i Bacon'),
+  //new Order('Malk De Koijn Plakat', 'Rantzausgade 28B, 5TH 2200', 'To Back To From time'),
   ];
 
   counter: number = this.orders.length;
