@@ -15,7 +15,7 @@ import { DropdownDirective } from './dropdown.directive';
 import { OrderService} from "./order-module/order.service";
 import { ShoppingListService} from "./shopping-list/shopping-list.service";
 import { PriceestimateComponent } from './order-module/priceestimate/priceestimate.component';
-import { CreateUserComponent } from './user-login/create-user/create-user.component';
+import { CreateUserComponent } from './user-login/create-intro/create-intro.component';
 import { IntroPageComponent } from './intro-page/intro-page.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { routing} from "./app.routing";
@@ -27,6 +27,11 @@ import { OrderStartComponent } from './order-module/order-start.component';
 import { OrderResultComponent } from './order-result/order-result.component';
 import { HelpPageComponent } from './help-page/help-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { CreateUser2Component } from './user-login/create-user2/create-user2.component';
+import {ServerService} from "./server.service";
+import { EditPasswordComponent } from './profile-page/edit-password/edit-password.component';
+import { AddressComponent } from './profile-page/address/address.component';
+import { OrderHistoryComponent } from './profile-page/order-history/order-history.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAYoXaVqer-feXLG-zIN0avkvbxDVYtzq4",
@@ -57,6 +62,10 @@ export const firebaseConfig = {
     OrderResultComponent,
     HelpPageComponent,
     ProfilePageComponent,
+    CreateUser2Component,
+    EditPasswordComponent,
+    AddressComponent,
+    OrderHistoryComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,7 +74,7 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     routing
   ],
-  providers: [OrderService, ShoppingListService, AuthService],
+  providers: [AuthService, ServerService, OrderService, ShoppingListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

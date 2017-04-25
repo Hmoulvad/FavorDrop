@@ -1,3 +1,42 @@
-<p>
-  profile-page works!
-</p>
+<div id="mySidenav" class="sidenav">
+  <li routerLinkActive="active"><a [routerLink]="['/profile-page']">Brugerinformation</a></li>
+  <li routerLinkActive="active"><a [routerLink]="['/profile-page']">Ordrehistorik</a></li>
+  <li routerLinkActive="active"><a [routerLink]="['/address']">Leveringsadresse</a></li>
+</div>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+
+    <form class="col-md-6 col-md-offset-3" (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <h1>
+        Profil
+      </h1>
+      <div class="form-group col-md-12">
+        <label for="name">Navn</label>
+        <input type="name" id="name" name="name" ngModel class="form-control">
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="Email" ngModel class="form-control">
+
+        <label for="phone">Telefon</label>
+        <input type="phone" id="phone" name="Telefon" ngModel class="form-control">
+        <span>
+      <hr>
+      </span>
+        <label for="adress">Adresse</label>
+        <input type="text" id="adress" name="Adresse" ngModel class="form-control">
+
+        <label for="city">By/Område</label>
+        <input type="tekst" id="city" name="By" ngModel class="form-control">
+
+        <label for="zipcode">Postnummer</label>
+        <input type="tekst" id="zipcode" name="zipcode" ngModel class="form-control">
+        <br>
+        <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
+      </div>
+      <button (click)="CreateinDB" class="btn btn-primary" type="button">DB TEST</button>
+    </form>
+
+  </div>
+</div>
+
+

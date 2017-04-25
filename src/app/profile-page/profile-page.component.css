@@ -1,0 +1,14 @@
+p{
+  text-align: center;
+}
+#divtop{
+  top: 0px;
+  position: relative;
+
+}
+#mySidenav{
+  position: relative;
+  top: 40px;
+  right:10px;
+  float: right;
+}

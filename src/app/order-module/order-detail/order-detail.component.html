@@ -1,18 +1,7 @@
 <div class="row">
-  <div class="col-xs-12">
-    <h1>{{selectedOrder?.ordre}}</h1>
-  </div>
-  <button class="btn btn-primary" (click)="onEdit()">Rediger</button>
-  <button class="btn btn-danger" (click)="onDelete()">Slet</button>
-</div>
-<hr>
-<div class="row">
-  <div class="col-xs-12">
-    <p>{{selectedOrder?.addresse}}</p>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    <p>{{selectedOrder?.comment}}</p>
-  </div>
+  <h1>{{selectedOrder?.ordre}}</h1>
+  <button class="btn btn-primary" (click)="onDelete()">Slet ordre</button>
+  <hr>
+  <p>Adresse: {{selectedOrder?.addresse}}</p>
+  <p>Kommentar: {{selectedOrder?.comment}}</p>
 </div>

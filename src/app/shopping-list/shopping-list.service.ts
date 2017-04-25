@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import {Order} from "../order-module/order";
+import {ServerService} from "../server.service";
 
 @Injectable()
 export class ShoppingListService {
 
   private orders: Order[];
 
-  constructor() {
+  constructor(private serverservice: ServerService) {
   }
 
   getOrders() {

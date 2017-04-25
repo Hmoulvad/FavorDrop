@@ -1,5 +1,7 @@
 import {Injectable} from '@angular/core'
 import {Order} from "./order";
+import {ServerService} from "../server.service";
+import {subscribeOn} from "rxjs/operator/subscribeOn";
 
 @Injectable()
 export class OrderService {
@@ -11,7 +13,7 @@ export class OrderService {
 
   counter: number = this.orders.length;
 
-  constructor() {}
+  constructor(private serverService: ServerService) {}
 
   getOrders () {
     return this.orders;
@@ -28,5 +30,4 @@ export class OrderService {
   deleteOrder(order: Order) {
     this.orders.splice(this.orders.indexOf(order), 1)
   }
-
 }

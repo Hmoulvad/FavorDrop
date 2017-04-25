@@ -6,15 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./intro-page.component.css']
 })
 export class IntroPageComponent implements OnInit {
-  midlertidlig: string;
 
   constructor() {
-    this.midlertidlig = 'assets/fdprocesbillede.png';
-
   }
-
   ngOnInit() {
   }
-
-
 }
+
