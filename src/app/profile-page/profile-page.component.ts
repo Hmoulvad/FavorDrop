@@ -2,6 +2,7 @@ import {Component, OnInit, group} from '@angular/core';
 import {ServerService} from "../server.service";
 import {AuthService} from "../auth.service";
 import {NgForm} from "@angular/forms";
+import {UserService} from "../_services/user.service";
 
 
 @Component({
@@ -10,21 +11,17 @@ import {NgForm} from "@angular/forms";
   styleUrls: ['./profile-page.component.css']
 })
 export class ProfilePageComponent implements OnInit {
-  Utoken = this.authService.token;
-  Uname: string = "Dave";
-  Umail: string = "Davidjkristensen@gmail.com";
-  Uphone: string = "22869252";
-  Uadress: string = "Venedigvej";
-  Ucity: string = "Copenhagen";
-  Uzip: string = "2300";
 
-  constructor(private serverService: ServerService, private authService: AuthService) { }
+  constructor(private serverService: ServerService, private authService: AuthService, private userService: UserService) { }
 
   ngOnInit() {
   }
-  morten(form: NgForm){
-    console.log();
+
+  CreateinDB(){
+    console.log(""+this.userService.name);
+    console.log(this.userService.email);
   }
+
   //her sendes de lokale strings videre til metoden i ServerService for oprette i DB.
   //   CreateinDB(){
   //   this.
