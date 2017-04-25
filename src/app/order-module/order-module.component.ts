@@ -9,8 +9,6 @@ import {OrderService} from "./order.service";
 })
 export class OrderModuleComponent implements OnInit {
 
-  selectedOrder: Order;
-
   constructor(private orderService: OrderService) { }
 
   anyOrder() {

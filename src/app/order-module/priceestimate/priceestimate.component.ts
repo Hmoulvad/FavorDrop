@@ -10,10 +10,10 @@ export class PriceestimateComponent implements OnInit {
 
   constructor(private orderService: OrderService) { }
 
-  price: number = this.orderService.getOrders().length*50;
+  price: number = this.orderService.getOrders().length * 80;
 
   priceEstimate() {
-    this.price = this.orderService.getOrders().length*50;
+    this.price = this.orderService.getOrders().length * 80;
   }
 
   ngOnInit() {

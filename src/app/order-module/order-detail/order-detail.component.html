@@ -1,8 +1,7 @@
 <div class="row">
   <h1>{{selectedOrder?.ordre}}</h1>
-  <button class="btn btn-primary" (click)="onEdit()">Rediger</button>
-  <button class="btn btn-danger" (click)="onDelete()">Slet</button>
+  <button class="btn btn-primary" (click)="onDelete()">Slet ordre</button>
   <hr>
-  <p>{{selectedOrder?.addresse}}</p>
-  <p>{{selectedOrder?.comment}}</p>
+  <p>Adresse: {{selectedOrder?.addresse}}</p>
+  <p>Kommentar: {{selectedOrder?.comment}}</p>
 </div>
