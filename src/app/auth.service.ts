@@ -4,16 +4,12 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/take';
 import * as firebase from 'firebase';
 import {Router} from "@angular/router";
-import {ServerService} from "./server.service";
+import {Http} from "@angular/http";
+
 @Injectable()
 export class AuthService {
-  name: string;
-  token: string;
-  mail: string;
-  dbtest: any;
 
-
-
+  constructor(private router: Router, private http: Http) {}
 
   signupUser(email: string, password: string) {
   firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -26,28 +22,28 @@ export class AuthService {
 
 
   signinUser(email: string, password: string) {
-    firebase.auth().signInWithEmailAndPassword(email, password)
-      .then(
-        response => {
-          this.router.navigate(['/']);
-          this.token = response.uid;
-          console.log(this.token);
-        }
-      )
-      .catch(
-        error => console.log((error))
-      );
+    firebase.auth().signInWithEmailAndPassword(email, password).then(function(success) {
+      firebase.auth().currentUser.getToken(true).then(function(idToken) {
+      localStorage.setItem('currentUser',idToken);
+      })
+    }, function (error) {
+      console.log(error.message);
+      localStorage.removeItem('currentUser');
+    });
+    this.router.navigate(['/']);
   }
+
   isAuthenticated() {
-    return this.token != null;
+    if (localStorage.getItem('currentUser') != null) {
+      return true;
+    }
+    return false;
   }
   logout(){
     firebase.auth().signOut();
-    this.token = null;
+    localStorage.removeItem('currentUser');
   }
 
-  constructor(private router: Router) {
-  }
   //Testing through Firebase.DB
   dbcall(){
     var ref = firebase.database().ref("orders/completed");

@@ -14,7 +14,7 @@ import {AuthService} from "./auth.service";
 
     CreateUserInDB(user: any){
         const body = JSON.stringify(user)
-        return this.http.put('http://52.213.91.0:8080/FavorDrop_war/clients/'+this.auth.token, body);
+        return this.http.put('http://52.213.91.0:8080/FavorDrop_war/clients/'+localStorage.getItem('currentUser'), body);
       }
 }
 
