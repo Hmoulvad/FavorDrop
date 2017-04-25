@@ -12,12 +12,12 @@
         <label for="password">Password</label>
         <input type="password" id="password" name="password" ngModel class="form-control">
         <br>
-        <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
+        <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Log ind på Favor Drop</button>
         <br>
         <br>
-        <button (click)="loginFb()" id="fb">Login With Facebook</button><br>
+        <button class="btn btn-primary" (click)="loginFb()" id="fb">Login med Facebook</button><br>
         <br>
-        <button (click)="loginGoogle()" id="google">Login With Google</button>
+        <button class="btn btn-danger" (click)="loginGoogle()" id="google">Login med Google</button>
         <br>
         <span>
       <hr>

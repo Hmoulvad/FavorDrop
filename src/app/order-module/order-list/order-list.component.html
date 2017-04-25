@@ -1,6 +1,6 @@
 <div>
   <div id="buttonNewOrder">
-    <button class="btn btn-primary" type="button" [routerLink]="['new']">Ordre liste</button>
+    <h2>Liste oversigt af alle dine ordre</h2>
   </div>
         <p>
           <fd-order-item *ngFor="let order of orders; let i = index" [order]="order" [orderId]="i"></fd-order-item>

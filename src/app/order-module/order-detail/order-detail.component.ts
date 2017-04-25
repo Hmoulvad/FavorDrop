@@ -1,4 +1,4 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
+import {Component, OnInit, OnDestroy, Input} from '@angular/core';
 import {Order} from "../order";
 import {Router, ActivatedRoute} from "@angular/router";
 import {Subscription} from "rxjs";
@@ -9,38 +9,13 @@ import {OrderService} from "../order.service";
   templateUrl: './order-detail.component.html',
   styleUrls: ['./order-detail.component.css']
 })
-export class OrderDetailComponent implements OnInit, OnDestroy {
+export class OrderDetailComponent implements OnInit {
 
-  private subscribtion: Subscription;
-  private orderIndex: number;
-  selectedOrder: Order;
+  @Input() order: Order;
 
-  constructor(private route: ActivatedRoute, private orderService: OrderService, private router: Router) { }
+  constructor(private orderService: OrderService) { }
 
   ngOnInit() {
-    this.subscribtion = this.route.params.subscribe(
-      (params:any) => {
-        this.orderIndex = params['id'];
-        this.selectedOrder = this.orderService.getOrderIndex(this.orderIndex);
+
       }
-    );
-  }
-
-  onEdit() {
-      this.router.navigate(['/order-module', this.orderIndex, 'edit']);
-  }
-
-  onDelete() {
-    this.orderService.deleteOrder(this.selectedOrder);
-    this.router.navigate(['/order-module']);
-  }
-
-  ngOnDestroy() {
-    this.subscribtion.unsubscribe();
-  }
-
-
-
-
-
 }

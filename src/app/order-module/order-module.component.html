@@ -4,7 +4,7 @@
   </div>
 
   <div id="info" class="col-md-4">
-      <router-outlet></router-outlet>
+      <fd-order-detail></fd-order-detail>
   </div>
 
   <div id="overview" class="col-md-4">
@@ -13,9 +13,13 @@
 
 </div>
 <div>
-  <h1 *ngIf="!anyOrder()">Tilføj en ordre</h1>
+<fd-shopping-list></fd-shopping-list>
+
+<div class="col-xs-12">
+  <hr>
+  <div id="acceptOrder">
+  <button class="btn btn-primary" (click)="finishOrder()" >Færdiggør bestilling</button>
+  </div>
+</div>
 </div>
 
-<div>
-<fd-shopping-list></fd-shopping-list>
-</div>

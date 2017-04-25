@@ -16,13 +16,14 @@ const APP_ROUTES: Routes = [
   //PathMatch sættes til full, for at sikre at der ikke henvises til Intro, hvis man skriver mellemrum først.
   { path: '', redirectTo: '/intro-page', pathMatch: 'full'},
   { path: 'user-login', component: UserLoginComponent},
-  { path: 'order-module', component: OrderModuleComponent, children: ORDER_ROUTES },
+  { path: 'order-module', component: OrderModuleComponent},
   { path: 'intro-page', component: IntroPageComponent},
   { path: 'order-result', component: OrderResultComponent},
   { path: 'help-page', component: HelpPageComponent},
   { path: 'profile-page', component: ProfilePageComponent, canActivate: [AuthGuard] },
   { path: 'create-intro', component: CreateUserComponent},
   { path: 'create-user2', component: CreateUser2Component},
+  { path: 'edit-password', component: EditPasswordComponent},
   { path: 'address', component: AddressComponent},
 ];
 

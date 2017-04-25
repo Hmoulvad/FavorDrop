@@ -1,9 +1,10 @@
 import {Component, OnInit, group} from '@angular/core';
 import {ServerService} from "../server.service";
 import {AuthService} from "../auth.service";
+
 import {NgForm} from "@angular/forms";
 import {UserService} from "../_services/user.service";
-
+import {NgForm, NgModel} from "@angular/forms";
 
 @Component({
   selector: 'fd-profile-page',
@@ -12,11 +13,12 @@ import {UserService} from "../_services/user.service";
 })
 export class ProfilePageComponent implements OnInit {
 
+
   constructor(private serverService: ServerService, private authService: AuthService, private userService: UserService) { }
 
   ngOnInit() {
   }
-
+  
   CreateinDB(){
     console.log(""+this.userService.name);
     console.log(this.userService.email);
@@ -29,4 +31,10 @@ export class ProfilePageComponent implements OnInit {
   //     .subscribe(
   //       data => console.log(data))
   //   }
+
+  onSubmit(form: NgForm) {
+    const name = form.value.name;
+    const email = form.value.Email;
+    console.log(email);
+}
 }
