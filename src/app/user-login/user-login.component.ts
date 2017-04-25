@@ -21,18 +21,20 @@ export class UserLoginComponent implements OnInit{
     const email = form.value.email;
     const password = form.value.password;
     this.authService.signinUser(email, password);
-
   }
+
   loginFb() {
     let provider = new firebase.auth.FacebookAuthProvider;
     provider.addScope("email");
     firebase.auth().signInWithPopup(provider).then(function(result) {
-      result.backend.name = firebase.auth().currentUser.displayName;
-      result.backend.email = firebase.auth().currentUser.providerData[0].email;
       firebase.auth().currentUser.getToken(true).then(function(idToken) {
         localStorage.setItem('currentUser',idToken);
-      });
-    });
+        this.backend.name= firebase.auth().currentUser.displayName;
+        this.backend.email = firebase.auth().currentUser.providerData[0].email;
+        console.log(this.backend.name);
+        this.rout.navigate(['/']);
+      }.bind(this));
+    }.bind(this));
   }
 
   loginGoogle() {
@@ -40,8 +42,11 @@ export class UserLoginComponent implements OnInit{
     firebase.auth().signInWithPopup(provider).then(function(result) {
       firebase.auth().currentUser.getToken(true).then(function(idToken) {
         localStorage.setItem('currentUser',idToken);
-      });
-    });
-    this.rout.navigate(['/']);
+        this.backend.name= firebase.auth().currentUser.displayName;
+        this.backend.email = firebase.auth().currentUser.providerData[0].email;
+        console.log(this.backend.name);
+        this.rout.navigate(['/']);
+      }.bind(this));
+    }.bind(this));
   }
 }

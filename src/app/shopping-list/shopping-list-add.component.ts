@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {OrderService} from "../order-module/order.service";
-import {ServerService} from "../server.service";
+import {ServerService} from "../_services/server.service";
 import {subscribeOn} from "rxjs/operator/subscribeOn";
 
 @Component({

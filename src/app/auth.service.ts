@@ -5,11 +5,13 @@ import 'rxjs/add/operator/take';
 import * as firebase from 'firebase';
 import {Router} from "@angular/router";
 import {Http} from "@angular/http";
+import {UserService} from "./_services/user.service";
+import Promise = firebase.Promise;
 
 @Injectable()
 export class AuthService {
 
-  constructor(private router: Router, private http: Http) {}
+  constructor(private router: Router, private http: Http, private userService: UserService) {}
 
   signupUser(email: string, password: string) {
   firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -25,12 +27,12 @@ export class AuthService {
     firebase.auth().signInWithEmailAndPassword(email, password).then(function(success) {
       firebase.auth().currentUser.getToken(true).then(function(idToken) {
       localStorage.setItem('currentUser',idToken);
-      })
-    }, function (error) {
+      this.router.navigate(['/']);
+      }.bind(this))
+    }.bind(this), function (error) {
       console.log(error.message);
       localStorage.removeItem('currentUser');
     });
-    this.router.navigate(['/']);
   }
 
   isAuthenticated() {

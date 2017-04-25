@@ -1,10 +1,9 @@
 import {Component, OnInit, group} from '@angular/core';
-import {ServerService} from "../server.service";
 import {AuthService} from "../auth.service";
 
-import {NgForm} from "@angular/forms";
+import {NgForm, FormGroup, FormBuilder} from "@angular/forms";
 import {UserService} from "../_services/user.service";
-import {NgForm, NgModel} from "@angular/forms";
+import {ServerService} from "../_services/server.service";
 
 @Component({
   selector: 'fd-profile-page',
@@ -12,17 +11,19 @@ import {NgForm, NgModel} from "@angular/forms";
   styleUrls: ['./profile-page.component.css']
 })
 export class ProfilePageComponent implements OnInit {
+  form: FormGroup;
 
 
   constructor(private serverService: ServerService, private authService: AuthService, private userService: UserService) { }
 
   ngOnInit() {
   }
-  
+
   CreateinDB(){
     console.log(""+this.userService.name);
     console.log(this.userService.email);
   }
+
 
   //her sendes de lokale strings videre til metoden i ServerService for oprette i DB.
   //   CreateinDB(){

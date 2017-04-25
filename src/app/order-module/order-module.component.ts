@@ -3,7 +3,8 @@ import {Order} from "./order";
 import {OrderService} from "./order.service";
 import {AuthService} from "../auth.service";
 import {Router} from "@angular/router";
-import {ServerService} from "../server.service";
+import {ServerService} from "../_services/server.service";
+
 
 @Component({
   selector: 'fd-order-module',

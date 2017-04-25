@@ -11,6 +11,7 @@ import {ProfilePageComponent} from "./profile-page/profile-page.component";
 import {CreateUser2Component} from "./user-login/create-user2/create-user2.component";
 import {AddressComponent} from "./profile-page/address/address.component";
 import {AuthGuard} from "./_guards/auth.guard";
+import {EditPasswordComponent} from "./profile-page/edit-password/edit-password.component";
 
 const APP_ROUTES: Routes = [
   //PathMatch sættes til full, for at sikre at der ikke henvises til Intro, hvis man skriver mellemrum først.

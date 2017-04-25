@@ -26,12 +26,12 @@ import { OrderResultComponent } from './order-result/order-result.component';
 import { HelpPageComponent } from './help-page/help-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { CreateUser2Component } from './user-login/create-user2/create-user2.component';
-import { ServerService} from "./server.service";
 import { EditPasswordComponent } from './profile-page/edit-password/edit-password.component';
 import { AddressComponent } from './profile-page/address/address.component';
 import { OrderHistoryComponent } from './profile-page/order-history/order-history.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { UserService} from "./_services/user.service";
+import {ServerService} from "./_services/server.service";
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAYoXaVqer-feXLG-zIN0avkvbxDVYtzq4",

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import * as firebase from 'firebase';
-import {ServerService} from "./server.service";
+import {ServerService} from "./_services/server.service";
 import database = firebase.database;
 
 @Component({

@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core'
 import {Order} from "./order";
-import {ServerService} from "../server.service";
+import {ServerService} from "../_services/server.service";
 import {subscribeOn} from "rxjs/operator/subscribeOn";
 
 @Injectable()

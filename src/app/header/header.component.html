@@ -17,7 +17,7 @@
         <li routerLinkActive="active"><a [routerLink]="['/order-module']">Bestilling</a></li>
         <li routerLinkActive="active"><a [routerLink]="['/help-page']">Hjælp</a></li>
         <template [ngIf]="authService.isAuthenticated()">
-          <li id="profilelist" routerLinkActive="active"><a [routerLink]="['/profile-page']">Profil</a></li>
+          <li id="profilelist" routerLinkActive="active"><a [routerLink]="['/profile-page']">Profile</a></li>
           <li><a (click)="logout()" routerLink="/user-login">Log Ud</a></li>
         </template>
       </ul>
