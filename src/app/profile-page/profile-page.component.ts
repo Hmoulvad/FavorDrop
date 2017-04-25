@@ -1,7 +1,7 @@
 import {Component, OnInit, group} from '@angular/core';
 import {ServerService} from "../server.service";
 import {AuthService} from "../auth.service";
-import {NgForm} from "@angular/forms";
+import {NgForm, NgModel} from "@angular/forms";
 
 
 @Component({
@@ -18,18 +18,23 @@ export class ProfilePageComponent implements OnInit {
   Ucity: string = "Copenhagen";
   Uzip: string = "2300";
 
-  constructor(private serverService: ServerService, private authService: AuthService) { }
+  constructor(private serverService: ServerService, private authService: AuthService) {
+  }
 
   ngOnInit() {
   }
-  morten(form: NgForm){
-    console.log();
+
+  onSubmit(form: NgForm) {
+    const name = form.value.name;
+    const email = form.value.Email;
+    console.log(email);
+
+    //her sendes de lokale strings videre til metoden i ServerService for oprette i DB.
+    //   CreateinDB(){
+    //   this.
+    //   this.serverService.CreateUserInDB(this.Utoken, this.Uname, this.Umail, this.Uphone, this.Uadress, this.Ucity, this.Uzip)
+    //     .subscribe(
+    //       data => console.log(data))
+    //   }
   }
-  //her sendes de lokale strings videre til metoden i ServerService for oprette i DB.
-  //   CreateinDB(){
-  //   this.
-  //   this.serverService.CreateUserInDB(this.Utoken, this.Uname, this.Umail, this.Uphone, this.Uadress, this.Ucity, this.Uzip)
-  //     .subscribe(
-  //       data => console.log(data))
-  //   }
 }
