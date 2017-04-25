@@ -3,9 +3,7 @@ h1{
   text-align: center;
 }
 #fb {
-  background:#3B5998 url('assets/fbbutton.png');
   background-size: 150px;
   size: 150px;
-  color:#fff;
   position: fixed;
 }

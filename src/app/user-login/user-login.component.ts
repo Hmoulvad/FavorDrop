@@ -17,7 +17,6 @@ export class UserLoginComponent implements OnInit{
     }
     ngOnInit(){
     }
-
   onSignin(form: NgForm) {
     const email = form.value.email;
     const password = form.value.password;
@@ -27,7 +26,7 @@ export class UserLoginComponent implements OnInit{
       this.rout.navigate(['/'])
     }
     else {
-      console.log("john, du har tastet forkert")
+      console.log("Adgang nægtet")
     }
   }
   loginFb() {
