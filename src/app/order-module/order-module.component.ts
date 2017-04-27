@@ -4,6 +4,7 @@ import {OrderService} from "./order.service";
 import {AuthService} from "../auth.service";
 import {Router} from "@angular/router";
 import {ServerService} from "../_services/server.service";
+import {Response} from "@angular/http";
 
 
 @Component({
@@ -25,9 +26,6 @@ export class OrderModuleComponent implements OnInit {
   ngOnInit() {
   }
 
-  dbtest() {
-    this.Mot.dbcall();
-  }
 
   finishOrder() {
     this.onSave();
@@ -51,4 +49,5 @@ export class OrderModuleComponent implements OnInit {
         (error) => console.log(error)
       );
   }
+
 }

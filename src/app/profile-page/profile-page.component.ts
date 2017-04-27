@@ -1,10 +1,11 @@
 import {Component, OnInit, group} from '@angular/core';
 import {AuthService} from "../auth.service";
 
-import {NgForm, FormGroup, FormBuilder, NgModel} from "@angular/forms";
+import {NgForm, FormGroup, FormBuilder, NgModel, Validators} from "@angular/forms";
 import {UserService} from "../_services/user.service";
 import {ServerService} from "../_services/server.service";
-import {any} from "codelyzer/util/function";
+
+
 
 @Component({
   selector: 'fd-profile-page',
@@ -12,7 +13,8 @@ import {any} from "codelyzer/util/function";
   styleUrls: ['./profile-page.component.css']
 })
 export class ProfilePageComponent implements OnInit {
-  form: FormGroup;
+  form: FormGroup;testing: string = "john";
+    //this.userService.getUser().name.toString();
 
 
   constructor(private serverService: ServerService, private authService: AuthService, private userService: UserService) { }
@@ -20,9 +22,9 @@ export class ProfilePageComponent implements OnInit {
   ngOnInit() {
   }
 
-
   onSubmit(f: NgForm) {
     this.userService.updateUser(
+      this.authService.getUserID(),
       f.value.name,
       f.value.email,
       f.value.phone,
