@@ -33,7 +33,7 @@ export class UserLoginComponent implements OnInit{
     firebase.auth().signInWithPopup(provider).then(function(result) {
       firebase.auth().currentUser.getToken(true).then(function(idToken) {
         this.onGet();
-        this.test();
+        // this.herotest();
         localStorage.setItem('currentUser',idToken);
         this.backend.name= firebase.auth().currentUser.displayName;
         this.backend.email = firebase.auth().currentUser.providerData[0].email;
@@ -58,9 +58,12 @@ export class UserLoginComponent implements OnInit{
 
   onGet() {
     this.serverService.GetClientInfo()
-      .subscribe(data => this.backend.user = data);
+      .subscribe();
   }
   test(){
       console.log(this.backend.user.email);
   }
+  // herotest(){
+  //   this.serverService.getHero();
+  // }
 }

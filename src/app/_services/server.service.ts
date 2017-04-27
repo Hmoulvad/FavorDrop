@@ -1,12 +1,13 @@
 import {Injectable} from "@angular/core";
-import {Http, Headers, Response, Jsonp} from "@angular/http";
+import {Http, Response} from "@angular/http";
 import {AuthService} from "../auth.service";
 import 'rxjs/Rx'
 import {UserService} from "./user.service";
+import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/map';
 
 import 'rxjs/add/operator/toPromise';
-import Promise = firebase.Promise;
-import 'rxjs/add/operator/map';
 
 
   @Injectable()
@@ -24,7 +25,12 @@ import 'rxjs/add/operator/map';
 
       GetClientInfo() {
       return this.http.get('http://52.213.91.0:8080/FavorDrop_war/clients/'+this.auth.getUserID())
-        .map((res:Response) => res.json());
+        .map((res:Response) => this.extractData(res))
+    }
+    private extractData(res: Response) {
+      let body = res.json();
+      this.backend.user = body;
+      return body.data || { };
     }
 }
 
