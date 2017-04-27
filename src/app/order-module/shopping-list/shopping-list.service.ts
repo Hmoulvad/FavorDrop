@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {Order} from "../order-module/order";
-import {ServerService} from "../_services/server.service";
+import {ServerService} from "../../_services/server.service";
+import {Order} from "../order";
 
 @Injectable()
 export class ShoppingListService {

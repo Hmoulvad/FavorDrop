@@ -13,7 +13,7 @@ import {UserService} from "../_services/user.service";
   styleUrls: ['./order-module.component.css']
 })
 export class OrderModuleComponent implements OnInit {
-  
+
   selectedOrder: Order;
   constructor(private orderService: OrderService, private Mot: AuthService, private Rout: Router, private serverService: ServerService) { }
 
@@ -35,8 +35,8 @@ export class OrderModuleComponent implements OnInit {
 
   finishOrder() {
     this.onSave();
-    if (this.mot.isAuthenticated()) {
-      this.rout.navigate(['billing'])
+    if (this.Mot.isAuthenticated()) {
+      this.Rout.navigate(['billing'])
     }
     else {
       console.log("User is not logged in")

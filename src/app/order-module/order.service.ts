@@ -22,13 +22,13 @@ export class OrderService {
     return this.orders.slice();
   }
 
-  addOrder (name : string, address: string, comment: string) {
-    this.orders.push(new Order(name, address, comment));
+  addOrder (order : string, address: string, comment: string) {
+    this.orders.push(new Order(order, address, comment));
     this.counter++;
 
   }
   getOrderIndex(id: number) {
-    return  this.orders[id];
+    return this.orders[id];
   }
 
   deleteOrder(order: Order) {
