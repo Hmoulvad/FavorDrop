@@ -13,8 +13,9 @@ import {UserService} from "../_services/user.service";
   styleUrls: ['./order-module.component.css']
 })
 export class OrderModuleComponent implements OnInit {
-
-  constructor(private orderService: OrderService, private serverService: ServerService, private us : UserService, private rout : Router, private mot : AuthService) { }
+  
+  selectedOrder: Order;
+  constructor(private orderService: OrderService, private Mot: AuthService, private Rout: Router, private serverService: ServerService) { }
 
   orders: Order[] = [];
 
@@ -24,6 +25,12 @@ export class OrderModuleComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.orderService.orderSelected
+      .subscribe(
+        (order: Order) => {
+          this.selectedOrder = order;
+        }
+      );
   }
 
   finishOrder() {

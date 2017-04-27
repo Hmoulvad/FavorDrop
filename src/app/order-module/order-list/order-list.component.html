@@ -1,6 +1,6 @@
 <div>
         <p>
-          <fd-order-item *ngFor="let order of orders; let i = index" [order]="order" [orderId]="i"></fd-order-item>
+          <fd-order-item *ngFor="let order of orders" [order]="order"></fd-order-item>
         </p>
   <h4 style="text-align:left;float:left;">Prisoverslag for din bestilling</h4>
   <h4 style="text-align:right;float:right;">kr,- {{price}}</h4>
