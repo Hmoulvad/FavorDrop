@@ -4,7 +4,9 @@ import {OrderService} from "./order.service";
 import {AuthService} from "../auth.service";
 import {Router, Routes} from "@angular/router";
 import {ServerService} from "../_services/server.service";
+import {Response} from "@angular/http";
 import {UserService} from "../_services/user.service";
+
 
 
 @Component({
@@ -25,6 +27,9 @@ export class OrderModuleComponent implements OnInit {
   }
 
   ngOnInit() {
+
+  }
+
     this.orderService.orderSelected
       .subscribe(
         (order: Order) => {
@@ -32,6 +37,7 @@ export class OrderModuleComponent implements OnInit {
         }
       );
   }
+
 
   finishOrder() {
     this.onSave();
@@ -53,4 +59,5 @@ export class OrderModuleComponent implements OnInit {
         (error) => console.log(error)
       );
   }
+
 }

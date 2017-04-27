@@ -1,4 +1,5 @@
 export class User {
+  UID: string;
   name: string;
   email: string;
   phone: string;
@@ -6,7 +7,8 @@ export class User {
   zip: number;
   city: string;
 
-  constructor(name: string, email: string, phone: string, address: string, zip: number, city: string) {
+  constructor(UID: string, name: string, email: string, phone: string, address: string, zip: number, city: string) {
+    this.UID = UID;
     this.name = name;
     this.email = email;
     this.phone = phone;
@@ -14,4 +16,6 @@ export class User {
     this.zip = zip;
     this.city = city;
   }
+
+
 }
