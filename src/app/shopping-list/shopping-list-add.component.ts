@@ -9,7 +9,6 @@ import {subscribeOn} from "rxjs/operator/subscribeOn";
   styleUrls: ['./shopping-list-add.component.css']
 })
 export class ShoppingListAddComponent implements OnInit {
-  john: string = 'john';
 
   constructor(private orderService: OrderService, private serverService: ServerService) { }
 

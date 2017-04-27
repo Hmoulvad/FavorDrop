@@ -14,7 +14,6 @@ import { ShoppingListAddComponent } from './shopping-list/shopping-list-add.comp
 import { DropdownDirective } from './dropdown.directive';
 import { OrderService} from "./order-module/order.service";
 import { ShoppingListService} from "./shopping-list/shopping-list.service";
-import { PriceestimateComponent } from './order-module/priceestimate/priceestimate.component';
 import { CreateUserComponent } from './user-login/create-intro/create-intro.component';
 import { IntroPageComponent } from './intro-page/intro-page.component';
 import { UserLoginComponent } from './user-login/user-login.component';
@@ -22,7 +21,6 @@ import { routing} from "./app.routing";
 import {AuthService} from "./auth.service";
 import {AngularFireModule} from "angularfire2";
 import { OrderStartComponent } from './order-module/order-start.component';
-import { OrderResultComponent } from './order-result/order-result.component';
 import { HelpPageComponent } from './help-page/help-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { CreateUser2Component } from './user-login/create-user2/create-user2.component';
@@ -32,6 +30,7 @@ import { OrderHistoryComponent } from './profile-page/order-history/order-histor
 import { AuthGuard } from './_guards/auth.guard';
 import { UserService} from "./_services/user.service";
 import {ServerService} from "./_services/server.service";
+import { BillingComponent } from './billing/billing.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAYoXaVqer-feXLG-zIN0avkvbxDVYtzq4",
@@ -52,18 +51,17 @@ export const firebaseConfig = {
     ShoppingListComponent,
     ShoppingListAddComponent,
     DropdownDirective,
-    PriceestimateComponent,
     CreateUserComponent,
     IntroPageComponent,
     UserLoginComponent,
     OrderStartComponent,
-    OrderResultComponent,
     HelpPageComponent,
     ProfilePageComponent,
     CreateUser2Component,
     EditPasswordComponent,
     AddressComponent,
-    OrderHistoryComponent
+    OrderHistoryComponent,
+    BillingComponent
   ],
   imports: [
     BrowserModule,
