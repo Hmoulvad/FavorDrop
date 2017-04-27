@@ -19,16 +19,20 @@ export class OrderService {
 
 
   getOrders () {
-    return this.orders.slice();
+    return this.orders;
   }
 
-  addOrder (name : string, address: string, comment: string) {
-    this.orders.push(new Order(name, address, comment));
+  getPrice() {
+    return this.orders.length*80;
+  }
+
+  addOrder (order : string, address: string, comment: string) {
+    this.orders.push(new Order(order, address, comment));
     this.counter++;
 
   }
   getOrderIndex(id: number) {
-    return  this.orders[id];
+    return this.orders[id];
   }
 
   deleteOrder(order: Order) {

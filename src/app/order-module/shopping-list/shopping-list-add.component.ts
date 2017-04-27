@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {OrderService} from "../order-module/order.service";
-import {ServerService} from "../_services/server.service";
 import {subscribeOn} from "rxjs/operator/subscribeOn";
+import {OrderService} from "../order.service";
+import {ServerService} from "../../_services/server.service";
 
 @Component({
   selector: 'fd-shopping-list-add',
@@ -12,8 +12,8 @@ export class ShoppingListAddComponent implements OnInit {
 
   constructor(private orderService: OrderService, private serverService: ServerService) { }
 
-  newOrder (name : string, address: string, comment: string) {
-    this.orderService.addOrder(name,address,comment);
+  newOrder (order : string, address: string, comment: string) {
+    this.orderService.addOrder(order,address,comment);
   }
 
   ngOnInit() {

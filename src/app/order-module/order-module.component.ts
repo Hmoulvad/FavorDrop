@@ -4,7 +4,9 @@ import {OrderService} from "./order.service";
 import {AuthService} from "../auth.service";
 import {Router, Routes} from "@angular/router";
 import {ServerService} from "../_services/server.service";
+import {Response} from "@angular/http";
 import {UserService} from "../_services/user.service";
+
 
 
 @Component({
@@ -13,7 +15,7 @@ import {UserService} from "../_services/user.service";
   styleUrls: ['./order-module.component.css']
 })
 export class OrderModuleComponent implements OnInit {
-  
+
   selectedOrder: Order;
   constructor(private orderService: OrderService, private Mot: AuthService, private Rout: Router, private serverService: ServerService) { }
 
@@ -25,6 +27,9 @@ export class OrderModuleComponent implements OnInit {
   }
 
   ngOnInit() {
+
+  }
+
     this.orderService.orderSelected
       .subscribe(
         (order: Order) => {
@@ -33,10 +38,11 @@ export class OrderModuleComponent implements OnInit {
       );
   }
 
+
   finishOrder() {
     this.onSave();
-    if (this.mot.isAuthenticated()) {
-      this.rout.navigate(['billing'])
+    if (this.Mot.isAuthenticated()) {
+      this.Rout.navigate(['billing'])
     }
     else {
       console.log("User is not logged in")
@@ -53,4 +59,5 @@ export class OrderModuleComponent implements OnInit {
         (error) => console.log(error)
       );
   }
+
 }

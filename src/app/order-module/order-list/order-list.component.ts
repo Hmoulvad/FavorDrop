@@ -19,9 +19,11 @@ export class OrderListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.price = this.orderService.getOrders().length * 80;
+    this.price = this.orderService.getPrice()
     this.orders = this.orderService.getOrders()
   }
+
+
 
 
 }
