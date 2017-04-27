@@ -19,7 +19,11 @@ export class OrderService {
 
 
   getOrders () {
-    return this.orders.slice();
+    return this.orders;
+  }
+
+  getPrice() {
+    return this.orders.length*80;
   }
 
   addOrder (order : string, address: string, comment: string) {
