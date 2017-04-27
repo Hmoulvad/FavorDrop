@@ -12,6 +12,7 @@ export class UserService {
     this.user = new User(UID,name,email,phone,address,zip,city);
   }
 
+
   getUser() {
     return this.user;
   }

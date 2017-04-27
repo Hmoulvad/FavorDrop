@@ -8,7 +8,6 @@ export class User {
   city: string;
 
   constructor(UID: string, name: string, email: string, phone: string, address: string, zip: number, city: string) {
-    this.UID = UID;
     this.name = name;
     this.email = email;
     this.phone = phone;

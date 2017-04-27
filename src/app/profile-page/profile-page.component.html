@@ -12,26 +12,27 @@
       </h1>
       <div class="form-group col-md-12">
         <label for="name">Navn</label>
-        <input type="text" id="name" name="name" ngModel class="form-control">
+        <input type="text" id="name" name="name" ngModel class="form-control" placeholder="{{navn}}">
 
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" ngModel class="form-control">
+        <input type="email" id="email" name="email" ngModel class="form-control" placeholder="{{email}}">
 
         <label for="phone">Telefon</label>
-        <input type="phone" id="phone" name="phone" ngModel class="form-control">
+        <input type="phone" id="phone" name="phone" ngModel class="form-control" placeholder="{{telefon}}">
         <span>
       <hr>
       </span>
         <label for="address">Adresse</label>
-        <input type="address" id="address" name="address" ngModel class="form-control">
+        <input type="address" id="address" name="address" ngModel class="form-control" placeholder="{{adresse}}">
 
         <label for="city">By/Område</label>
-        <input type="city" id="city" name="city" ngModel class="form-control">
+        <input type="city" id="city" name="city" ngModel class="form-control" placeholder="{{by}}">
 
         <label for="zip">Postnummer</label>
-        <input type="zip" id="zip" name="zip" ngModel class="form-control">
+        <input type="zip" id="zip" name="zip" ngModel class="form-control" placeholder="{{postnummer}}">
         <br>
-        <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
+        <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Gem ændringer</button>
+        <button (click)="john()" class="btn btn-primary" type="button">John</button>
       </div>
     </form>
   </div>
