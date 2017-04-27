@@ -25,12 +25,6 @@ export class OrderModuleComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.orderService.orderSelected
-      .subscribe(
-        (order: Order) => {
-          this.selectedOrder = order;
-        }
-      );
   }
 
   finishOrder() {

@@ -10,14 +10,11 @@ import {OrderService} from "../../order.service";
 export class OrderItemComponent implements OnInit {
 
   @Input() order: Order;
+  @Input() index: number;
 
-  constructor(private orderService: OrderService) { }
+  constructor() { }
 
   ngOnInit() {
-  }
-
-  onSelected() {
-    this.orderService.orderSelected.emit(this.order);
   }
 
 }
