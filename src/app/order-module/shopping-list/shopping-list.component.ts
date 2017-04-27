@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Order} from "../order-module/order";
 import {ShoppingListService} from "./shopping-list.service";
+import {Order} from "../order";
 
 @Component({
   selector: 'fd-shopping-list',

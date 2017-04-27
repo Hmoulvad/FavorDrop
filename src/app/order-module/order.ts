@@ -1,3 +1,3 @@
 export class Order {
-  constructor(public ordre, public addresse, public comment) {}
+  constructor(public order, public address, public comment) {}
 }

@@ -1,11 +1,59 @@
 <div id="list" class="col-md-4 ">
   <div id="buttonNewOrder">
-    <h2>Liste over ordre til fakturering</h2>
+    <h3>Liste over ordre til fakturering</h3>
   </div>
   <fd-order-list></fd-order-list>
 </div>
 
-<div id="info" class="col-md-8">
+<div id="info" class="col-md-7">
+
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="form-group col-md-12">
+      <h3>
+        Bestillings oplysninger
+      </h3>
+      <label for="name">Fulde navn</label>
+      <input type="name" id="name" name="name" ngModel class="form-control" pattern="[a-zA-Z0-9\s]+" required="required" value="{{username}}" placeholder="{{username}}">
+
+      <label for="deliveryadress">Levering Adresse</label>
+      <input type="address" id="deliveryadress" name="address" ngModel class="form-control" required="required" value="{{address}}" placeholder="{{address}}">
+<div style="padding-top: 5px">
+        <div class="input-group">
+         <label for="zipcode">Postnummer</label>
+         <input type="zipcode" id="zipcode" name="zipcode" ngModel class="form-control" pattern="[0-9]{3,4}" required="required" value="{{zipcode}}" placeholder="{{zipcode}}">
+          <span class="input-group-btn" style="width: 30px;"></span>
+         <label for="city">By</label>
+          <input type="city" id="city" name="city" ngModel class="form-control" required="required" value="{{city}}" placeholder="{{city}}">
+        </div>
+</div>
+      <span>
+      <hr>
+      </span>
+      <h3>
+        Betalings oplysninger
+      </h3>
+
+      <label for="cardname">Navn på kortholder</label>
+      <input type="text" id="cardname" name="cardname" ngModel class="form-control" pattern="[a-zA-Z0-9\s]+" required="required" value="{{username}}" placeholder="{{username}}">
+
+      <label for="billingadress">Fakturerings Adresse</label>
+      <input type="address" id="billingadress" name="address" ngModel class="form-control" required="required" value="{{address}}" placeholder="{{address}}">
+
+      <label for="cardnumber">Kortnummer</label>
+      <input type="tekst" id="cardnumber" name="cardnumber" ngModel class="form-control" required="required">
+
+      <label for="cvc">CVC</label>
+      <input type="text" id="cvc" name="cvc" ngModel class="form-control" required="required">
+
+      <label for="exp">Udløbsdato</label>
+      <input type="date" id="exp" name="exp" ngModel class="form-control" required="required">
+
+      <br>
+      <div class="pull-right">
+      <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Afslut betaling</button>
+      </div>
+    </div>
+  </form>
 
 </div>
 
