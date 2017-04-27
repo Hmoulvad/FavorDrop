@@ -1,9 +1,10 @@
 import {Component, OnInit, group} from '@angular/core';
 import {AuthService} from "../auth.service";
 
-import {NgForm, FormGroup, FormBuilder} from "@angular/forms";
+import {NgForm, FormGroup, FormBuilder, NgModel} from "@angular/forms";
 import {UserService} from "../_services/user.service";
 import {ServerService} from "../_services/server.service";
+import {any} from "codelyzer/util/function";
 
 @Component({
   selector: 'fd-profile-page',
@@ -19,23 +20,27 @@ export class ProfilePageComponent implements OnInit {
   ngOnInit() {
   }
 
-  CreateinDB(){
-    console.log(""+this.userService.name);
-    console.log(this.userService.email);
+
+  onSubmit(f: NgForm) {
+    this.userService.updateUser(
+      f.value.name,
+      f.value.email,
+      f.value.phone,
+      f.value.address,
+      f.value.zip,
+      f.value.city);
+    const email = f.value.email;
+    const name = f.value.name;
+    console.log(this.userService.getUser());  //{ first: '', last: '' }
+    this.CreateinDB(f.value);
+    //console.log(f.control.get("Navn"));
   }
 
-
   //her sendes de lokale strings videre til metoden i ServerService for oprette i DB.
-  //   CreateinDB(){
-  //   this.
-  //   this.serverService.CreateUserInDB(this.Utoken, this.Uname, this.Umail, this.Uphone, this.Uadress, this.Ucity, this.Uzip)
-  //     .subscribe(
-  //       data => console.log(data))
-  //   }
+    CreateinDB(any){
+    this.serverService.CreateUserInDB(any)
+      .subscribe(
+        data => console.log(data))
+    }
 
-  onSubmit(form: NgForm) {
-    const name = form.value.name;
-    const email = form.value.Email;
-    console.log(email);
-}
 }

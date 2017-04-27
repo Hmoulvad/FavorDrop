@@ -5,14 +5,16 @@ import {User} from "../_models/user";
 @Injectable()
 export class UserService {
   constructor(private http: Http) { }
-  uid: string;
-  name: string;
-  email: string;
-  phone: string;
-  password: string;
-  address: string;
-  zip: number;
-  city: string;
+
+  user : User;
+
+  updateUser(name: string, email: string, phone: string, address: string, zip: number, city: string) {
+    this.user = new User(name,email,phone,address,zip,city);
+  }
+
+  getUser() {
+    return this.user;
+  }
 
   getAll() {
     return this.http.get('/api/users', this.jwt()).map((response: Response) => response.json());

@@ -11,6 +11,8 @@ import Promise = firebase.Promise;
 @Injectable()
 export class AuthService {
 
+
+
   constructor(private router: Router, private http: Http, private userService: UserService) {}
 
   signupUser(email: string, password: string) {
@@ -56,6 +58,9 @@ export class AuthService {
         return console.log(key + childkey);
       })
 
+  }
+  getUserID(){
+    return firebase.auth().currentUser.uid;
   }
 
 }

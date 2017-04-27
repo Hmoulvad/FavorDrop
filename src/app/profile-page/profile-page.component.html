@@ -12,30 +12,28 @@
       </h1>
       <div class="form-group col-md-12">
         <label for="name">Navn</label>
-        <input type="name" id="name" name="name" ngModel class="form-control">
+        <input type="text" id="name" name="name" ngModel class="form-control">
 
         <label for="email">Email</label>
-        <input type="email" id="email" name="Email" ngModel class="form-control">
+        <input type="email" id="email" name="email" ngModel class="form-control">
 
         <label for="phone">Telefon</label>
-        <input type="phone" id="phone" name="Telefon" ngModel class="form-control">
+        <input type="phone" id="phone" name="phone" ngModel class="form-control">
         <span>
       <hr>
       </span>
-        <label for="adress">Adresse</label>
-        <input type="text" id="adress" name="Adresse" ngModel class="form-control">
+        <label for="address">Adresse</label>
+        <input type="address" id="address" name="address" ngModel class="form-control">
 
         <label for="city">By/Område</label>
-        <input type="tekst" id="city" name="By" ngModel class="form-control">
+        <input type="city" id="city" name="city" ngModel class="form-control">
 
-        <label for="zipcode">Postnummer</label>
-        <input type="tekst" id="zipcode" name="zipcode" ngModel class="form-control">
+        <label for="zip">Postnummer</label>
+        <input type="zip" id="zip" name="zip" ngModel class="form-control">
         <br>
         <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
       </div>
-      <button (click)="CreateinDB" class="btn btn-primary" type="button">DB TEST</button>
     </form>
-
   </div>
 </div>
 
