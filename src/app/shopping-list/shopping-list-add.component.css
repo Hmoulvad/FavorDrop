@@ -4,3 +4,8 @@ form{
 label{
   font-family: "Avenir Next";
 }
+
+h2 {
+  font-family: "Avenir Next";
+  font-weight: 300;
+}
