@@ -13,15 +13,17 @@ import {ServerService} from "../../_services/server.service";
 export class OrderListComponent implements OnInit {
 
   price: number;
-  orders: Order[] = [];
+  orders: Order[];
 
   constructor(private orderService: OrderService) {
   }
 
   ngOnInit() {
-    this.price
+    this.price = this.orderService.getPrice()
     this.orders = this.orderService.getOrders()
   }
+
+
 
 
 }

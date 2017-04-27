@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core'
+import {Injectable, EventEmitter} from '@angular/core'
 import {Order} from "./order";
 import {ServerService} from "../_services/server.service";
 import {subscribeOn} from "rxjs/operator/subscribeOn";
@@ -6,6 +6,7 @@ import {count} from "rxjs/operator/count";
 
 @Injectable()
 export class OrderService {
+  orderSelected = new EventEmitter<Order>();
 
   private orders: Order[] = [
   new Order('10 Hamburgers', 'Rantzausgade 28B, 5TH 2200','Uden bolle, Wrapped i Bacon'),
@@ -21,13 +22,17 @@ export class OrderService {
     return this.orders;
   }
 
-  addOrder (name : string, address: string, comment: string) {
-    this.orders.push(new Order(name, address, comment));
+  getPrice() {
+    return this.orders.length*80;
+  }
+
+  addOrder (order : string, address: string, comment: string) {
+    this.orders.push(new Order(order, address, comment));
     this.counter++;
 
   }
   getOrderIndex(id: number) {
-    return  this.orders[id];
+    return this.orders[id];
   }
 
   deleteOrder(order: Order) {
