@@ -13,7 +13,7 @@ import {ServerService} from "../../_services/server.service";
 export class OrderListComponent implements OnInit {
 
   price: number;
-  orders: Order[] = [];
+  orders: Order[];
 
   constructor(private orderService: OrderService) {
   }

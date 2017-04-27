@@ -17,6 +17,7 @@ export class OrderItemComponent implements OnInit {
   }
 
   onSelected() {
+    console.log("clicked on onSelected")
     this.orderService.orderSelected.emit(this.order);
   }
 
