@@ -12,7 +12,7 @@ import {ServerService} from "../_services/server.service";
   styleUrls: ['./order-module.component.css']
 })
 export class OrderModuleComponent implements OnInit {
-
+  selectedOrder: Order;
   constructor(private orderService: OrderService, private Mot: AuthService, private Rout: Router, private serverService: ServerService) { }
 
   orders: Order[] = [];
@@ -23,6 +23,12 @@ export class OrderModuleComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.orderService.orderSelected
+      .subscribe(
+        (order: Order) => {
+          this.selectedOrder = order;
+        }
+      );
   }
 
   dbtest() {
