@@ -7,3 +7,13 @@ p{
 h4{
   font-family: "Avenir Next";
 }
+
+#header1 {
+  font-weight: 100;
+  font-style: italic;
+}
+
+#header2 {
+  font-weight: 100;
+  font-style: italic;
+}

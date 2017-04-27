@@ -1,14 +1,13 @@
 <div class="container" *ngIf="anyOrder()">
-  <div id="list" class="col-md-4 ">
+  <div id="list" class="col-md-6 ">
+    <div id="buttonNewOrder">
+      <h2>Ordre oversigt</h2>
+    </div>
       <fd-order-list></fd-order-list>
   </div>
 
-  <div id="info" class="col-md-4">
+  <div id="info" class="col-md-6">
       <fd-order-detail></fd-order-detail>
-  </div>
-
-  <div id="overview" class="col-md-4">
-    <fd-priceestimate></fd-priceestimate>
   </div>
 
 </div>

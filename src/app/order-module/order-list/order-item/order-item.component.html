@@ -1,6 +1,9 @@
-<a [routerLink]="[orderId]" class="list-group-item clearfix" routerLinkActive="active">
+<a [routerLink]="[orderId]" class="list-group-item clearfix">
   <div class="pull-left">
     <h4 class="list-group-item-heading">{{order.ordre}}</h4>
+    <p id="header1" class="list-group-item-text">Address:</p>
     <p class="list-group-item-text">{{order.addresse}}</p>
+    <p id="header2" class="list-group-item-text">Kommentar:</p>
+    <p class="list-group-item-text">{{order.comment}}</p>
   </div>
 </a>

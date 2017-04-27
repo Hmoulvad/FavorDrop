@@ -36,7 +36,7 @@ export class OrderModuleComponent implements OnInit {
 
   authertest() {
     if(this.Mot.isAuthenticated()) {
-      this.Rout.navigate(['/order-result']);
+      this.Rout.navigate(['/billing']);
     }
     else {
       console.log("user not logged in")
