@@ -23,6 +23,23 @@ export class BillingComponent implements OnInit {
 
   ngOnInit() {
     this.orders = this.orderService.getOrders();
+
+    this.username = "Skriv dit navn her";
+    this.email= "Din email";
+    this.address = "Din adresse";
+    this.city= "Din by";
+    this.zipcode= "dit postnummer";
+
+    if(this.userService.user != null) {
+      this.username  = this.userService.user.name;
+      this.email = this.userService.user.email;
+      this.address = this.userService.user.address;
+      this.city = this.userService.user.city;
+      this.zipcode = this.userService.user.phone;
+
+
+
+    }
   }
 
 }
