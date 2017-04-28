@@ -5,6 +5,9 @@ import {Router} from "@angular/router";
 import Promise = firebase.Promise;
 import * as firebase from "firebase";
 import {UserService} from "../_services/user.service";
+import {Response} from "@angular/http";
+import {ServerService} from "../_services/server.service";
+import {any} from "codelyzer/util/function";
 
 @Component({
   selector: 'fd-user-login',
@@ -12,8 +15,9 @@ import {UserService} from "../_services/user.service";
   styleUrls: ['./user-login.component.css'],
 })
 export class UserLoginComponent implements OnInit{
+  dave: string;
 
-  constructor(private authService: AuthService, private  rout: Router, private backend: UserService) {
+  constructor(private authService: AuthService, private  rout: Router, private backend: UserService, private serverService: ServerService) {
     }
     ngOnInit(){
     }
@@ -28,10 +32,12 @@ export class UserLoginComponent implements OnInit{
     provider.addScope("email");
     firebase.auth().signInWithPopup(provider).then(function(result) {
       firebase.auth().currentUser.getToken(true).then(function(idToken) {
+        this.onGet();
+        // this.herotest();
         localStorage.setItem('currentUser',idToken);
         this.backend.name= firebase.auth().currentUser.displayName;
         this.backend.email = firebase.auth().currentUser.providerData[0].email;
-        console.log(this.backend.name);
+        //console.log(this.backend.name);
         this.rout.navigate(['/']);
       }.bind(this));
     }.bind(this));
@@ -44,9 +50,20 @@ export class UserLoginComponent implements OnInit{
         localStorage.setItem('currentUser',idToken);
         this.backend.name= firebase.auth().currentUser.displayName;
         this.backend.email = firebase.auth().currentUser.providerData[0].email;
-        console.log(this.backend.name);
+        //console.log(this.backend.name);
         this.rout.navigate(['/']);
       }.bind(this));
     }.bind(this));
   }
+
+  onGet() {
+    this.serverService.GetClientInfo()
+      .subscribe();
+  }
+  test(){
+      console.log(this.backend.user.email);
+  }
+  // herotest(){
+  //   this.serverService.getHero();
+  // }
 }

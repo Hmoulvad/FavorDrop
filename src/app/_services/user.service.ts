@@ -8,9 +8,10 @@ export class UserService {
 
   user : User;
 
-  updateUser(name: string, email: string, phone: string, address: string, zip: number, city: string) {
-    this.user = new User(name,email,phone,address,zip,city);
+  updateUser(UID: string,name: string, email: string, phone: string, address: string, zip: number, city: string) {
+    this.user = new User(UID,name,email,phone,address,zip,city);
   }
+
 
   getUser() {
     return this.user;
@@ -35,4 +36,5 @@ export class UserService {
       return new RequestOptions({ headers: headers });
     }
   }
+
 }

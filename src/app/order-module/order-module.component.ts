@@ -4,7 +4,9 @@ import {OrderService} from "./order.service";
 import {AuthService} from "../auth.service";
 import {Router, Routes} from "@angular/router";
 import {ServerService} from "../_services/server.service";
+import {Response} from "@angular/http";
 import {UserService} from "../_services/user.service";
+
 
 
 @Component({
@@ -38,7 +40,6 @@ export class OrderModuleComponent implements OnInit {
 
   }
 
-
   onSave() {
     this.orders == this.orderService.getOrders();
     this.serverService.TransmitOrderToDB(this.orders)
@@ -47,4 +48,5 @@ export class OrderModuleComponent implements OnInit {
         (error) => console.log(error)
       );
   }
+
 }
