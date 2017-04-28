@@ -27,20 +27,7 @@ export class OrderModuleComponent implements OnInit {
   }
 
   ngOnInit() {
-<<<<<<< HEAD
-
   }
-
-    this.orderService.orderSelected
-      .subscribe(
-        (order: Order) => {
-          this.selectedOrder = order;
-        }
-      );
-=======
->>>>>>> HmoulvadBranch
-  }
-
 
   finishOrder() {
     this.onSave();
@@ -52,7 +39,6 @@ export class OrderModuleComponent implements OnInit {
     }
 
   }
-
 
   onSave() {
     this.orders == this.orderService.getOrders();
