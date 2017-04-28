@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ServerService} from "../../server.service";
 
 @Component({
   selector: 'fd-order-history',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderHistoryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private serverService : ServerService , ) { }
 
   ngOnInit() {
   }
+
+
 
 }

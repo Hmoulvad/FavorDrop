@@ -45,4 +45,12 @@ export class OrderService {
     this.ordersChanged.next(this.orders.slice());
     this.updatePrice();
   }
+
+  getOrdersFromDB() {
+    this.serverService.OrdersFromDB(this.orders)
+      .subscribe(
+        (response) => console.log(response),
+        (error) => console.log(error)
+      );
+  }
 }
