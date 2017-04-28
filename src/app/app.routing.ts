@@ -3,7 +3,6 @@ import {OrderModuleComponent} from "./order-module/order-module.component";
 import {IntroPageComponent} from "./intro-page/intro-page.component";
 import {NgModule} from "@angular/core";
 import {UserLoginComponent} from "./user-login/user-login.component";
-import {ORDER_ROUTES} from "./order-module/order.routes";
 import {CreateUserComponent} from "./user-login/create-intro/create-intro.component";
 
 import {HelpPageComponent} from "./help-page/help-page.component";
@@ -13,12 +12,17 @@ import {AddressComponent} from "./profile-page/address/address.component";
 import {AuthGuard} from "./_guards/auth.guard";
 import {EditPasswordComponent} from "./profile-page/edit-password/edit-password.component";
 import {BillingComponent} from "./billing/billing.component";
+import {OrderStartComponent} from "./order-module/order-start.component";
+import {OrderDetailComponent} from "./order-module/order-detail/order-detail.component";
 
 const APP_ROUTES: Routes = [
   //PathMatch sættes til full, for at sikre at der ikke henvises til Intro, hvis man skriver mellemrum først.
   { path: '', redirectTo: '/intro-page', pathMatch: 'full'},
   { path: 'user-login', component: UserLoginComponent},
-  { path: 'order-module', component: OrderModuleComponent},
+  { path: 'order-module', component: OrderModuleComponent, children: [
+    { path:'', component: OrderStartComponent},
+    { path:':id', component: OrderDetailComponent}
+    ] },
   { path: 'intro-page', component: IntroPageComponent},
   { path: 'billing', component: BillingComponent },
   { path: 'help-page', component: HelpPageComponent},

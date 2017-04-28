@@ -7,13 +7,12 @@
   </div>
 
   <div id="info" class="col-md-6">
-      <fd-order-detail
-        [order]="selectedOrder"></fd-order-detail>
+      <router-outlet></router-outlet>
   </div>
 
 </div>
 <div>
-<fd-shopping-list></fd-shopping-list>
+<fd-order-add></fd-order-add>
 
 <div class="col-xs-12">
   <hr>

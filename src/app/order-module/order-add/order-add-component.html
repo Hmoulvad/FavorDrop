@@ -1,36 +1,39 @@
 <div class="class=list-group-item clearfix" >
   <div class="col-xs-12">
     <h2>Tilføj en ordre til din bestilling</h2>
-    <form id="shopping-list-add" #f="ngForm" (ngSubmit)="newOrder(order.value,address.value,comment.value)">
+    <form id="shopping-list-add" #f="ngForm" (ngSubmit)="onAddOrder(f)">
       <div class="form-group">
         <div class="row">
         <div class="col-sm-3 form-group">
-          <label for="order-name">Ordre *</label>
+          <label for="order">Ordre *</label>
           <input
             type="text"
-            id="order-name"
+            id="order"
+            name="order"
             required minlength="3"
-            #order
-            class="form-control">
+            class="form-control"
+            ngModel>
         </div>
 
         <div class="col-sm-4 form-group">
-          <label for="order-address">Adresse / Pickup *</label>
+          <label for="address">Adresse / Pickup *</label>
           <input
             type="text"
-            id="order-address"
+            id="address"
+            name="address"
             required minlength="5"
-            #address
-            class="form-control">
+            class="form-control"
+            ngModel>
         </div>
 
         <div class="col-sm-4 form-group">
-          <label for="order-comment">Kommentar</label>
+          <label for="comment">Kommentar</label>
           <input
             type="text"
-            id="order-comment"
-            #comment
-            class="form-control">
+            name="comment"
+            id="comment"
+            class="form-control"
+            ngModel>
         </div>
         </div>
         <button class="btn btn-primary" type="submit" >Tilføj ordre</button>

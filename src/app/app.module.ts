@@ -9,11 +9,8 @@ import { OrderModuleComponent } from './order-module/order-module.component';
 import { OrderListComponent } from './order-module/order-list/order-list.component';
 import { OrderItemComponent } from './order-module/order-list/order-item/order-item.component';
 import { OrderDetailComponent } from './order-module/order-detail/order-detail.component';
-import { ShoppingListComponent } from './order-module/shopping-list/shopping-list.component';
-import { ShoppingListAddComponent } from './order-module/shopping-list/shopping-list-add.component';
 import { DropdownDirective } from './dropdown.directive';
 import { OrderService} from "./order-module/order.service";
-import { ShoppingListService} from "./order-module/shopping-list/shopping-list.service";
 import { CreateUserComponent } from './user-login/create-intro/create-intro.component';
 import { IntroPageComponent } from './intro-page/intro-page.component';
 import { UserLoginComponent } from './user-login/user-login.component';
@@ -31,6 +28,7 @@ import { AuthGuard } from './_guards/auth.guard';
 import { UserService} from "./_services/user.service";
 import {ServerService} from "./_services/server.service";
 import { BillingComponent } from './billing/billing.component';
+import {OrderAddComponent} from "./order-module/order-add/order-add-component";
 
 
 export const firebaseConfig = {
@@ -49,8 +47,7 @@ export const firebaseConfig = {
     OrderListComponent,
     OrderItemComponent,
     OrderDetailComponent,
-    ShoppingListComponent,
-    ShoppingListAddComponent,
+    OrderAddComponent,
     DropdownDirective,
     CreateUserComponent,
     IntroPageComponent,
@@ -62,7 +59,7 @@ export const firebaseConfig = {
     EditPasswordComponent,
     AddressComponent,
     OrderHistoryComponent,
-    BillingComponent
+    BillingComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,7 +68,7 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     routing
   ],
-  providers: [AuthService, ServerService, OrderService, ShoppingListService,
+  providers: [AuthService, ServerService, OrderService,
     AuthGuard, UserService],
   bootstrap: [AppComponent]
 })

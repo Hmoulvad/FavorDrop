@@ -27,6 +27,7 @@ export class OrderModuleComponent implements OnInit {
   }
 
   ngOnInit() {
+<<<<<<< HEAD
 
   }
 
@@ -36,6 +37,8 @@ export class OrderModuleComponent implements OnInit {
           this.selectedOrder = order;
         }
       );
+=======
+>>>>>>> HmoulvadBranch
   }
 
 
