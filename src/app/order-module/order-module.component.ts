@@ -1,13 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Order} from "./order";
-import {OrderService} from "./order.service";
+import {OrderService} from "../_services/order.service";
 import {AuthService} from "../auth.service";
-import {Router, Routes} from "@angular/router";
+import {Router} from "@angular/router";
 import {ServerService} from "../_services/server.service";
-import {Response} from "@angular/http";
-import {UserService} from "../_services/user.service";
-
-
+import {Stop} from "../_models/stop";
 
 @Component({
   selector: 'fd-order-module',
@@ -16,13 +12,12 @@ import {UserService} from "../_services/user.service";
 })
 export class OrderModuleComponent implements OnInit {
 
-  selectedOrder: Order;
   constructor(private orderService: OrderService, private Mot: AuthService, private Rout: Router, private serverService: ServerService) { }
 
-  orders: Order[] = [];
+  stops: Stop[] = [];
 
-  anyOrder() {
-    if (this.orderService.getOrders().length > 0 )
+  anyStop() {
+    if (this.orderService.getStops().length > 0 )
       return true;
   }
 
@@ -41,8 +36,8 @@ export class OrderModuleComponent implements OnInit {
   }
 
   onSave() {
-    this.orders == this.orderService.getOrders();
-    this.serverService.TransmitOrderToDB(this.orders)
+    this.stops == this.orderService.getStops();
+    this.serverService.TransmitOrderToDB(this.stops)
       .subscribe(
         (response) => console.log(response),
         (error) => console.log(error)

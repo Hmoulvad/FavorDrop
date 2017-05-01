@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {OrderService} from "../order.service";
-import {Order} from "../order";
+import {OrderService} from "../../_services/order.service";
 import {Subscription} from "rxjs";
+import {Stop} from "../../_models/stop";
 
 @Component({
   selector: 'fd-order-list',
@@ -11,7 +11,7 @@ import {Subscription} from "rxjs";
 export class OrderListComponent implements OnInit, OnDestroy {
 
   price: number;
-  orders: Order[];
+  stops: Stop[];
   private subscription : Subscription;
   private subscriptionprice : Subscription;
 
@@ -22,11 +22,11 @@ export class OrderListComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.subscription = this.orderService.ordersChanged
       .subscribe(
-        (orders: Order[]) => {
-          this.orders = orders;
+        (stops: Stop[]) => {
+          this.stops = stops;
         }
       )
-    this.orders = this.orderService.getOrders();
+    this.stops = this.orderService.getStops();
     this.subscriptionprice = this.orderService.priceChanged
       .subscribe(
         (price: number) => {

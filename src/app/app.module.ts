@@ -10,7 +10,7 @@ import { OrderListComponent } from './order-module/order-list/order-list.compone
 import { OrderItemComponent } from './order-module/order-list/order-item/order-item.component';
 import { OrderDetailComponent } from './order-module/order-detail/order-detail.component';
 import { DropdownDirective } from './dropdown.directive';
-import { OrderService} from "./order-module/order.service";
+import { OrderService} from "./_services/order.service";
 import { CreateUserComponent } from './user-login/create-intro/create-intro.component';
 import { IntroPageComponent } from './intro-page/intro-page.component';
 import { UserLoginComponent } from './user-login/user-login.component';
@@ -22,8 +22,6 @@ import { HelpPageComponent } from './help-page/help-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { CreateUser2Component } from './user-login/create-user2/create-user2.component';
 import { EditPasswordComponent } from './profile-page/edit-password/edit-password.component';
-import { AddressComponent } from './profile-page/address/address.component';
-import { OrderHistoryComponent } from './profile-page/order-history/order-history.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { UserService} from "./_services/user.service";
 import {ServerService} from "./_services/server.service";
@@ -58,8 +56,6 @@ export const firebaseConfig = {
     ProfilePageComponent,
     CreateUser2Component,
     EditPasswordComponent,
-    AddressComponent,
-    OrderHistoryComponent,
     BillingComponent,
     HelpItemComponent,
   ],

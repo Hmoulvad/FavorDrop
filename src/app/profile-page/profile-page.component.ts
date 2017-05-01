@@ -20,12 +20,12 @@ export class ProfilePageComponent implements OnInit {
   constructor(private serverService: ServerService, private authService: AuthService, private userService: UserService) { }
 
   ngOnInit() {
-    this.navn = "Skriv dit navn her";
-    this.email= "Din email";
-    this.adresse = "Din adresse";
-    this.telefon = "Dit telefonnummer";
-    this.by= "Din by";
-    this.postnummer= "dit postnummer";
+    this.navn = "Fulde navn";
+    this.email= "Email";
+    this.adresse = "Adresse";
+    this.telefon = "Telefonnummer";
+    this.by= "By";
+    this.postnummer= "Postnummer";
 
     if(this.userService.user != null) {
     this.navn  = this.userService.user.name;
@@ -57,10 +57,6 @@ export class ProfilePageComponent implements OnInit {
     this.serverService.CreateUserInDB(any)
       .subscribe(
         data => console.log(data))
-    }
-    john(){
-     console.log(this.userService.user.address);
-     console.log(this.userService.user)
     }
 
 }
