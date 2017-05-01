@@ -27,12 +27,9 @@ import { UserService} from "./_services/user.service";
 import {ServerService} from "./_services/server.service";
 import { BillingComponent } from './billing/billing.component';
 import {OrderAddComponent} from "./order-module/order-add/order-add-component";
-<<<<<<< HEAD
 import { HelpItemComponent } from './help-page/help-item/help-item.component';
-=======
 import {OrderHistoryItemComponent} from "./profile-page/orderhistory/order-item-history/order-history-item.component";
 import {OrderHistoryComponent} from "./profile-page/orderhistory/order-history.component";
->>>>>>> HmoulvadBranch
 
 
 export const firebaseConfig = {
