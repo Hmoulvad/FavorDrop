@@ -25,7 +25,6 @@ export class OrderModuleComponent implements OnInit {
   }
 
   finishOrder() {
-    this.onSave();
     if (this.Mot.isAuthenticated()) {
       this.Rout.navigate(['billing'])
     }
@@ -34,14 +33,4 @@ export class OrderModuleComponent implements OnInit {
     }
 
   }
-
-  onSave() {
-    this.stops == this.orderService.getStops();
-    this.serverService.TransmitOrderToDB(this.stops)
-      .subscribe(
-        (response) => console.log(response),
-        (error) => console.log(error)
-      );
-  }
-
 }

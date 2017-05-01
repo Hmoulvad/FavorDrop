@@ -27,6 +27,8 @@ import { UserService} from "./_services/user.service";
 import {ServerService} from "./_services/server.service";
 import { BillingComponent } from './billing/billing.component';
 import {OrderAddComponent} from "./order-module/order-add/order-add-component";
+import {OrderHistoryItemComponent} from "./profile-page/orderhistory/order-item-history/order-history-item.component";
+import {OrderHistoryComponent} from "./profile-page/orderhistory/order-history.component";
 
 
 export const firebaseConfig = {
@@ -45,6 +47,8 @@ export const firebaseConfig = {
     OrderListComponent,
     OrderItemComponent,
     OrderDetailComponent,
+    OrderHistoryComponent,
+    OrderHistoryItemComponent,
     OrderAddComponent,
     DropdownDirective,
     CreateUserComponent,
