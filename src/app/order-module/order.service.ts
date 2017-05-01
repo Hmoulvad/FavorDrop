@@ -8,8 +8,6 @@ export class OrderService {
   priceChanged = new Subject<number>();
 
   private orders: Order[] = [
-  //new Order('10 Hamburgers', 'Rantzausgade 28B, 5TH 2200','Uden bolle, Wrapped i Bacon'),
-  //new Order('Malk De Koijn Plakat', 'Rantzausgade 28B, 5TH 2200', 'To Back To From time'),
   ];
 
   private price : number;

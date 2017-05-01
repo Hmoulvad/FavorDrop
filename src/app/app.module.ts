@@ -29,6 +29,7 @@ import { UserService} from "./_services/user.service";
 import {ServerService} from "./_services/server.service";
 import { BillingComponent } from './billing/billing.component';
 import {OrderAddComponent} from "./order-module/order-add/order-add-component";
+import { HelpItemComponent } from './help-page/help-item/help-item.component';
 
 
 export const firebaseConfig = {
@@ -60,6 +61,7 @@ export const firebaseConfig = {
     AddressComponent,
     OrderHistoryComponent,
     BillingComponent,
+    HelpItemComponent,
   ],
   imports: [
     BrowserModule,
