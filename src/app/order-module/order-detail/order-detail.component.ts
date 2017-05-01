@@ -1,9 +1,7 @@
 import {Component, OnInit, OnDestroy, Input} from '@angular/core';
-import {Order} from "../order";
+import {Stop} from "../../_models/stop";
 import {Router, ActivatedRoute, Params} from "@angular/router";
-import {Subscription} from "rxjs";
-import {OrderService} from "../order.service";
-import {isNumber} from "util";
+import {OrderService} from "../../_services/order.service";
 
 @Component({
   selector: 'fd-order-detail',
@@ -11,7 +9,7 @@ import {isNumber} from "util";
   styleUrls: ['./order-detail.component.css']
 })
 export class OrderDetailComponent implements OnInit {
-  @Input() order: Order;
+  @Input() stop: Stop;
   id: number;
 
   constructor(private orderService: OrderService, private route: ActivatedRoute, private rout: Router) { }
@@ -21,13 +19,13 @@ export class OrderDetailComponent implements OnInit {
       .subscribe(
         (params: Params) => {
           this.id = +params['id'];
-          this.order = this.orderService.getOrderIndex(this.id);
+          this.stop = this.orderService.getStopIndex(this.id);
         }
       );
   }
 
-  deleteOrder() {
-    this.orderService.deleteOrder(this.id);
+  deleteStop() {
+    this.orderService.deleteStop(this.id);
     this.rout.navigate(['../'],{relativeTo: this.route})
   }
 }

@@ -12,3 +12,11 @@ p{
   right:10px;
   float: right;
 }
+
+h2 {
+  font-family: "Avenir Next";
+  font-weight: 300;
+}
+#orderlistprofile {
+  padding-left: 100px;
+}

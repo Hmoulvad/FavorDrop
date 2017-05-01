@@ -1,14 +1,15 @@
 import {Component, OnInit, Input} from '@angular/core';
-import {Stop} from "../../../_models/stop";
+import {Order} from "../../stop";
+import {OrderService} from "../../stop.service";
 
 @Component({
   selector: 'fd-order-item',
-  templateUrl: './order-item.component.html',
-  styleUrls: ['./order-item.component.css']
+  templateUrl: './order-history-item.component.html',
+  styleUrls: ['./order-history-item.component.css']
 })
 export class OrderItemComponent implements OnInit {
 
-  @Input() stop: Stop;
+  @Input() stop: Order;
   @Input() index: number;
 
   constructor() { }

@@ -1,11 +1,11 @@
 <div class="class=list-group-item clearfix" >
   <div class="col-xs-12">
-    <h2>Tilføj en ordre til din bestilling</h2>
-    <form id="shopping-list-add" #f="ngForm" (ngSubmit)="onAddOrder(f)">
+    <h2>Tilføj et stop til din bestilling</h2>
+    <form id="shopping-list-add" #f="ngForm" (ngSubmit)="onAddStop(f)">
       <div class="form-group">
         <div class="row">
         <div class="col-sm-3 form-group">
-          <label for="order">Ordre *</label>
+          <label for="order">Opsamling *</label>
           <input
             type="text"
             id="order"
@@ -36,7 +36,7 @@
             ngModel>
         </div>
         </div>
-        <button class="btn btn-primary" type="submit" >Tilføj ordre</button>
+        <button class="btn btn-primary" type="submit" >Tilføj stop</button>
       </div>
     </form>
   </div>
