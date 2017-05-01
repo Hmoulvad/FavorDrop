@@ -14,12 +14,12 @@ import 'rxjs/add/operator/toPromise';
   export class ServerService {
     constructor(private http: Http, private auth: AuthService, private backend: UserService) {}
 
-    TransmitOrderToDB(DBorders: any[]) {
-      return this.http.put('https://favordrop.firebaseio.com/OrderFromAngular.json', DBorders);
-
-    }
+    // TransmitOrderToDB(DBorders: any[]) {
+    //   return this.http.put('http://52.213.91.0:8080/FavorDrop_war/orders/new', DBorders);
+    //
+    // }
     CreateUserInDB(user: any){
-        const body = JSON.stringify(user)
+        const body = JSON.stringify(user);
         return this.http.put('http://52.213.91.0:8080/FavorDrop_war/clients/'+this.auth.getUserID(), body);
       }
 

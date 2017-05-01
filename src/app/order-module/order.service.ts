@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core'
 import {Order} from "./order";
 import {Subject} from "rxjs/Subject";
+import {Http} from "@angular/http";
+import {AuthService} from "../auth.service";
 
 @Injectable()
 export class OrderService {
@@ -14,7 +16,7 @@ export class OrderService {
 
   private price : number;
 
-  constructor() {
+  constructor(private http: Http, private auth: AuthService) {
   }
 
   updatePrice() {
@@ -45,4 +47,15 @@ export class OrderService {
     this.ordersChanged.next(this.orders.slice());
     this.updatePrice();
   }
+    TransmitOrderToDB(DBorders: any[]) {
+      return this.http.put('http://52.213.91.0:8080/FavorDrop_war/orders/new', DBorders);
+    }
+    TransitAction() {
+    this.TransmitOrderToDB(this.orders)
+      .subscribe(
+        (response) => console.log(response),
+        (error) => console.log(error)
+      );
+
+    }
 }

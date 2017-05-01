@@ -4,8 +4,6 @@ import {OrderService} from "./order.service";
 import {AuthService} from "../auth.service";
 import {Router, Routes} from "@angular/router";
 import {ServerService} from "../_services/server.service";
-import {Response} from "@angular/http";
-import {UserService} from "../_services/user.service";
 
 
 
@@ -30,7 +28,6 @@ export class OrderModuleComponent implements OnInit {
   }
 
   finishOrder() {
-    this.onSave();
     if (this.Mot.isAuthenticated()) {
       this.Rout.navigate(['billing'])
     }
@@ -40,13 +37,13 @@ export class OrderModuleComponent implements OnInit {
 
   }
 
-  onSave() {
-    this.orders == this.orderService.getOrders();
-    this.serverService.TransmitOrderToDB(this.orders)
-      .subscribe(
-        (response) => console.log(response),
-        (error) => console.log(error)
-      );
-  }
+  // onSave() {
+  //   this.orders == this.orderService.getOrders();
+  //   this.serverService.TransmitOrderToDB(this.orders)
+  //     .subscribe(
+  //       (response) => console.log(response),
+  //       (error) => console.log(error)
+  //     );
+  // }
 
 }

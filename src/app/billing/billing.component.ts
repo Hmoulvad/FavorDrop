@@ -9,26 +9,17 @@ import {UserService} from "../_services/user.service";
   styleUrls: ['./billing.component.css']
 })
 export class BillingComponent implements OnInit {
-
   orders: Order[] = [];
-
-  username: string = 'Hannibal B. Moulvad';
-  email: string = 'Hmoulvad@hotmail.com';
-  address: string = 'Rantzausgade 28B';
-  zipcode: string = '2200' ;
-  city: string = 'København N';
-
+  username: string = "Skriv dit navn her";
+  email: string = "Din email";
+  address: string = "Din adresse";
+  zipcode: string = "Din by";
+  city: string = "dit postnummer";
 
   constructor(private orderService: OrderService, private userService: UserService ) { }
 
   ngOnInit() {
     this.orders = this.orderService.getOrders();
-
-    this.username = "Skriv dit navn her";
-    this.email= "Din email";
-    this.address = "Din adresse";
-    this.city= "Din by";
-    this.zipcode= "dit postnummer";
 
     if(this.userService.user != null) {
       this.username  = this.userService.user.name;
@@ -36,10 +27,9 @@ export class BillingComponent implements OnInit {
       this.address = this.userService.user.address;
       this.city = this.userService.user.city;
       this.zipcode = this.userService.user.phone;
-
-
-
     }
   }
-
+  finishorder() {
+    this.orderService.TransitAction();
+  }
 }
