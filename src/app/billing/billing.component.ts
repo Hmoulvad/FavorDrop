@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Order} from "../order-module/order";
-import {OrderService} from "../order-module/order.service";
+import {Stop} from "../_models/stop";
+import {OrderService} from "../_services/order.service";
 import {UserService} from "../_services/user.service";
 
 @Component({
@@ -10,7 +10,7 @@ import {UserService} from "../_services/user.service";
 })
 export class BillingComponent implements OnInit {
 
-  orders: Order[] = [];
+  stops: Stop[] = [];
 
   username: string = 'Hannibal B. Moulvad';
   email: string = 'Hmoulvad@hotmail.com';
@@ -22,7 +22,7 @@ export class BillingComponent implements OnInit {
   constructor(private orderService: OrderService, private userService: UserService ) { }
 
   ngOnInit() {
-    this.orders = this.orderService.getOrders();
+    this.stops = this.orderService.getStops();
   }
 
 }

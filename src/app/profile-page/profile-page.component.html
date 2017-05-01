@@ -1,17 +1,10 @@
-<div id="mySidenav" class="sidenav">
-  <li routerLinkActive="active"><a [routerLink]="['/profile-page']">Brugerinformation</a></li>
-  <li routerLinkActive="active"><a [routerLink]="['/profile-page']">Ordrehistorik</a></li>
-  <li routerLinkActive="active"><a [routerLink]="['/address']">Leveringsadresse</a></li>
-</div>
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-
-    <form class="col-md-6 col-md-offset-3" (ngSubmit)="onSubmit(f)" #f="ngForm">
-      <h1>
-        Profil
-      </h1>
-      <div class="form-group col-md-12">
-        <label for="name">Navn</label>
+<div>
+    <form class="col-md-6" (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <h2>
+        Profil oplysninger
+      </h2>
+      <div>
+        <label for="name">Fulde navn</label>
         <input type="text" id="name" name="name" ngModel class="form-control" placeholder="{{navn}}">
 
         <label for="email">Email</label>
@@ -22,8 +15,11 @@
         <span>
       <hr>
       </span>
-        <label for="address">Adresse</label>
-        <input type="address" id="address" name="address" ngModel class="form-control" placeholder="{{adresse}}">
+        <label for="orderaddress">Leverings adresse</label>
+        <input type="address" id="orderaddress" name="address" ngModel class="form-control" placeholder="{{adresse}}">
+
+        <label for="billingaddress">Fakturerings adresse</label>
+        <input type="address" id="billingaddress" name="address" ngModel class="form-control" placeholder="{{adresse}}">
 
         <label for="city">By/Område</label>
         <input type="city" id="city" name="city" ngModel class="form-control" placeholder="{{by}}">
@@ -32,9 +28,12 @@
         <input type="zip" id="zip" name="zip" ngModel class="form-control" placeholder="{{postnummer}}">
         <br>
         <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Gem ændringer</button>
-        <button (click)="john()" class="btn btn-primary" type="button">John</button>
       </div>
     </form>
+
+  <div class="col-md-6" id="orderlistprofile">
+    <h2>Ordre historik</h2>
+    <fd-order-list></fd-order-list>
   </div>
 </div>
 
