@@ -8,14 +8,15 @@ import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 
 import 'rxjs/add/operator/toPromise';
+import {Order} from "../_models/order";
 
 
   @Injectable()
   export class ServerService {
     constructor(private http: Http, private auth: AuthService, private backend: UserService) {}
 
-    TransmitOrderToDB(DBorders: any[]) {
-      return this.http.put('https://favordrop.firebaseio.com/OrderFromAngular.json', DBorders);
+    TransmitOrderToDB(currentOrder: Order) {
+      return this.http.put('https://favordrop.firebaseio.com/OrderFromAngular.json', currentOrder);
 
     }
     CreateUserInDB(user: any){

@@ -2,12 +2,16 @@ import {User} from "./user";
 import {Stop} from "./stop";
 
 export class Order {
-  user : User;
+  private _user : User;
   stops : Stop[];
 
   constructor(user : User, stops : Stop[]) {
-    this.user = user;
+    this._user = user;
     this.stops = stops;
   }
 
+
+  set user(value: User) {
+    this._user = value;
+  }
 }
