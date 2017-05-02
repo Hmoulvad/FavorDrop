@@ -6,7 +6,7 @@ import database = firebase.database;
 @Component({
   selector: 'fd-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styles: [require('../styles.css').toString()]
 })
 export class AppComponent implements OnInit{
 

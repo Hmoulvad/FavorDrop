@@ -7,7 +7,7 @@ import {ServerService} from "../_services/server.service";
 @Component({
   selector: 'fd-profile-page',
   templateUrl: './profile-page.component.html',
-  styleUrls: ['./profile-page.component.css']
+  styles: [require('../../styles.css').toString()]
 })
 export class ProfilePageComponent implements OnInit {
   navn: string;

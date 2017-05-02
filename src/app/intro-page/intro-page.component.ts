@@ -6,7 +6,7 @@ import {ServerService} from "../_services/server.service";
 @Component({
   selector: 'fd-intro-page',
   templateUrl: './intro-page.component.html',
-  styleUrls: ['./intro-page.component.css']
+  styles: [require('../../styles.css').toString()]
 })
 export class IntroPageComponent implements OnInit {
 

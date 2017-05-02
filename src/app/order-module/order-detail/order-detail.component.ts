@@ -6,7 +6,7 @@ import {OrderService} from "../../_services/order.service";
 @Component({
   selector: 'fd-order-detail',
   templateUrl: './order-detail.component.html',
-  styleUrls: ['./order-detail.component.css']
+  styles: [require('../../../styles.css').toString()]
 })
 export class OrderDetailComponent implements OnInit {
   @Input() stop: Stop;

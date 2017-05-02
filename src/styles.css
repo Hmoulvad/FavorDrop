@@ -1,2 +1,95 @@
 /* You can add global styles to this file, and also import other style files */
 
+@font-face {
+  font-family: "Avenir";
+  src: url('../src/assets/avenirLTStd-Medium.ttf') format('truetype');
+  font-weight: normal;
+}
+
+p{
+  font-family: "Avenir";
+}
+
+h1{
+  font-family: "Avenir";
+  font-weight: 300;
+}
+
+h2 {
+  font-family: "Avenir";
+  font-weight: 300;
+}
+
+h4{
+  font-family: "Avenir";
+  font-weight: 400;
+}
+
+button{
+  font-family: "Avenir";
+}
+
+#header1 {
+  font-weight: 100;
+  font-style: italic;
+}
+
+#header2 {
+  font-weight: 100;
+  font-style: italic;
+}
+
+#list {
+  padding-top: 30px;
+  padding-right: 50px;
+  padding-bottom: 50px;
+  padding-left: 0px;
+}
+
+#info {
+  padding-top: 30px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 60px;
+}
+
+#overview {
+  padding-top: 30px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+}
+
+#acceptOrder {
+  position: absolute;
+  right: 20px;
+  width: 200px;
+  height: 120px;
+}
+
+#fb {
+  background-size: 150px;
+  size: 150px;
+  position: fixed;
+}
+
+#orderlistprofile {
+  padding-left: 100px;
+}
+
+.header1 {
+  font-family: "Avenir";
+  font-weight: 200;
+}
+
+#divtop{
+  top: 0px;
+  position: relative;
+
+}
+#mySidenav{
+  position: relative;
+  top: 40px;
+  right:10px;
+  float: right;
+}

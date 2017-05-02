@@ -4,7 +4,7 @@ import {HelpItem} from "./help-item";
 @Component({
   selector: 'fd-help-item',
   templateUrl: './help-item.component.html',
-  styleUrls: ['./help-item.component.css']
+  styles: [require('../../../styles.css').toString()]
 })
 export class HelpItemComponent implements OnInit {
   @Input() shown = true;
