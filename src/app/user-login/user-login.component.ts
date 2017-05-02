@@ -32,12 +32,10 @@ export class UserLoginComponent implements OnInit{
     provider.addScope("email");
     firebase.auth().signInWithPopup(provider).then(function(result) {
       firebase.auth().currentUser.getToken(true).then(function(idToken) {
-        this.onGet();
-        // this.herotest();
         localStorage.setItem('currentUser',idToken);
+        this.onGet();
         this.backend.name= firebase.auth().currentUser.displayName;
         this.backend.email = firebase.auth().currentUser.providerData[0].email;
-        //console.log(this.backend.name);
         this.rout.navigate(['/']);
       }.bind(this));
     }.bind(this));
@@ -50,7 +48,6 @@ export class UserLoginComponent implements OnInit{
         localStorage.setItem('currentUser',idToken);
         this.backend.name= firebase.auth().currentUser.displayName;
         this.backend.email = firebase.auth().currentUser.providerData[0].email;
-        //console.log(this.backend.name);
         this.rout.navigate(['/']);
       }.bind(this));
     }.bind(this));
@@ -63,7 +60,4 @@ export class UserLoginComponent implements OnInit{
   test(){
       console.log(this.backend.user.email);
   }
-  // herotest(){
-  //   this.serverService.getHero();
-  // }
 }

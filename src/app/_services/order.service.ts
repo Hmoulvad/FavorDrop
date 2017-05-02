@@ -9,11 +9,11 @@ import {ServerService} from "./server.service";
 export class OrderService {
   ordersChanged = new Subject<Stop[]>();
   priceChanged = new Subject<number>();
-  latestOrders: Order[] = [
-    new Order(this.userService.user, [new Stop('10 Hamburgers', 'Rantzausgade 28B, 5TH 2200','Uden bolle, Wrapped i Bacon'), new Stop('Malk De Koijn Plakat', 'Rantzausgade 28B, 5TH 2200', 'To Back To From time')]),
-    new Order(this.userService.user, [new Stop('10 Hamburgers', 'Rantzausgade 28B, 5TH 2200','Uden bolle, Wrapped i Bacon'), new Stop('Malk De Koijn Plakat', 'Rantzausgade 28B, 5TH 2200', 'To Back To From time')])
+  private latestOrders: Order[] = [
+    new Order(this.userService.user, "13:03", [new Stop('10 Hamburgers', 'Rantzausgade 28B, 5TH 2200','Uden bolle, Wrapped i Bacon'), new Stop('Malk De Koijn Plakat', 'Rantzausgade 28B, 5TH 2200', 'To Back To From time')]),
+    new Order(this.userService.user, "13:03", [new Stop('10 Hamburgers', 'Rantzausgade 28B, 5TH 2200','Uden bolle, Wrapped i Bacon'), new Stop('Malk De Koijn Plakat', 'Rantzausgade 28B, 5TH 2200', 'To Back To From time')])
   ];
-  currentOrder: Order = new Order(this.userService.user, [new Stop('10 Hamburgers', 'Rantzausgade 28B, 5TH 2200','Uden bolle, Wrapped i Bacon'), new Stop('Malk De Koijn Plakat', 'Rantzausgade 28B, 5TH 2200', 'To Back To From time')]);
+  currentOrder: Order = new Order(this.userService.user,"13:03", [new Stop('10 Hamburgers', 'Rantzausgade 28B, 5TH 2200','Uden bolle, Wrapped i Bacon'), new Stop('Malk De Koijn Plakat', 'Rantzausgade 28B, 5TH 2200', 'To Back To From time')]);
 
   private price : number;
 
@@ -53,8 +53,13 @@ export class OrderService {
 
   sendOrderToDB() {
     this.currentOrder.user = this.userService.user;
-    this.serverService.TransmitOrderToDB(this.currentOrder);
+    this.serverService.CreateOrderInDB(this.currentOrder);
     console.log(this.currentOrder);
+  }
+
+  getLatestOrder() {
+    //this.serverService.GetOrdersFromDB();
+    return this.latestOrders;
   }
 
 }
