@@ -1,5 +1,10 @@
-input,form,h1,button{
-  width: 250px;
-  display: block;
-  margin: 0 auto;
+h2 {
+  text-align: center;
+  font-family: "Avenir Next";
+  font-weight: 300;
+}
+
+#styleForm {
+  font-family: "Avenir Next";
+  font-weight: 300;
 }
