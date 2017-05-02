@@ -6,7 +6,7 @@ import {Router} from "@angular/router";
 @Component({
   selector: 'fd-create-user',
   templateUrl: 'create-intro.component.html',
-  styleUrls: ['create-intro.component.css']
+  styles: [require('../../../styles.css').toString()]
 })
 export class CreateUserComponent implements OnInit {
 

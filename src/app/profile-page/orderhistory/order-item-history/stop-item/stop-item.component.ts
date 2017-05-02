@@ -4,7 +4,7 @@ import {Stop} from "../../../../_models/stop";
 @Component({
   selector: 'fd-stop-item',
   templateUrl: './stop-item.component.html',
-  styleUrls: ['./stop-item.component.css']
+  styles: [require('../../../../../styles.css').toString()]
 })
 export class StopItemComponent implements OnInit {
 

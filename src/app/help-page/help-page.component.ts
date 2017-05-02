@@ -4,7 +4,7 @@ import {HelpItem} from "./help-item/help-item";
 @Component({
   selector: 'fd-help-page',
   templateUrl: './help-page.component.html',
-  styleUrls: ['./help-page.component.css']
+  styles: [require('../../styles.css').toString()]
 })
 export class HelpPageComponent implements OnInit {
 

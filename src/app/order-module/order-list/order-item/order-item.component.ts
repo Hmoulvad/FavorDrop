@@ -4,7 +4,7 @@ import {Stop} from "../../../_models/stop";
 @Component({
   selector: 'fd-order-item',
   templateUrl: './order-item.component.html',
-  styleUrls: ['./order-item.component.css']
+  styles: [require('../../../../styles.css').toString()]
 })
 export class OrderItemComponent implements OnInit {
 

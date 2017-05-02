@@ -8,7 +8,7 @@ import {Stop} from "../_models/stop";
 @Component({
   selector: 'fd-order-module',
   templateUrl: './order-module.component.html',
-  styleUrls: ['./order-module.component.css']
+  styles: [require('../../styles.css').toString()]
 })
 export class OrderModuleComponent implements OnInit {
 

@@ -12,7 +12,7 @@ import {any} from "codelyzer/util/function";
 @Component({
   selector: 'fd-user-login',
   templateUrl: './user-login.component.html',
-  styleUrls: ['./user-login.component.css'],
+  styles: [require('../../styles.css').toString()]
 })
 export class UserLoginComponent implements OnInit{
   dave: string;

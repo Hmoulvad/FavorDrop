@@ -7,7 +7,7 @@ import {Order} from "../../_models/order";
 @Component({
   selector: 'fd-order-history',
   templateUrl: './order-history.component.html',
-  styleUrls: ['./order-history.component.css']
+  styles: [require('../../../styles.css').toString()]
 })
 export class OrderHistoryComponent implements OnInit {
 
