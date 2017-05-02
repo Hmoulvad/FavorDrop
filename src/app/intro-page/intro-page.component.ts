@@ -14,6 +14,5 @@ export class IntroPageComponent implements OnInit {
 
   }
   ngAfterContentInit() {
-     //this.onGet();
     }
-    }
+}

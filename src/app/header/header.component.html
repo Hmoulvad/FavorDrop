@@ -7,7 +7,7 @@
       <ul class="nav navbar-nav navbar-left">
         <li><a id="favordropheader" [routerLink]="'/'">Favor Drop</a></li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right" id="favordropnavbarright">
         <template [ngIf]="!authService.isAuthenticated()">
           <li routerLinkActive="active"><a [routerLink]="['/user-login']">Log Ind</a></li>
         </template>

@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {Http, Response, RequestOptions, Headers} from "@angular/http";
-import {AuthService} from "../auth.service";
+import {AuthService} from "./auth.service";
 import 'rxjs/Rx'
 import {UserService} from "./user.service";
 import 'rxjs/add/operator/toPromise';
@@ -38,7 +38,7 @@ import {Order} from "../_models/order";
       let headers = new Headers({'Authorization': 'Bearer ' + localStorage.getItem('currentUser')});
       let options = new RequestOptions({headers: headers});
       console.log(this.auth.getUserID());
-      
+
       return this.http.get('http://52.213.91.0:8080/FavorDrop_war/clients/'+this.auth.getUserID(),options)
         .map((res:Response) => this.extractData(res))
     }

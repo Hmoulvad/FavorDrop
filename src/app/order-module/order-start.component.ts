@@ -6,10 +6,6 @@ import { Component, OnInit } from '@angular/core';
      <h1>Marker et stop</h1>
   `,
   styles: [`
-  h1 {
-    font-family: "Avenir Next";
-    font-weight: 400;
-  }
   `
   ]
 })
