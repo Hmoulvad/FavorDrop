@@ -6,7 +6,7 @@ import {Stop} from "../../_models/stop";
 @Component({
   selector: 'fd-order-list',
   templateUrl: './order-list.component.html',
-  styleUrls: ['./order-list.component.css']
+  styles: [require('../../../styles.css').toString()]
 })
 export class OrderListComponent implements OnInit, OnDestroy {
 

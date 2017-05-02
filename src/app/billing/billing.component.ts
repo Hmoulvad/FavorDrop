@@ -7,7 +7,7 @@ import {ServerService} from "../_services/server.service";
 @Component({
   selector: 'fd-billing',
   templateUrl: './billing.component.html',
-  styleUrls: ['./billing.component.css']
+  styles: [require('../../styles.css').toString()]
 })
 export class BillingComponent implements OnInit {
 

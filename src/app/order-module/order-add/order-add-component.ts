@@ -5,7 +5,7 @@ import {NgForm} from "@angular/forms";
 @Component({
   selector: 'fd-order-add',
   templateUrl: './order-add-component.html',
-  styleUrls: ['./order-add-component.css']
+  styles: [require('../../../styles.css').toString()]
 })
 export class OrderAddComponent implements OnInit {
 

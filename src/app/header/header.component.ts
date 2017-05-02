@@ -5,7 +5,7 @@ import {UserService} from "../_services/user.service";
 @Component({
   selector: 'fd-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styles: [require('../../styles.css').toString()]
 })
 export class HeaderComponent implements OnInit {
 
