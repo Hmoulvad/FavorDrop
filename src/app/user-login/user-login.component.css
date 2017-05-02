@@ -1,9 +1,25 @@
 h1{
-  color: #3B5998;
   text-align: center;
+  font-family: "Avenir Next";
+  font-weight: 300;
 }
 #fb {
   background-size: 150px;
   size: 150px;
   position: fixed;
+}
+
+#createUser {
+  font-family: "Avenir Next";
+  font-weight: 300;
+}
+
+#emailandlogin {
+  font-family: "Avenir Next";
+  font-weight: 400;
+}
+
+#buttonlogin {
+  font-family: "Avenir Next";
+  font-weight: 400;
 }

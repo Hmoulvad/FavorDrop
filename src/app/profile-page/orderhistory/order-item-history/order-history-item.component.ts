@@ -1,5 +1,6 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {Stop} from "../../../_models/stop";
+import {Order} from "../../../_models/order";
 
 @Component({
   selector: 'fd-order-history-item',
@@ -8,12 +9,18 @@ import {Stop} from "../../../_models/stop";
 })
 export class OrderHistoryItemComponent implements OnInit {
 
-  @Input() stop: Stop;
-  @Input() index: number;
+  @Input() order: Order;
+  private price : number;
+  private time : string;
+  stops : Stop[];
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
+    this.stops = this.order.getStops();
+    this.price = this.order.getStops().length * 80;
+    this.time = this.order.time;
   }
 
 }

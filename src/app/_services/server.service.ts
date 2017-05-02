@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Http, Response} from "@angular/http";
+import {Http, Response, RequestOptions, Headers} from "@angular/http";
 import {AuthService} from "../auth.service";
 import 'rxjs/Rx'
 import {UserService} from "./user.service";
@@ -15,17 +15,31 @@ import {Order} from "../_models/order";
   export class ServerService {
     constructor(private http: Http, private auth: AuthService, private backend: UserService) {}
 
-    TransmitOrderToDB(currentOrder: Order) {
-      return this.http.put('https://favordrop.firebaseio.com/OrderFromAngular.json', currentOrder);
-
-    }
     CreateUserInDB(user: any){
+      console.log("Token: " + localStorage.getItem('currentUser'));
+      let headers = new Headers({'Authorization': 'Bearer ' + localStorage.getItem('currentUser')});
+      let options = new RequestOptions({headers: headers})
         const body = JSON.stringify(user)
-        return this.http.put('http://52.213.91.0:8080/FavorDrop_war/clients/'+this.auth.getUserID(), body);
+        return this.http.put('http://52.213.91.0:8080/FavorDrop_war/clients/'+this.auth.getUserID(), body, options);
       }
 
+    CreateOrderInDB(order: any){
+      const body = JSON.stringify(order)
+
+      return this.http.post('http://52.213.91.0:8080/FavorDrop_war/orders/'+this.auth.getUserID(), body);
+    }
+
+    GetOrdersFromDB() {
+      return this.http.get('http://52.213.91.0:8080/FavorDrop_war/client/'+this.auth.getUserID()+ '/orders')
+        .map((res:Response) => this.extractData(res))
+    }
+
       GetClientInfo() {
-      return this.http.get('http://52.213.91.0:8080/FavorDrop_war/clients/'+this.auth.getUserID())
+      let headers = new Headers({'Authorization': 'Bearer ' + localStorage.getItem('currentUser')});
+      let options = new RequestOptions({headers: headers});
+      console.log(this.auth.getUserID());
+      
+      return this.http.get('http://52.213.91.0:8080/FavorDrop_war/clients/'+this.auth.getUserID(),options)
         .map((res:Response) => this.extractData(res))
     }
     private extractData(res: Response) {

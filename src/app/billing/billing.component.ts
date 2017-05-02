@@ -28,7 +28,6 @@ export class BillingComponent implements OnInit {
 
   onSubmit() {
     console.log("JEG HAR TRYKKET PÅ KNAPPEN")
-
     this.orderService.sendOrderToDB()
   }
 

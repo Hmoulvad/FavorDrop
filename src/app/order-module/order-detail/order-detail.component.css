@@ -4,6 +4,12 @@ button{
 p{
   font-family: "Calibri";
 }
+<<<<<<< HEAD
 h1{
   font-family: "Calibri";
+=======
+h2{
+  font-family: "Avenir Next";
+  font-weight: 400;
+>>>>>>> HmoulvadBranch
 }

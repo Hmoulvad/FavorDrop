@@ -1,5 +1,5 @@
 <div>
-    <form class="col-md-6" (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <form class="col-md-6" id="halla" (ngSubmit)="onSubmit(f)" #f="ngForm">
       <h2>
         Profil oplysninger
       </h2>
@@ -15,6 +15,9 @@
         <span>
       <hr>
       </span>
+        <h2>
+          Leverings oplysninger
+        </h2>
         <label for="orderaddress">Leverings adresse</label>
         <input type="address" id="orderaddress" name="address" ngModel class="form-control" placeholder="{{adresse}}">
 
@@ -30,8 +33,9 @@
         <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Gem ændringer</button>
       </div>
     </form>
+  <div class="col-md-1"></div>
 
-  <div class="col-md-6" id="orderhistorylist">
+  <div class="col-md-5" id="orderhistorylist">
     <h2>Ordre historik</h2>
     <fd-order-history></fd-order-history>
   </div>

@@ -1,9 +1,14 @@
-<a style="cursor: pointer;" class="list-group-item clearfix" [routerLink]="[index]">
-  <div class="pull-left">
-    <h4 class="list-group-item-heading">{{stop.order}}</h4>
-    <p id="header1" class="list-group-item-text">Address:</p>
-    <p class="list-group-item-text">{{stop.address}}</p>
-    <p id="header2" class="list-group-item-text">Kommentar:</p>
-    <p class="list-group-item-text">{{stop.comment}}</p>
+<div class="list-group-item clearfix">
+  <h5>
+    Tidspunkt for bestilling: {{time}}
+  </h5>
+  <h5>
+    Pris for ordre: kr {{price}} ,-
+  </h5>
+  <div>
+    <hr>
+    <fd-stop-item *ngFor="let stop of stops"
+                           [stop]="stop"
+    ></fd-stop-item>
   </div>
-</a>
+</div>

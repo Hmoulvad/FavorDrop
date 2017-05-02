@@ -20,7 +20,6 @@ import {AngularFireModule} from "angularfire2";
 import { OrderStartComponent } from './order-module/order-start.component';
 import { HelpPageComponent } from './help-page/help-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
-import { CreateUser2Component } from './user-login/create-user2/create-user2.component';
 import { EditPasswordComponent } from './profile-page/edit-password/edit-password.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { UserService} from "./_services/user.service";
@@ -30,6 +29,7 @@ import {OrderAddComponent} from "./order-module/order-add/order-add-component";
 import { HelpItemComponent } from './help-page/help-item/help-item.component';
 import {OrderHistoryItemComponent} from "./profile-page/orderhistory/order-item-history/order-history-item.component";
 import {OrderHistoryComponent} from "./profile-page/orderhistory/order-history.component";
+import { StopItemComponent } from './profile-page/orderhistory/order-item-history/stop-item/stop-item.component';
 
 
 export const firebaseConfig = {
@@ -58,10 +58,13 @@ export const firebaseConfig = {
     OrderStartComponent,
     HelpPageComponent,
     ProfilePageComponent,
-    CreateUser2Component,
     EditPasswordComponent,
     BillingComponent,
+<<<<<<< HEAD
     HelpItemComponent,
+=======
+    StopItemComponent,
+>>>>>>> HmoulvadBranch
   ],
   imports: [
     BrowserModule,
