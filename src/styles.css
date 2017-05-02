@@ -2,31 +2,56 @@
 
 @font-face {
   font-family: "Avenir";
-  src: url('../src/assets/avenirLTStd-Medium.ttf') format('truetype');
-  font-weight: normal;
+  src: url('assets/lato-Light.ttf') format('truetype');
+  font-weight: bold;
 }
 
 p{
   font-family: "Avenir";
+  font-weight: 500;
 }
 
 h1{
   font-family: "Avenir";
-  font-weight: 300;
+  font-weight: 100;
 }
 
 h2 {
   font-family: "Avenir";
-  font-weight: 300;
+  font-weight: 100;
+}
+
+h3 {
+  font-family: "Avenir";
+  font-weight: 100;
 }
 
 h4{
   font-family: "Avenir";
-  font-weight: 400;
+  font-weight: 100;
 }
 
 button{
   font-family: "Avenir";
+}
+
+#favordropheader {
+  font-size: 140%;
+  font-family: "Avenir";
+  font-weight: 100;
+}
+
+#favordropnavbarright {
+  font-size: 110%;
+  font-family: "Avenir";
+  font-weight: 100;
+}
+
+#container img{
+  padding-left: 150px;
+  background-color: white;
+  max-width: 100%;
+  height: 350px;
 }
 
 #header1 {

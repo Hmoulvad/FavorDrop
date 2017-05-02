@@ -5,7 +5,7 @@ import 'rxjs/add/operator/take';
 import * as firebase from 'firebase';
 import {Router} from "@angular/router";
 import {Http} from "@angular/http";
-import {UserService} from "./_services/user.service";
+import {UserService} from "./user.service";
 import Promise = firebase.Promise;
 
 @Injectable()
