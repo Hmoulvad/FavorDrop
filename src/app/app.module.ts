@@ -60,12 +60,10 @@ export const firebaseConfig = {
     ProfilePageComponent,
     EditPasswordComponent,
     BillingComponent,
-<<<<<<< HEAD
     HelpItemComponent,
-=======
     StopItemComponent,
->>>>>>> HmoulvadBranch
   ],
+
   imports: [
     BrowserModule,
     FormsModule,
