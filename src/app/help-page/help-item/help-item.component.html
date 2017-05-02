@@ -1,5 +1,5 @@
 <div class="help-item" (click)="toggleItemContent()" *ngIf="shown">
-  <div class="help-title noselect" [ngClass]="{'open': isExpanded}">
+  <div class="help-title" [ngClass]="{'open': isExpanded}">
     <div>{{isExpanded ? "-" : "+"}}</div><h2>{{helpTitle}}</h2>
   </div>
   <p [ngClass]="{'open': isExpanded}">

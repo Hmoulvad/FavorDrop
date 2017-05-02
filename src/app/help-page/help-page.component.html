@@ -1,6 +1,5 @@
 <div class="help-item-list">
-  <fd-help-item *ngFor="let helpItem of helpItems; let i = index;" [helpTitle]="helpItem.question" [shown]="(showFew)?(i<4):true">
+  <fd-help-item *ngFor="let helpItem of helpItems; let i = index;" [helpTitle]="helpItem.question">
     {{helpItem.answer}}
   </fd-help-item>
-  <a class="st-link show-all-link" *ngIf="listNotExpanded" (click)="expandList()">Show all</a>
 </div>
