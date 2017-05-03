@@ -28,7 +28,7 @@ export class OrderModuleComponent implements OnInit {
       this.Rout.navigate(['billing'])
     }
     else {
-      console.log("User is not logged in")
+      this.Rout.navigate(['user-login'])
     }
 
   }

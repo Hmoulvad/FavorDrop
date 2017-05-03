@@ -22,11 +22,11 @@ const APP_ROUTES: Routes = [
     { path:':id', component: OrderDetailComponent}
     ] },
   { path: 'intro-page', component: IntroPageComponent},
-  { path: 'billing', component: BillingComponent },
+  { path: 'billing', component: BillingComponent, canActivate: [AuthGuard] },
   { path: 'help-page', component: HelpPageComponent},
   { path: 'profile-page', component: ProfilePageComponent, canActivate: [AuthGuard] },
   { path: 'create-intro', component: CreateUserComponent},
-  { path: 'edit-password', component: EditPasswordComponent},
+  { path: 'edit-password', component: EditPasswordComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({
