@@ -11,16 +11,21 @@
       </div>
 
    <div class="col-md-12" id="buttonlogin">
-        <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Log ind på Favor Drop</button>
+        <button class="btn btn-default" type="submit" [disabled]="!f.valid">
+          <span class="badge">@</span> Login med Email
+        </button>
      <hr>
-        <button class="btn btn-primary" (click)="loginFb()" id="fb">Login med Facebook</button><br>
+        <button class="btn btn-primary" (click)="loginFb()" id="fb">
+          <span class="badge">F</span> Login med Facebook
+        </button>
         <br>
-        <button class="btn btn-danger" (click)="loginGoogle()" id="google">Login med Google</button>
         <br>
-        <span>
+        <button class="btn btn-danger" (click)="loginGoogle()" id="google">
+          <span class="badge">G</span> Login med Google
+        </button>
+        <br>
       <hr>
-    </span>
-        <a id="createUser" [routerLink]="['/create-intro']" routerLinkActive="active">No account? <strong>Create one here</strong></a>
+        <a id="createUser" [routerLink]="['/create-intro']" routerLinkActive="active">Ingen bruger? <strong> Opret dig her</strong></a>
       </div>
 
     </form>
