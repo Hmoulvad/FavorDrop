@@ -3,6 +3,7 @@ import {Stop} from "../_models/stop";
 import {OrderService} from "../_services/order.service";
 import {UserService} from "../_services/user.service";
 import {ServerService} from "../_services/server.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'fd-billing',
@@ -20,7 +21,7 @@ export class BillingComponent implements OnInit {
   city: string = 'København N';
 
 
-  constructor(private orderService: OrderService, private userService: UserService, private serverService: ServerService ) { }
+  constructor(private orderService: OrderService, private userService: UserService, private serverService: ServerService, private rout : Router) { }
 
   ngOnInit() {
     this.stops = this.orderService.getStops();
@@ -28,6 +29,7 @@ export class BillingComponent implements OnInit {
 
   onSubmit() {
     console.log("JEG HAR TRYKKET PÅ KNAPPEN")
+    this.rout.navigate(['profile-page'])
     this.orderService.sendOrderToDB()
   }
 
