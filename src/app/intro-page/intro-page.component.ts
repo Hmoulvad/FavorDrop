@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {ServerService} from "../_services/server.service";
 import {NgForm} from "@angular/forms";
 
 @Component({
@@ -13,7 +12,7 @@ export class IntroPageComponent implements OnInit {
   zipcode : string;
   valuenumber : number;
 
-  constructor(private serverService: ServerService) {
+  constructor() {
   }
 
   onSearch(form : NgForm) {
@@ -21,7 +20,7 @@ export class IntroPageComponent implements OnInit {
     this.zipcode = value.toString()
     this.valuenumber = +this.zipcode;
     console.log(this.valuenumber);
-    if (this.valuenumber > 1500 && this.valuenumber < 4000) {
+    if (this.valuenumber > 1700 && this.valuenumber < 2920) {
       this.delivery = true;
     }
     else {
@@ -33,5 +32,5 @@ export class IntroPageComponent implements OnInit {
 
   }
   ngAfterContentInit() {
-    }
+  }
 }

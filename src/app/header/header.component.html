@@ -8,12 +8,12 @@
         <li><a id="favordropheader" [routerLink]="'/'">Favor Drop</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right" id="favordropnavbarright">
-        <template [ngIf]="!authService.isAuthenticated()">
+        <template [ngIf]="!this.authService.isAuthenticated()">
           <li routerLinkActive="active"><a [routerLink]="['/user-login']">Log Ind</a></li>
         </template>
         <li routerLinkActive="active"><a [routerLink]="['/order-module']">Bestilling</a></li>
         <li routerLinkActive="active"><a [routerLink]="['/help-page']">Hjælp</a></li>
-        <template [ngIf]="authService.isAuthenticated()">
+        <template [ngIf]="this.authService.isAuthenticated()">
           <li id="profilelist" routerLinkActive="active"><a [routerLink]="['/profile-page']">Profile</a></li>
           <li><a (click)="logout()" routerLink="/user-login">Log Ud</a></li>
         </template>

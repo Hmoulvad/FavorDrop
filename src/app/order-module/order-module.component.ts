@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {OrderService} from "../_services/order.service";
 import {AuthService} from "../_services/auth.service";
 import {Router} from "@angular/router";
-import {ServerService} from "../_services/server.service";
 import {Stop} from "../_models/stop";
 
 @Component({
@@ -12,7 +11,7 @@ import {Stop} from "../_models/stop";
 })
 export class OrderModuleComponent implements OnInit {
 
-  constructor(private orderService: OrderService, private Mot: AuthService, private Rout: Router, private serverService: ServerService) { }
+  constructor(private orderService: OrderService, private Mot: AuthService, private Rout: Router) { }
 
   stops: Stop[] = [];
 

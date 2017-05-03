@@ -2,8 +2,6 @@ import {Component, OnInit, group} from '@angular/core';
 import {AuthService} from "../_services/auth.service";
 import {NgForm} from "@angular/forms";
 import {UserService} from "../_services/user.service";
-import {ServerService} from "../_services/server.service";
-
 @Component({
   selector: 'fd-profile-page',
   templateUrl: './profile-page.component.html',
@@ -17,7 +15,7 @@ export class ProfilePageComponent implements OnInit {
   by: string;
   postnummer;
 
-  constructor(private serverService: ServerService, private authService: AuthService, private userService: UserService) { }
+  constructor(private authService: AuthService, private userService: UserService) { }
 
   ngOnInit() {
     this.navn = "Fulde navn";
@@ -46,15 +44,12 @@ export class ProfilePageComponent implements OnInit {
       f.value.address,
       f.value.zip,
       f.value.city);
-    const email = f.value.email;
-    const name = f.value.name;
     console.log(this.userService.getUser());  //{ first: '', last: '' }
     this.CreateinDB(f.value);
-    //console.log(f.control.get("Navn"));
   }
 
     CreateinDB(any){
-    this.serverService.CreateUserInDB(any)
+    this.userService.CreateUserInDB(any)
       .subscribe(
         data => console.log(data))
     }

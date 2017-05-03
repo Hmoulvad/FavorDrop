@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import * as firebase from 'firebase';
-import {ServerService} from "./_services/server.service";
 import database = firebase.database;
 
 @Component({
@@ -10,7 +9,7 @@ import database = firebase.database;
 })
 export class AppComponent implements OnInit{
 
-  constructor(private serverService: ServerService) {
+  constructor() {
 
   }
 
