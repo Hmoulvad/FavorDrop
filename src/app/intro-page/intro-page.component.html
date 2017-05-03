@@ -1,6 +1,53 @@
-<div>
-  <h2 style="text-align: center">Favor Drop - Alting leveret lige til døren</h2>
-  <div id="container" style="padding-top: 50px">
-    <img src="assets/testingwithwhite.png">
+<div id="introside">
+  <h1 class="glyphicon glyphicon-tag" aria-hidden="true" style="color: white;"></h1>
+  <h1 style="text-align: center;color: white;">Favor Drop - Alting leveret lige til døren</h1>
+  <br>
+  <form class="navbar-form" role="search" (ngSubmit)="onSearch(f)" #f="ngForm">
+  <div class="form-group " id="søgning" align="center">
+    <input type="text" class="form-control" placeholder="Skriv dit post nummer" style="width: 400px" ngModel class="form-control" name="zipcode">
   </div>
+  <button type="submit" class="btn btn-default">Søg</button>
+  </form>
+  <p *ngIf="delivery" style="color: white;">Vi leverer til dit postnummer</p>
+
+  <div style="padding-top: 100px">
+    <div style="display: inline-block;padding: 40px">
+      <div style="width: 120px" align="center">
+        <div class="numberCircle">
+          <h2 class="glyphicon glyphicon-pencil" style="color:white"></h2>
+        </div>
+        <p style="color: white; padding-top: 5px">Opret din bestilling her på siden og login</p>
+      </div>
+    </div>
+    <div style="display: inline-block;padding: 40px">
+      <div style="width: 120px" align="center">
+        <div class="numberCircle">
+          <h2 class="glyphicon glyphicon-check" style="color:white"></h2>
+        </div>
+        <p style="color: white; padding-top: 5px">Systemet modtager din ordre og sender en bekræftelse</p>
+      </div>
+    </div>
+    <div style="display: inline-block;padding: 40px">
+      <div style="width: 120px" align="center">
+        <div class="numberCircle">
+          <h2 class="glyphicon glyphicon-list-alt" style="color:white"></h2>
+        </div>
+        <p style="color: white; padding-top: 5px">Vores runner henter din ordre og leverer bestillingen</p>
+      </div>
+    </div>
+    <div style="display: inline-block;padding: 40px">
+      <div style="width: 120px" align="center">
+        <div class="numberCircle">
+          <h2 class="glyphicon glyphicon-send" style="color:white"></h2>
+        </div>
+        <p style="color: white; padding-top: 5px">Du modtager din ordre og betaler ved døren</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="fullscreen-bg">
+  <video loop muted autoplay poster="img/videoframe.jpg" class="fullscreen-bg__video">
+    <source src="src/assets/mad-video.mp4" type="video/mp4">
+  </video>
 </div>
