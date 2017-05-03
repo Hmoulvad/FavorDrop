@@ -9,7 +9,6 @@ import { OrderModuleComponent } from './order-module/order-module.component';
 import { OrderListComponent } from './order-module/order-list/order-list.component';
 import { OrderItemComponent } from './order-module/order-list/order-item/order-item.component';
 import { OrderDetailComponent } from './order-module/order-detail/order-detail.component';
-import { DropdownDirective } from './dropdown.directive';
 import { OrderService} from "./_services/order.service";
 import { CreateUserComponent } from './user-login/create-intro/create-intro.component';
 import { IntroPageComponent } from './intro-page/intro-page.component';
@@ -51,7 +50,6 @@ export const firebaseConfig = {
     OrderHistoryComponent,
     OrderHistoryItemComponent,
     OrderAddComponent,
-    DropdownDirective,
     CreateUserComponent,
     IntroPageComponent,
     UserLoginComponent,
