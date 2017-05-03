@@ -5,28 +5,29 @@ import {User} from "../_models/user";
 @Injectable()
 export class UserService {
   constructor(private http: Http) { }
-
-  user : User;
+  user : User = new User();
 
   updateUser(UID: string,name: string, email: string, phone: string, address: string, zip: number, city: string) {
-    this.user = new User(UID,name,email,phone,address,zip,city);
+    this.user.UID = UID;
+    this.user.name = name;
+    this.user.email = email;
+    this.user.phone = phone;
+    this.user.address = address;
+    this.user.zip = zip;
+    this.user.city = city;
   }
-
 
   getUser() {
     return this.user;
   }
 
-  getAll() {
-    return this.http.get('/api/users', this.jwt()).map((response: Response) => response.json());
+  CreateUserInDB(user: any){
+    return this.http.put('http://52.213.91.0:8080/FavorDrop_war/clients/'+this.user.UID, JSON.stringify(user), this.jwt());
   }
 
-  create(user: User) {
-    return this.http.put('http://52.../clients/',user, this.jwt()).map((response: Response) => response.json());
-  }
-
-  update(user: User) {
-    return this.http.put('http://52.../clients/',user, this.jwt()).map((response: Response) => response.json());
+  getClient() {
+    return this.http.get('http://52.213.91.0:8080/FavorDrop_war/clients/'+this.user.UID,this.jwt())
+      .map((res:Response) => this.extractClient(res))
   }
 
   private jwt() {
@@ -37,4 +38,9 @@ export class UserService {
     }
   }
 
+  private extractClient(res: Response) {
+    let body = res.json();
+    this.user = body;
+    return body.data || { };
+  }
 }

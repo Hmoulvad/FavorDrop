@@ -1,6 +1,4 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {Subscription} from "rxjs";
-import {Stop} from "../../_models/stop";
+import {Component, OnInit} from '@angular/core';
 import {OrderService} from "../../_services/order.service";
 import {Order} from "../../_models/order";
 
@@ -10,17 +8,14 @@ import {Order} from "../../_models/order";
   styles: [require('../../../styles.css').toString()]
 })
 export class OrderHistoryComponent implements OnInit {
-
   orders: Order[];
 
   constructor(private orderService: OrderService) {
   }
 
   ngOnInit() {
-    this.orders = this.orderService.getLatestOrder();
+    this.orderService.GetOrdersFromDB();
   }
 
-  ngOnDestroy() {
-  }
 
 }

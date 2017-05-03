@@ -1,4 +1,4 @@
- <form class="col-md-5 col-md-offset-4" (ngSubmit)="onSignin(f)" #f="ngForm">
+ <form class="col-md-5 col-md-offset-4" (ngSubmit)="emailLogin(f)" #f="ngForm">
 
       <div class="form-group col-md-12" id="emailandlogin">
         <h2>
@@ -13,9 +13,9 @@
    <div class="col-md-12" id="buttonlogin">
         <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Log ind på Favor Drop</button>
      <hr>
-        <button class="btn btn-primary" (click)="loginFb()" id="fb">Login med Facebook</button><br>
+        <button class="btn btn-primary" (click)="facebookLogin()" id="fb">Login med Facebook</button><br>
         <br>
-        <button class="btn btn-danger" (click)="loginGoogle()" id="google">Login med Google</button>
+        <button class="btn btn-danger" (click)="googleLogin()" id="google">Login med Google</button>
         <br>
         <span>
       <hr>

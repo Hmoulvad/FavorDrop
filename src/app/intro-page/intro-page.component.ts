@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {ServerService} from "../_services/server.service";
 
 @Component({
   selector: 'fd-intro-page',
@@ -8,7 +7,7 @@ import {ServerService} from "../_services/server.service";
 })
 export class IntroPageComponent implements OnInit {
 
-  constructor(private serverService: ServerService) {
+  constructor() {
   }
   ngOnInit() {
 

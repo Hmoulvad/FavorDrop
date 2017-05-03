@@ -3,22 +3,27 @@ import {Stop} from "../_models/stop";
 import {Subject} from "rxjs/Subject";
 import {Order} from "../_models/order";
 import {UserService} from "./user.service";
-import {ServerService} from "./server.service";
+import {Headers, RequestOptions, Http, Response} from "@angular/http";
 
 @Injectable()
 export class OrderService {
+  constructor(private userService: UserService, private http: Http) {
+  }
+
   ordersChanged = new Subject<Stop[]>();
   priceChanged = new Subject<number>();
-  private latestOrders: Order[] = [
+  public orderHistory: Order[] = [
     new Order(this.userService.user, "13:03", [new Stop('10 Hamburgers', 'Rantzausgade 28B, 5TH 2200','Uden bolle, Wrapped i Bacon'), new Stop('Malk De Koijn Plakat', 'Rantzausgade 28B, 5TH 2200', 'To Back To From time')]),
     new Order(this.userService.user, "13:03", [new Stop('10 Hamburgers', 'Rantzausgade 28B, 5TH 2200','Uden bolle, Wrapped i Bacon'), new Stop('Malk De Koijn Plakat', 'Rantzausgade 28B, 5TH 2200', 'To Back To From time')])
   ];
-  currentOrder: Order = new Order(this.userService.user,"13:03", [new Stop('10 Hamburgers', 'Rantzausgade 28B, 5TH 2200','Uden bolle, Wrapped i Bacon'), new Stop('Malk De Koijn Plakat', 'Rantzausgade 28B, 5TH 2200', 'To Back To From time')]);
+  currentOrder: Order = new Order(
+    this.userService.user,"13:03", [
+      new Stop('10 Hamburgers', 'Rantzausgade 28B, 5TH 2200','Uden bolle, Wrapped i Bacon'),
+      new Stop('Malk De Koijn Plakat', 'Rantzausgade 28B, 5TH 2200', 'To Back To From time')
+    ]
+  );
 
   private price : number;
-
-  constructor(private userService: UserService, private serverService : ServerService) {
-  }
 
   updatePrice() {
     this.price = this.currentOrder.stops.length * 80;
@@ -49,17 +54,35 @@ export class OrderService {
     this.updatePrice();
   }
 
-  // 1. Put request til at oprette ordre.
-
   sendOrderToDB() {
     this.currentOrder.user = this.userService.user;
-    this.serverService.CreateOrderInDB(this.currentOrder);
+    //this.serverService.CreateOrderInDB(this.currentOrder);
     console.log(this.currentOrder);
   }
 
-  getLatestOrder() {
-    //this.serverService.GetOrdersFromDB();
-    return this.latestOrders;
+  getOrderHistory() {
+    return this.orderHistory;
   }
 
+
+  CreateOrderInDB(order: any){
+    return this.http.post('http://52.213.91.0:8080/FavorDrop_war/clients/'+ this.userService.user.UID +' /orders/new/', JSON.stringify(order), this.jwt());
+  }
+
+  GetOrdersFromDB() {
+    return this.http.get('http://52.213.91.0:8080/FavorDrop_war/client/'+ this.userService.user.UID + '/orders',this.jwt())
+      .map((res:Response) => this.extractOrders(res))
+  }
+
+  private jwt() {
+    let headers = new Headers({'Authorization': 'Bearer ' + localStorage.getItem('currentUser')});
+    let options = new RequestOptions({headers: headers});
+    return options;
+  }
+
+  private extractOrders(res: Response) {
+    let body = res.json();
+    this.orderHistory = body;
+    return body.data || { };
+  }
 }

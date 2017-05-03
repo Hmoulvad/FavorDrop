@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {Stop} from "../_models/stop";
 import {OrderService} from "../_services/order.service";
 import {UserService} from "../_services/user.service";
-import {ServerService} from "../_services/server.service";
 
 @Component({
   selector: 'fd-billing',
@@ -20,7 +19,7 @@ export class BillingComponent implements OnInit {
   city: string = 'København N';
 
 
-  constructor(private orderService: OrderService, private userService: UserService, private serverService: ServerService ) { }
+  constructor(private orderService: OrderService, private userService: UserService) { }
 
   ngOnInit() {
     this.stops = this.orderService.getStops();

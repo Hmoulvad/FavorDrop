@@ -1,13 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from "@angular/forms";
 import {AuthService} from "../_services/auth.service";
-import {NgForm} from "@angular/forms";
-import {Router} from "@angular/router";
-import Promise = firebase.Promise;
-import * as firebase from "firebase";
-import {UserService} from "../_services/user.service";
-import {Response} from "@angular/http";
-import {ServerService} from "../_services/server.service";
-import {any} from "codelyzer/util/function";
 
 @Component({
   selector: 'fd-user-login',
@@ -15,49 +8,21 @@ import {any} from "codelyzer/util/function";
   styles: [require('../../styles.css').toString()]
 })
 export class UserLoginComponent implements OnInit{
-  dave: string;
 
-  constructor(private authService: AuthService, private  rout: Router, private backend: UserService, private serverService: ServerService) {
+  constructor(private authService: AuthService) {
     }
     ngOnInit(){
     }
-  onSignin(form: NgForm) {
-    const email = form.value.email;
-    const password = form.value.password;
-    this.authService.signinUser(email, password);
+
+  emailLogin(form: NgForm) {
+    this.authService.emailAuthentication(form.value.email, form.value.password);
   }
 
-  loginFb() {
-    let provider = new firebase.auth.FacebookAuthProvider;
-    provider.addScope("email");
-    firebase.auth().signInWithPopup(provider).then(function(result) {
-      firebase.auth().currentUser.getToken(true).then(function(idToken) {
-        localStorage.setItem('currentUser',idToken);
-        this.onGet();
-        this.backend.name= firebase.auth().currentUser.displayName;
-        this.backend.email = firebase.auth().currentUser.providerData[0].email;
-        this.rout.navigate(['/']);
-      }.bind(this));
-    }.bind(this));
+  facebookLogin() {
+    this.authService.facebookAuthentication();
   }
 
-  loginGoogle() {
-    let provider = new firebase.auth.GoogleAuthProvider;
-    firebase.auth().signInWithPopup(provider).then(function(result) {
-      firebase.auth().currentUser.getToken(true).then(function(idToken) {
-        localStorage.setItem('currentUser',idToken);
-        this.backend.name= firebase.auth().currentUser.displayName;
-        this.backend.email = firebase.auth().currentUser.providerData[0].email;
-        this.rout.navigate(['/']);
-      }.bind(this));
-    }.bind(this));
-  }
-
-  onGet() {
-    this.serverService.GetClientInfo()
-      .subscribe();
-  }
-  test(){
-      console.log(this.backend.user.email);
+  googleLogin() {
+    this.authService.googleAuthentication();
   }
 }
