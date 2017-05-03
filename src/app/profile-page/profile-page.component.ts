@@ -44,11 +44,8 @@ export class ProfilePageComponent implements OnInit {
       f.value.address,
       f.value.zip,
       f.value.city);
-    const email = f.value.email;
-    const name = f.value.name;
     console.log(this.userService.getUser());  //{ first: '', last: '' }
     this.CreateinDB(f.value);
-    //console.log(f.control.get("Navn"));
   }
 
     CreateinDB(any){

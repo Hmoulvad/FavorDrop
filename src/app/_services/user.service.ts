@@ -31,11 +31,9 @@ export class UserService {
   }
 
   private jwt() {
-    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    if (currentUser && currentUser.token) {
-      let headers = new Headers({ 'Authorization': 'Bearer ' + currentUser.token });
-      return new RequestOptions({ headers: headers });
-    }
+    let headers = new Headers({'Authorization': 'Bearer ' + localStorage.getItem('currentUser')});
+    let options = new RequestOptions({headers: headers});
+    return options;
   }
 
   private extractClient(res: Response) {
