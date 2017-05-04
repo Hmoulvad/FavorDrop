@@ -5,17 +5,19 @@ import 'rxjs/add/operator/take';
 import * as firebase from 'firebase';
 import {Router} from "@angular/router";
 import Promise = firebase.Promise;
-import {UserService} from "./user.service";
 
 @Injectable()
 export class AuthService {
-  constructor(private  router: Router, private userService: UserService) {}
+  constructor(private  router: Router) {}
+
+  getAuth() {
+    return firebase.auth();
+  }
 
   emailAuthentication(email: string, password: string) {
     firebase.auth().signInWithEmailAndPassword(email,password).then(function(success) {
       firebase.auth().currentUser.getToken(true).then(function(idToken) {
-        localStorage.setItem('currentUser',idToken);
-        this.userService.user.UID = firebase.auth().currentUser.uid;
+        sessionStorage.setItem('currentUser',idToken);
         this.router.navigate(['/']);
       }.bind(this))
     }.bind(this), function (error) {
@@ -38,12 +40,10 @@ export class AuthService {
     provider.addScope("email");
     firebase.auth().signInWithPopup(provider).then(function(result) {
       firebase.auth().currentUser.getToken(true).then(function(idToken) {
-        localStorage.setItem('currentUser',idToken);
-        this.userService.user.UID = firebase.auth().currentUser.uid;
-        this.userService.user.name= firebase.auth().currentUser.displayName;
-        this.userService.user.email = firebase.auth().currentUser.providerData[0].email;
+        sessionStorage.setItem('currentUser',idToken);
         this.router.navigate(['/']);
       }.bind(this));
+
     }.bind(this));
   }
 
@@ -51,30 +51,22 @@ export class AuthService {
     let provider = new firebase.auth.GoogleAuthProvider;
     firebase.auth().signInWithPopup(provider).then(function(result) {
       firebase.auth().currentUser.getToken(true).then(function(idToken) {
-        localStorage.setItem('currentUser',idToken);
-        this.userService.user.UID = firebase.auth().currentUser.uid;
-        this.userService.user.name= firebase.auth().currentUser.displayName;
-        this.userService.user.email = firebase.auth().currentUser.providerData[0].email;
+        sessionStorage.setItem('currentUser',idToken);
         this.router.navigate(['/']);
       }.bind(this));
     }.bind(this));
   }
 
   isAuthenticated() {
-    if (localStorage.getItem('currentUser') != null) {
+    if (sessionStorage.getItem('currentUser') != null) {
       return true;
     }
     return false;
   }
 
   logout(){
-    localStorage.removeItem('currentUser');
+    sessionStorage.removeItem('currentUser');
     firebase.auth().signOut();
   }
-
-  getUserID(){
-    return firebase.auth().currentUser.uid;
-  }
-
 }
 
