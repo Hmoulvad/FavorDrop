@@ -4,7 +4,7 @@ export class User {
   email: string;
   phone: string;
   address: string;
-  zip: number;
+  zip: string;
   city: string;
 
   constructor() {}

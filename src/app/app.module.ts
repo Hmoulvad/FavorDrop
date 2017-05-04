@@ -26,6 +26,7 @@ import { HelpItemComponent } from './help-page/help-item/help-item.component';
 import { OrderHistoryItemComponent } from "./profile-page/orderhistory/order-item-history/order-history-item.component";
 import { OrderHistoryComponent } from "./profile-page/orderhistory/order-history.component";
 import { StopItemComponent } from './profile-page/orderhistory/order-item-history/stop-item/stop-item.component';
+import {AgmCoreModule} from "angular2-google-maps/core";
 
 
 export const firebaseConfig = {
@@ -63,7 +64,10 @@ export const firebaseConfig = {
     FormsModule,
     HttpModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    routing
+    routing,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBoy6D6WrByFtvwa6KwOxx5MZ8fPIAxNkY'
+    })
   ],
   providers: [UserService, OrderService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
