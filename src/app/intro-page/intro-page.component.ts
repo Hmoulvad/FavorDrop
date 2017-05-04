@@ -8,7 +8,7 @@ import {NgForm} from "@angular/forms";
 })
 export class IntroPageComponent implements OnInit {
 
-  delivery : boolean = false;
+  delivery : string;
   zipcode : string;
   valuenumber : number;
 
@@ -21,10 +21,10 @@ export class IntroPageComponent implements OnInit {
     this.valuenumber = +this.zipcode;
     console.log(this.valuenumber);
     if (this.valuenumber > 1700 && this.valuenumber < 2920) {
-      this.delivery = true;
+      this.delivery = "Vi leverer til dit post nummer";
     }
     else {
-      this.delivery = false;
+      this.delivery = "Vi leverer ikke til dit post nummer";
     }
   }
 

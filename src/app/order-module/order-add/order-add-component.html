@@ -10,7 +10,9 @@
             type="text"
             id="order"
             name="order"
-            required minlength="3"
+            required="required"
+            maxlength="25"
+            minlength="2"
             class="form-control"
             ngModel>
         </div>
@@ -21,7 +23,9 @@
             type="text"
             id="address"
             name="address"
-            required minlength="5"
+            required="required"
+            minlength="5"
+            maxlength="40"
             class="form-control"
             ngModel>
         </div>
@@ -30,13 +34,14 @@
           <label for="comment">Kommentar</label>
           <input
             type="text"
+            maxlength="30"
             name="comment"
             id="comment"
             class="form-control"
             ngModel>
         </div>
         </div>
-        <button class="btn btn-primary" type="submit" >Tilføj stop</button>
+        <button class="btn btn-primary" type="submit">Tilføj stop</button>
       </div>
     </form>
   </div>
