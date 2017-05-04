@@ -58,7 +58,7 @@ export class OrderService {
     this.currentOrder.user = this.userService.user;
     //this.serverService.CreateOrderInDB(this.currentOrder);
     console.log(this.currentOrder);
-    this.currentOrder = null;
+    this.currentOrder = new Order(this.userService.user,"",[]);
   }
 
   getOrderHistory() {

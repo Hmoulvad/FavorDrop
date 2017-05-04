@@ -15,7 +15,6 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { routing } from "./app.routing";
 import { AuthService } from "./_services/auth.service";
 import { AngularFireModule } from "angularfire2";
-import { OrderStartComponent } from './order-module/order-start.component';
 import { HelpPageComponent } from './help-page/help-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { EditPasswordComponent } from './profile-page/edit-password/edit-password.component';
@@ -51,7 +50,6 @@ export const firebaseConfig = {
     CreateUserComponent,
     IntroPageComponent,
     UserLoginComponent,
-    OrderStartComponent,
     HelpPageComponent,
     ProfilePageComponent,
     EditPasswordComponent,
