@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {UserService} from "../_services/user.service";
 import {User} from "../_models/user";
+import {AuthService} from "../_services/auth.service";
 @Component({
   selector: 'fd-profile-page',
   templateUrl: './profile-page.component.html',
@@ -15,15 +16,28 @@ export class ProfilePageComponent implements OnInit {
   by: string;
   postnummer: string;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private authService: AuthService) { }
 
   ngOnInit() {
     this.userService.getClient().subscribe(
       user => {
-        this.userService.user = user;
-        this.updateForm();
-        console.log("getUser: " + JSON.stringify(user));
-        console.log("userService object: + " + JSON.stringify(this.userService.user));
+        if (user) {
+          this.userService.user = user;
+          this.updateForm();
+        }
+        else {
+          console.log("No profile in database. Loading information from authentication provider.");
+          this.userService.user = new User();
+          this.userService.user.UID = this.authService.getAuth().currentUser.uid;
+          if (this.authService.getAuth().currentUser.providerData[0].email)
+            this.userService.user.email = this.authService.getAuth().currentUser.providerData[0].email;
+          else
+            this.userService.user.email = this.authService.getAuth().currentUser.email;
+          if (this.authService.getAuth().currentUser.providerData[0].displayName)
+            this.userService.user.name = this.authService.getAuth().currentUser.providerData[0].displayName;
+          this.updateForm();
+          console.log(JSON.stringify(this.userService.user));
+        }
       }
     )
   }

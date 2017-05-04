@@ -4,7 +4,7 @@ import {User} from "../_models/user";
 
 @Injectable()
 export class UserService {
-  constructor(private http: Http) { }
+  constructor(private http: Http) {}
   user : User = new User();
 
   updateUser(name: string, email: string, phone: string, address: string, zip: string, city: string) {
@@ -37,11 +37,5 @@ export class UserService {
     let headers = new Headers({'Authorization': 'Bearer ' + localStorage.getItem('currentUser')});
     let options = new RequestOptions({headers: headers});
     return options;
-  }
-
-  private extractClient(res: Response) {
-    let body = res.json();
-    this.user = body;
-    return body.data || { };
   }
 }
