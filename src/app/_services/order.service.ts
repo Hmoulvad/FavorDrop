@@ -13,13 +13,13 @@ export class OrderService {
   ordersChanged = new Subject<Stop[]>();
   priceChanged = new Subject<number>();
   public orderHistory: Order[] = [
-    new Order(this.userService.user, "13:03", [new Stop('10 Hamburgers', 'Rantzausgade 28B, 5TH 2200','Uden bolle, Wrapped i Bacon'), new Stop('Malk De Koijn Plakat', 'Rantzausgade 28B, 5TH 2200', 'To Back To From time')]),
-    new Order(this.userService.user, "13:03", [new Stop('10 Hamburgers', 'Rantzausgade 28B, 5TH 2200','Uden bolle, Wrapped i Bacon'), new Stop('Malk De Koijn Plakat', 'Rantzausgade 28B, 5TH 2200', 'To Back To From time')])
+    //new Order(this.userService.user, "13:03", [new Stop('10 Hamburgers', 'Rantzausgade 28B, 5TH 2200','Uden bolle, Wrapped i Bacon'), new Stop('Malk De Koijn Plakat', 'Rantzausgade 28B, 5TH 2200', 'To Back To From time')]),
+    //new Order(this.userService.user, "13:03", [new Stop('10 Hamburgers', 'Rantzausgade 28B, 5TH 2200','Uden bolle, Wrapped i Bacon'), new Stop('Malk De Koijn Plakat', 'Rantzausgade 28B, 5TH 2200', 'To Back To From time')])
   ];
   currentOrder: Order = new Order(
     this.userService.user,"13:03", [
-      new Stop('10 Hamburgers', 'Rantzausgade 28B, 5TH 2200','Uden bolle, Wrapped i Bacon'),
-      new Stop('Malk De Koijn Plakat', 'Rantzausgade 28B, 5TH 2200', 'To Back To From time')
+      //new Stop('10 Hamburgers', 'Rantzausgade 28B, 5TH 2200','Uden bolle, Wrapped i Bacon'),
+      //new Stop('Malk De Koijn Plakat', 'Rantzausgade 28B, 5TH 2200', 'To Back To From time')
     ]
   );
 
@@ -56,9 +56,9 @@ export class OrderService {
 
   sendOrderToDB() {
     this.currentOrder.user = this.userService.user;
-    //this.serverService.CreateOrderInDB(this.currentOrder);
     console.log(this.currentOrder);
-    this.currentOrder = null;
+    this.CreateOrderInDB(this.currentOrder)
+    this.currentOrder = new Order(this.userService.user,"",[]);
   }
 
   getOrderHistory() {
@@ -76,7 +76,7 @@ export class OrderService {
   }
 
   private jwt() {
-    let headers = new Headers({'Authorization': 'Bearer ' + localStorage.getItem('currentUser')});
+    let headers = new Headers({'Authorization': 'Bearer ' + sessionStorage.getItem('currentUser')});
     let options = new RequestOptions({headers: headers});
     return options;
   }

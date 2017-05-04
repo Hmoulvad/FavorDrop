@@ -10,7 +10,6 @@ import {ProfilePageComponent} from "./profile-page/profile-page.component";
 import {AuthGuard} from "./_guards/auth.guard";
 import {EditPasswordComponent} from "./profile-page/edit-password/edit-password.component";
 import {BillingComponent} from "./billing/billing.component";
-import {OrderStartComponent} from "./order-module/order-start.component";
 import {OrderDetailComponent} from "./order-module/order-detail/order-detail.component";
 
 const APP_ROUTES: Routes = [
@@ -18,7 +17,6 @@ const APP_ROUTES: Routes = [
   { path: '', redirectTo: '/intro-page', pathMatch: 'full'},
   { path: 'user-login', component: UserLoginComponent},
   { path: 'order-module', component: OrderModuleComponent, children: [
-    { path:'', component: OrderStartComponent},
     { path:':id', component: OrderDetailComponent}
     ] },
   { path: 'intro-page', component: IntroPageComponent},

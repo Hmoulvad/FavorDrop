@@ -92,12 +92,6 @@ button{
   height: 120px;
 }
 
-#fb {
-  background-size: 150px;
-  size: 150px;
-  position: fixed;
-}
-
 #orderlistprofile {
   padding-left: 100px;
 }
@@ -176,7 +170,7 @@ button{
   font: 32px Arial, sans-serif;
 }
 .sebm-google-map-container {
-  height: 250px;
+  height: 240px;
   width: 400px;
   position: relative;
 }
