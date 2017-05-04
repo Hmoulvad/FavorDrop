@@ -56,8 +56,8 @@ export class OrderService {
 
   sendOrderToDB() {
     this.currentOrder.user = this.userService.user;
-    //this.serverService.CreateOrderInDB(this.currentOrder);
     console.log(this.currentOrder);
+    this.CreateOrderInDB(this.currentOrder)
     this.currentOrder = new Order(this.userService.user,"",[]);
   }
 
@@ -76,7 +76,7 @@ export class OrderService {
   }
 
   private jwt() {
-    let headers = new Headers({'Authorization': 'Bearer ' + localStorage.getItem('currentUser')});
+    let headers = new Headers({'Authorization': 'Bearer ' + sessionStorage.getItem('currentUser')});
     let options = new RequestOptions({headers: headers});
     return options;
   }

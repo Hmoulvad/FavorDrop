@@ -22,7 +22,7 @@ export class AuthService {
       }.bind(this))
     }.bind(this), function (error) {
       console.log(error.message);
-      localStorage.removeItem('currentUser');
+      sessionStorage.removeItem('currentUser');
     });
   }
 
@@ -59,8 +59,10 @@ export class AuthService {
 
   isAuthenticated() {
     if (sessionStorage.getItem('currentUser') != null) {
+      console.log("YO")
       return true;
     }
+    console.log("NÆH")
     return false;
   }
 
