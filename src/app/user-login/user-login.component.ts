@@ -19,7 +19,7 @@ export class UserLoginComponent implements OnInit{
 
   emailLogin(form: NgForm) {
     this.authService.emailAuthentication(form.value.email, form.value.password)
-    if (localStorage.getItem('currentUser') == null) {
+    if (!this.authService.isAuthenticated()) {
        this.loginInvalid = true;
     }
   }
