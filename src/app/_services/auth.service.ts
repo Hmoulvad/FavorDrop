@@ -71,10 +71,5 @@ export class AuthService {
     localStorage.removeItem('currentUser');
     firebase.auth().signOut();
   }
-
-  getUserID(){
-    return firebase.auth().currentUser.uid;
-  }
-
 }
 

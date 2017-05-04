@@ -7,27 +7,30 @@ export class UserService {
   constructor(private http: Http) { }
   user : User = new User();
 
-  updateUser(UID: string,name: string, email: string, phone: string, address: string, zip: number, city: string) {
-    this.user.UID = UID;
-    this.user.name = name;
-    this.user.email = email;
-    this.user.phone = phone;
-    this.user.address = address;
-    this.user.zip = zip;
-    this.user.city = city;
+  updateUser(name: string, email: string, phone: string, address: string, zip: string, city: string) {
+    if (name)
+      this.user.name = name;
+    if (email)
+      this.user.email = email;
+    if (phone)
+      this.user.phone = phone;
+    if (address)
+      this.user.address = address;
+    if (zip)
+      this.user.zip = zip;
+    if (city)
+      this.user.city = city;
+    console.log(JSON.stringify(this.user));
+    this.CreateUserInDB();
   }
 
-  getUser() {
-    return this.user;
-  }
-
-  CreateUserInDB(user: any){
-    return this.http.put('http://52.213.91.0:8080/FavorDrop_war/clients/'+this.user.UID, JSON.stringify(user), this.jwt());
+  CreateUserInDB(){
+    return this.http.put('http://52.213.91.0:8080/FavorDrop_war_no_auth/clients/'+this.user.UID, JSON.stringify(this.user), this.jwt()).subscribe();
   }
 
   getClient() {
-    return this.http.get('http://52.213.91.0:8080/FavorDrop_war/clients/'+this.user.UID,this.jwt())
-      .map((res:Response) => this.extractClient(res))
+    return this.http.get('http://52.213.91.0:8080/FavorDrop_war_no_auth/clients/'+this.user.UID,this.jwt())
+      .map((res:Response) => this.user = res.json());
   }
 
   private jwt() {

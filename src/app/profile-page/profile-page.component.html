@@ -5,31 +5,29 @@
       </h2>
       <div>
         <label for="name">Fulde navn</label>
-        <input type="text" id="name" name="name" ngModel class="form-control" placeholder="{{navn}}">
+        <input type="text" id="name" name="name" ngModel class="form-control" placeholder="Indtast navn" value="{{navn}}">
 
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" ngModel class="form-control" placeholder="{{email}}">
+        <input type="email" id="email" name="email" ngModel class="form-control" placeholder="Indtast e-mail" value="{{email}}">
 
         <label for="phone">Telefon</label>
-        <input type="phone" id="phone" name="phone" ngModel class="form-control" placeholder="{{telefon}}">
+        <input type="phone" id="phone" name="phone" ngModel class="form-control" placeholder="NUMMER!?" value="{{phone}}">
         <span>
       <hr>
       </span>
         <h2>
           Leverings oplysninger
         </h2>
-        <label for="orderaddress">Leverings adresse</label>
-        <input type="address" id="orderaddress" name="address" ngModel class="form-control" placeholder="{{adresse}}">
-
-        <label for="billingaddress">Fakturerings adresse</label>
-        <input type="address" id="billingaddress" name="address" ngModel class="form-control" placeholder="{{adresse}}">
-
-        <label for="city">By/Område</label>
-        <input type="city" id="city" name="city" ngModel class="form-control" placeholder="{{by}}">
+        <label for="orderaddress">Adresse</label>
+        <input type="address" id="orderaddress" name="address" ngModel class="form-control" placeholder="Indtast adresse" value="{{adresse}}">
 
         <label for="zip">Postnummer</label>
-        <input type="zip" id="zip" name="zip" ngModel class="form-control" placeholder="{{postnummer}}">
+        <input type="zip" id="zip" name="zip" ngModel class="form-control" placeholder="Indtast postnummer" value="{{postnummer}}">
+
+        <label for="city">By</label>
+        <input type="city" id="city" name="city" ngModel class="form-control" placeholder="Indtast bynavn" value="{{by}}">
         <br>
+
         <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Gem ændringer</button>
       </div>
     </form>

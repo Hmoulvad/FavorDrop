@@ -1,7 +1,7 @@
-import {Component, OnInit, group} from '@angular/core';
-import {AuthService} from "../_services/auth.service";
+import {Component, OnInit} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {UserService} from "../_services/user.service";
+import {User} from "../_models/user";
 @Component({
   selector: 'fd-profile-page',
   templateUrl: './profile-page.component.html',
@@ -11,47 +11,45 @@ export class ProfilePageComponent implements OnInit {
   navn: string;
   email: string;
   adresse: string;
-  telefon: string;
+  phone: string;
   by: string;
-  postnummer;
+  postnummer: string;
 
-  constructor(private authService: AuthService, private userService: UserService) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.navn = "Fulde navn";
-    this.email= "Email";
-    this.adresse = "Adresse";
-    this.telefon = "Telefonnummer";
-    this.by= "By";
-    this.postnummer= "Postnummer";
+    this.userService.getClient().subscribe(
+      user => {
+        this.userService.user = user;
+        this.updateForm();
+        console.log("getUser: " + JSON.stringify(user));
+        console.log("userService object: + " + JSON.stringify(this.userService.user));
+      }
+    )
+  }
 
-    if(this.userService.user != null) {
-    this.navn  = this.userService.user.name;
-    this.email = this.userService.user.email;
-    this.adresse = this.userService.user.address;
-    this.telefon = this.userService.user.phone;
-    this.by = this.userService.user.city;
-    this.postnummer = this.userService.user.phone;
-    }
+  updateForm() {
+    if (this.userService.user.name)
+      this.navn = this.userService.user.name;
+    if (this.userService.user.email)
+      this.email = this.userService.user.email;
+    if (this.userService.user.address)
+      this.adresse = this.userService.user.address;
+    if (this.userService.user.phone)
+      this.phone = this.userService.user.phone;
+    if (this.userService.user.city)
+      this.by = this.userService.user.city;
+    if (this.userService.user.zip)
+      this.postnummer = this.userService.user.zip;
   }
 
   onSubmit(f: NgForm) {
     this.userService.updateUser(
-      this.authService.getUserID(),
       f.value.name,
       f.value.email,
       f.value.phone,
       f.value.address,
       f.value.zip,
       f.value.city);
-    console.log(this.userService.getUser());  //{ first: '', last: '' }
-    this.CreateinDB(f.value);
   }
-
-    CreateinDB(any){
-    this.userService.CreateUserInDB(any)
-      .subscribe(
-        data => console.log(data))
-    }
-
 }
