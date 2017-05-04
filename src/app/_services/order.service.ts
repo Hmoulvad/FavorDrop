@@ -13,13 +13,13 @@ export class OrderService {
   ordersChanged = new Subject<Stop[]>();
   priceChanged = new Subject<number>();
   public orderHistory: Order[] = [
-    new Order(this.userService.user, "13:03", [new Stop('10 Hamburgers', 'Rantzausgade 28B, 5TH 2200','Uden bolle, Wrapped i Bacon'), new Stop('Malk De Koijn Plakat', 'Rantzausgade 28B, 5TH 2200', 'To Back To From time')]),
-    new Order(this.userService.user, "13:03", [new Stop('10 Hamburgers', 'Rantzausgade 28B, 5TH 2200','Uden bolle, Wrapped i Bacon'), new Stop('Malk De Koijn Plakat', 'Rantzausgade 28B, 5TH 2200', 'To Back To From time')])
+    //new Order(this.userService.user, "13:03", [new Stop('10 Hamburgers', 'Rantzausgade 28B, 5TH 2200','Uden bolle, Wrapped i Bacon'), new Stop('Malk De Koijn Plakat', 'Rantzausgade 28B, 5TH 2200', 'To Back To From time')]),
+    //new Order(this.userService.user, "13:03", [new Stop('10 Hamburgers', 'Rantzausgade 28B, 5TH 2200','Uden bolle, Wrapped i Bacon'), new Stop('Malk De Koijn Plakat', 'Rantzausgade 28B, 5TH 2200', 'To Back To From time')])
   ];
   currentOrder: Order = new Order(
     this.userService.user,"13:03", [
-      new Stop('10 Hamburgers', 'Rantzausgade 28B, 5TH 2200','Uden bolle, Wrapped i Bacon'),
-      new Stop('Malk De Koijn Plakat', 'Rantzausgade 28B, 5TH 2200', 'To Back To From time')
+      //new Stop('10 Hamburgers', 'Rantzausgade 28B, 5TH 2200','Uden bolle, Wrapped i Bacon'),
+      //new Stop('Malk De Koijn Plakat', 'Rantzausgade 28B, 5TH 2200', 'To Back To From time')
     ]
   );
 
