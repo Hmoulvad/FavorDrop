@@ -58,6 +58,8 @@ export class ProfilePageComponent implements OnInit {
   }
 
   onSubmit(f: NgForm) {
+
+    if (f.valid)
     this.userService.updateUser(
       f.value.name,
       f.value.email,
