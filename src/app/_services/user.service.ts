@@ -34,7 +34,7 @@ export class UserService {
   }
 
   private jwt() {
-    let headers = new Headers({'Authorization': 'Bearer ' + localStorage.getItem('currentUser')});
+    let headers = new Headers({'Authorization': 'Bearer ' + sessionStorage.getItem('currentUser')});
     let options = new RequestOptions({headers: headers});
     return options;
   }
