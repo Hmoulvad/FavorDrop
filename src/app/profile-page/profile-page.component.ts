@@ -21,9 +21,11 @@ export class ProfilePageComponent implements OnInit {
   ngOnInit() {
     this.userService.getClient().subscribe(
       user => {
+        console.log(JSON.stringify(user));
         if (user) {
           this.userService.user = user;
           this.updateForm();
+          this.userService.updateUserUI();
         }
         else {
           console.log("No profile in database. Loading information from authentication provider.");
@@ -36,25 +38,20 @@ export class ProfilePageComponent implements OnInit {
           if (this.authService.getAuth().currentUser.providerData[0].displayName)
             this.userService.user.name = this.authService.getAuth().currentUser.providerData[0].displayName;
           this.updateForm();
-          console.log(JSON.stringify(this.userService.user));
+          this.userService.updateUserUI();
+          //console.log(JSON.stringify(this.userService.user));
         }
       }
     )
   }
 
   updateForm() {
-    if (this.userService.user.name)
-      this.navn = this.userService.user.name;
-    if (this.userService.user.email)
-      this.email = this.userService.user.email;
-    if (this.userService.user.address)
-      this.adresse = this.userService.user.address;
-    if (this.userService.user.phone)
-      this.phone = this.userService.user.phone;
-    if (this.userService.user.city)
-      this.by = this.userService.user.city;
-    if (this.userService.user.zip)
-      this.postnummer = this.userService.user.zip;
+    this.navn = this.userService.user.name;
+    this.email = this.userService.user.email;
+    this.adresse = this.userService.user.address;
+    this.phone = this.userService.user.phone;
+    this.by = this.userService.user.city;
+    this.postnummer = this.userService.user.zip;
   }
 
   onSubmit(f: NgForm) {

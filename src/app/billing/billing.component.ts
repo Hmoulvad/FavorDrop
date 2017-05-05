@@ -29,7 +29,7 @@ export class BillingComponent implements OnInit {
   onSubmit() {
     console.log("JEG HAR TRYKKET PÅ KNAPPEN")
     this.router.navigate(['profile-page'])
-    this.orderService.sendOrderToDB()
+    this.orderService.sendOrderToDB();
   }
 
 }

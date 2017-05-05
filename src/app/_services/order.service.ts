@@ -57,7 +57,7 @@ export class OrderService {
   sendOrderToDB() {
     this.currentOrder.user = this.userService.user;
     console.log(this.currentOrder);
-    this.CreateOrderInDB(this.currentOrder)
+    this.CreateOrderInDB(this.currentOrder);
     this.currentOrder = new Order(this.userService.user,"",[]);
   }
 
@@ -67,7 +67,8 @@ export class OrderService {
 
 
   CreateOrderInDB(order: any){
-    return this.http.post('http://52.213.91.0:8080/FavorDrop_war/clients/'+ this.userService.user.UID +' /orders/new/', JSON.stringify(order), this.jwt());
+    console.log(JSON.stringify(order));
+    return this.http.post('http://52.213.91.0:8080/FavorDrop_war/clients/'+ this.userService.user.UID +'/orders/new/', JSON.stringify(order), this.jwt()).subscribe();
   }
 
   GetOrdersFromDB() {
@@ -76,7 +77,7 @@ export class OrderService {
   }
 
   private jwt() {
-    let headers = new Headers({'Authorization': 'Bearer ' + sessionStorage.getItem('currentUser')});
+    let headers = new Headers({'Authorization': 'Bearer ' + sessionStorage.getItem('currentUser'), 'Content-Type': 'application/json'});
     let options = new RequestOptions({headers: headers});
     return options;
   }
