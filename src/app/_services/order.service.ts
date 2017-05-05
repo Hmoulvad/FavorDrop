@@ -8,21 +8,20 @@ import {Headers, RequestOptions, Http, Response} from "@angular/http";
 @Injectable()
 export class OrderService {
   constructor(private userService: UserService, private http: Http) {
+
   }
 
   ordersChanged = new Subject<Stop[]>();
   priceChanged = new Subject<number>();
   public orderHistory: Order[] = [
-    //new Order(this.userService.user, "13:03", [new Stop('10 Hamburgers', 'Rantzausgade 28B, 5TH 2200','Uden bolle, Wrapped i Bacon'), new Stop('Malk De Koijn Plakat', 'Rantzausgade 28B, 5TH 2200', 'To Back To From time')]),
-    //new Order(this.userService.user, "13:03", [new Stop('10 Hamburgers', 'Rantzausgade 28B, 5TH 2200','Uden bolle, Wrapped i Bacon'), new Stop('Malk De Koijn Plakat', 'Rantzausgade 28B, 5TH 2200', 'To Back To From time')])
+
   ];
   currentOrder: Order = new Order(
-    this.userService.user,"13:03", [
-      //new Stop('10 Hamburgers', 'Rantzausgade 28B, 5TH 2200','Uden bolle, Wrapped i Bacon'),
-      //new Stop('Malk De Koijn Plakat', 'Rantzausgade 28B, 5TH 2200', 'To Back To From time')
+    "", [
     ]
   );
 
+  private timeStamp : string;
   private price : number;
 
   updatePrice() {
@@ -54,11 +53,22 @@ export class OrderService {
     this.updatePrice();
   }
 
+  getTimeStamp() {
+    this.timeStamp = new Date().getHours().toString() + ":" +new Date().getMinutes().toString()+ " "+new Date().getDay().toString()+"/"+new Date().getMonth().toString()+"/"+new Date().getFullYear().toString()
+    console.log(this.timeStamp)
+    return this.timeStamp;
+  }
+
   sendOrderToDB() {
-    this.currentOrder.user = this.userService.user;
     console.log(this.currentOrder);
+<<<<<<< HEAD
     this.CreateOrderInDB(this.currentOrder);
     this.currentOrder = new Order(this.userService.user,"",[]);
+=======
+    this.currentOrder.time = this.getTimeStamp();
+    this.CreateOrderInDB(this.currentOrder)
+    this.currentOrder = new Order("",[]);
+>>>>>>> HmoulvadBranch
   }
 
   getOrderHistory() {
@@ -67,7 +77,10 @@ export class OrderService {
 
 
   CreateOrderInDB(order: any){
+<<<<<<< HEAD
     console.log(JSON.stringify(order));
+=======
+>>>>>>> HmoulvadBranch
     return this.http.post('http://52.213.91.0:8080/FavorDrop_war/clients/'+ this.userService.user.UID +'/orders/new/', JSON.stringify(order), this.jwt()).subscribe();
   }
 
@@ -77,7 +90,11 @@ export class OrderService {
   }
 
   private jwt() {
+<<<<<<< HEAD
     let headers = new Headers({'Authorization': 'Bearer ' + sessionStorage.getItem('currentUser'), 'Content-Type': 'application/json'});
+=======
+    let headers = new Headers({'Authorization': 'Bearer ' + sessionStorage.getItem('currentUser'), 'Content-Type' : 'application/json'});
+>>>>>>> HmoulvadBranch
     let options = new RequestOptions({headers: headers});
     return options;
   }
