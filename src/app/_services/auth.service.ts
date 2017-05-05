@@ -59,10 +59,8 @@ export class AuthService {
 
   isAuthenticated() {
     if (sessionStorage.getItem('currentUser') != null) {
-      console.log("YO")
       return true;
     }
-    console.log("NÆH")
     return false;
   }
 
