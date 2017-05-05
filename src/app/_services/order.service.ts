@@ -61,14 +61,9 @@ export class OrderService {
 
   sendOrderToDB() {
     console.log(this.currentOrder);
-<<<<<<< HEAD
-    this.CreateOrderInDB(this.currentOrder);
-    this.currentOrder = new Order(this.userService.user,"",[]);
-=======
     this.currentOrder.time = this.getTimeStamp();
-    this.CreateOrderInDB(this.currentOrder)
+    this.CreateOrderInDB(this.currentOrder);
     this.currentOrder = new Order("",[]);
->>>>>>> HmoulvadBranch
   }
 
   getOrderHistory() {
@@ -77,10 +72,7 @@ export class OrderService {
 
 
   CreateOrderInDB(order: any){
-<<<<<<< HEAD
     console.log(JSON.stringify(order));
-=======
->>>>>>> HmoulvadBranch
     return this.http.post('http://52.213.91.0:8080/FavorDrop_war/clients/'+ this.userService.user.UID +'/orders/new/', JSON.stringify(order), this.jwt()).subscribe();
   }
 
@@ -90,11 +82,7 @@ export class OrderService {
   }
 
   private jwt() {
-<<<<<<< HEAD
     let headers = new Headers({'Authorization': 'Bearer ' + sessionStorage.getItem('currentUser'), 'Content-Type': 'application/json'});
-=======
-    let headers = new Headers({'Authorization': 'Bearer ' + sessionStorage.getItem('currentUser'), 'Content-Type' : 'application/json'});
->>>>>>> HmoulvadBranch
     let options = new RequestOptions({headers: headers});
     return options;
   }
