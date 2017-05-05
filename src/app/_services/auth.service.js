@@ -11,15 +11,16 @@ require('rxjs/add/operator/map');
 require('rxjs/add/operator/take');
 var firebase = require('firebase');
 var AuthService = (function () {
-    function AuthService(router, userService) {
+    function AuthService(router) {
         this.router = router;
-        this.userService = userService;
     }
+    AuthService.prototype.getAuth = function () {
+        return firebase.auth();
+    };
     AuthService.prototype.emailAuthentication = function (email, password) {
         firebase.auth().signInWithEmailAndPassword(email, password).then(function (success) {
             firebase.auth().currentUser.getToken(true).then(function (idToken) {
-                localStorage.setItem('currentUser', idToken);
-                this.userService.user.UID = firebase.auth().currentUser.uid;
+                sessionStorage.setItem('currentUser', idToken);
                 this.router.navigate(['/']);
             }.bind(this));
         }.bind(this), function (error) {
@@ -39,10 +40,7 @@ var AuthService = (function () {
         provider.addScope("email");
         firebase.auth().signInWithPopup(provider).then(function (result) {
             firebase.auth().currentUser.getToken(true).then(function (idToken) {
-                localStorage.setItem('currentUser', idToken);
-                this.userService.user.UID = firebase.auth().currentUser.uid;
-                this.userService.user.name = firebase.auth().currentUser.displayName;
-                this.userService.user.email = firebase.auth().currentUser.providerData[0].email;
+                sessionStorage.setItem('currentUser', idToken);
                 this.router.navigate(['/']);
             }.bind(this));
         }.bind(this));
@@ -51,26 +49,20 @@ var AuthService = (function () {
         var provider = new firebase.auth.GoogleAuthProvider;
         firebase.auth().signInWithPopup(provider).then(function (result) {
             firebase.auth().currentUser.getToken(true).then(function (idToken) {
-                localStorage.setItem('currentUser', idToken);
-                this.userService.user.UID = firebase.auth().currentUser.uid;
-                this.userService.user.name = firebase.auth().currentUser.displayName;
-                this.userService.user.email = firebase.auth().currentUser.providerData[0].email;
+                sessionStorage.setItem('currentUser', idToken);
                 this.router.navigate(['/']);
             }.bind(this));
         }.bind(this));
     };
     AuthService.prototype.isAuthenticated = function () {
-        if (localStorage.getItem('currentUser') != null) {
+        if (sessionStorage.getItem('currentUser') != null) {
             return true;
         }
         return false;
     };
     AuthService.prototype.logout = function () {
-        localStorage.removeItem('currentUser');
+        sessionStorage.removeItem('currentUser');
         firebase.auth().signOut();
-    };
-    AuthService.prototype.getUserID = function () {
-        return firebase.auth().currentUser.uid;
     };
     AuthService = __decorate([
         core_1.Injectable()

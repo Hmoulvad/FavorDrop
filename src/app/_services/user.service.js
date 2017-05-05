@@ -13,35 +13,34 @@ var UserService = (function () {
         this.http = http;
         this.user = new user_1.User();
     }
-    UserService.prototype.updateUser = function (UID, name, email, phone, address, zip, city) {
-        this.user.UID = UID;
-        this.user.name = name;
-        this.user.email = email;
-        this.user.phone = phone;
-        this.user.address = address;
-        this.user.zip = zip;
-        this.user.city = city;
+    UserService.prototype.updateUser = function (name, email, phone, address, zip, city) {
+        if (name)
+            this.user.name = name;
+        if (email)
+            this.user.email = email;
+        if (phone)
+            this.user.phone = phone;
+        if (address)
+            this.user.address = address;
+        if (zip)
+            this.user.zip = zip;
+        if (city)
+            this.user.city = city;
+        console.log(JSON.stringify(this.user));
+        this.CreateUserInDB();
     };
-    UserService.prototype.getUser = function () {
-        return this.user;
-    };
-    UserService.prototype.CreateUserInDB = function (user) {
-        return this.http.put('http://52.213.91.0:8080/FavorDrop_war/clients/' + this.user.UID, JSON.stringify(user), this.jwt());
+    UserService.prototype.CreateUserInDB = function () {
+        return this.http.put('http://52.213.91.0:8080/FavorDrop_war_no_auth/clients/' + this.user.UID, JSON.stringify(this.user), this.jwt()).subscribe();
     };
     UserService.prototype.getClient = function () {
         var _this = this;
-        return this.http.get('http://52.213.91.0:8080/FavorDrop_war/clients/' + this.user.UID, this.jwt())
-            .map(function (res) { return _this.extractClient(res); });
+        return this.http.get('http://52.213.91.0:8080/FavorDrop_war_no_auth/clients/' + this.user.UID, this.jwt())
+            .map(function (res) { return _this.user = res.json(); });
     };
     UserService.prototype.jwt = function () {
         var headers = new http_1.Headers({ 'Authorization': 'Bearer ' + localStorage.getItem('currentUser') });
         var options = new http_1.RequestOptions({ headers: headers });
         return options;
-    };
-    UserService.prototype.extractClient = function (res) {
-        var body = res.json();
-        this.user = body;
-        return body.data || {};
     };
     UserService = __decorate([
         core_1.Injectable()

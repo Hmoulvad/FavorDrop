@@ -64,8 +64,6 @@ export class OrderService {
   getOrderHistory() {
     return this.orderHistory;
   }
-
-
   CreateOrderInDB(order: any){
     return this.http.post('http://52.213.91.0:8080/FavorDrop_war/clients/'+ this.userService.user.UID +' /orders/new/', JSON.stringify(order), this.jwt());
   }
