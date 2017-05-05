@@ -3,15 +3,15 @@
       <h2>
         Profil oplysninger
       </h2>
-      <div>
+      <div class="form-group">
         <label for="name">Fulde navn</label>
-        <input type="text" id="name" name="name" ngModel class="form-control" placeholder="Indtast navn" value="{{navn}}">
+        <input type="text" id="name" name="name" ngModel class="form-control" placeholder="Indtast navn" value="{{navn}}" minlength="4" maxlength="30" required="required">
 
         <label for="email">Email</label>
         <input type="email" id="email" name="email" disabled="disabled" ngModel class="form-control" placeholder="Indtast e-mail" value="{{email}}">
 
         <label for="phone">Telefon</label>
-        <input type="phone" id="phone" name="phone" ngModel class="form-control" placeholder="NUMMER!?" value="{{phone}}">
+        <input type="number" id="phone" name="phone" ngModel class="form-control" placeholder="Telefon nr." value="{{phone}}" min="0" max="99999999" required="required">
         <span>
       <hr>
       </span>
@@ -19,16 +19,15 @@
           Leverings oplysninger
         </h2>
         <label for="orderaddress">Adresse</label>
-        <input type="address" id="orderaddress" name="address" ngModel class="form-control" placeholder="Indtast adresse" value="{{adresse}}">
+        <input type="text" id="orderaddress" name="address" ngModel class="form-control" placeholder="Indtast adresse" value="{{adresse}}" minlength="4" required="required">
 
         <label for="zip">Postnummer</label>
-        <input type="zip" id="zip" name="zip" ngModel class="form-control" placeholder="Indtast postnummer" value="{{postnummer}}">
+        <input type="number" id="zip" name="zip" ngModel class="form-control" placeholder="Indtast postnummer" value="{{postnummer}}" min="0" max="9999" required="required">
 
         <label for="city">By</label>
-        <input type="city" id="city" name="city" ngModel class="form-control" placeholder="Indtast bynavn" value="{{by}}">
+        <input type="text" id="city" name="city" ngModel class="form-control" placeholder="Indtast bynavn" value="{{by}}" required="required">
         <br>
-
-        <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Gem ændringer</button>
+        <button class="btn btn-primary" type="submit" >Gem ændringer</button>
       </div>
     </form>
   <div class="col-md-1"></div>
