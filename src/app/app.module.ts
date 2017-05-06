@@ -17,7 +17,6 @@ import { AuthService } from "./_services/auth.service";
 import { AngularFireModule } from "angularfire2";
 import { HelpPageComponent } from './help-page/help-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
-import { EditPasswordComponent } from './profile-page/edit-password/edit-password.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { UserService } from "./_services/user.service";
 import { BillingComponent } from './billing/billing.component';
@@ -54,7 +53,6 @@ export const firebaseConfig = {
     UserLoginComponent,
     HelpPageComponent,
     ProfilePageComponent,
-    EditPasswordComponent,
     BillingComponent,
     HelpItemComponent,
     StopItemComponent,
