@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Avenir";
-  src: url('../../../assets/lato-Light.ttf') format('truetype');
+  src: url('../../../../assets/lato-Light.ttf') format('truetype');
 }
 
 @media screen and (max-width: 899px) {
