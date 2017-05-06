@@ -27,6 +27,7 @@ import { OrderHistoryItemComponent } from "./profile-page/orderhistory/order-ite
 import { OrderHistoryComponent } from "./profile-page/orderhistory/order-history.component";
 import { StopItemComponent } from './profile-page/orderhistory/order-item-history/stop-item/stop-item.component';
 import {AgmCoreModule} from "angular2-google-maps/core";
+import { OrderStatusComponent } from './billing/order-status/order-status.component';
 
 
 export const firebaseConfig = {
@@ -57,6 +58,7 @@ export const firebaseConfig = {
     BillingComponent,
     HelpItemComponent,
     StopItemComponent,
+    OrderStatusComponent,
   ],
 
   imports: [

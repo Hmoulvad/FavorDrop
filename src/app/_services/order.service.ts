@@ -17,7 +17,7 @@ export class OrderService {
 
   ];
   currentOrder: Order = new Order(
-    "", [
+    "", 0, [
     ]
   );
 
@@ -59,8 +59,9 @@ export class OrderService {
   sendOrderToDB() {
     console.log(this.currentOrder);
     this.currentOrder.time = this.getTimeStamp();
+    this.currentOrder.price = this.getPrice();
     this.CreateOrderInDB(this.currentOrder);
-    this.currentOrder = new Order("",[]);
+    this.currentOrder = new Order("",0,[]);
   }
 
   getOrderHistory() {

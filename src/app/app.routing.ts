@@ -11,6 +11,7 @@ import {AuthGuard} from "./_guards/auth.guard";
 import {EditPasswordComponent} from "./profile-page/edit-password/edit-password.component";
 import {BillingComponent} from "./billing/billing.component";
 import {OrderDetailComponent} from "./order-module/order-detail/order-detail.component";
+import {OrderStatusComponent} from "./billing/order-status/order-status.component";
 
 const APP_ROUTES: Routes = [
   { path: '', redirectTo: 'intro-page', pathMatch: 'full' },
@@ -19,10 +20,11 @@ const APP_ROUTES: Routes = [
     { path:':id', component: OrderDetailComponent}
     ] },
   { path: 'intro-page', component: IntroPageComponent},
-  { path: 'billing', component: BillingComponent, canActivate: [AuthGuard] },
   { path: 'help-page', component: HelpPageComponent},
-  { path: 'profile-page', component: ProfilePageComponent, canActivate: [AuthGuard] },
   { path: 'create-intro', component: CreateUserComponent},
+  { path: 'billing', component: BillingComponent, canActivate: [AuthGuard] },
+  { path: 'profile-page', component: ProfilePageComponent, canActivate: [AuthGuard] },
+  { path: 'order-status', component: OrderStatusComponent, canActivate: [AuthGuard]},
   { path: 'edit-password', component: EditPasswordComponent, canActivate: [AuthGuard]},
   { path: '**', redirectTo: 'intro-page'},
 ];
