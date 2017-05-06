@@ -13,14 +13,13 @@ export class AuthService {
   constructor(private  router: Router,private userService: UserService) {}
 
   emailAuthentication(email: string, password: string) {
-    firebase.auth().signInWithEmailAndPassword(email,password).then(function(success) {
-      firebase.auth().currentUser.getToken(true).then(function(idToken) {
+    firebase.auth().signInWithEmailAndPassword(email,password).then((success) => {
+      firebase.auth().currentUser.getToken(true).then((idToken) => {
+        this.userService.user.UID = firebase.auth().currentUser.uid;
         sessionStorage.setItem('currentUser',idToken);
         this.router.navigate(['/']);
-      }.bind(this))
-    }.bind(this), function (error) {
-      console.log(error.message);
-      sessionStorage.removeItem('currentUser');
+        this.loadUser();
+      });
     });
   }
 
@@ -36,25 +35,26 @@ export class AuthService {
   facebookAuthentication() {
     let provider = new firebase.auth.FacebookAuthProvider;
     provider.addScope("email");
-    firebase.auth().signInWithPopup(provider).then(function(result) {
-      firebase.auth().currentUser.getToken(true).then(function(idToken) {
+    firebase.auth().signInWithPopup(provider).then((success) => {
+      firebase.auth().currentUser.getToken(true).then((idToken) => {
+        this.userService.user.UID = firebase.auth().currentUser.uid;
         sessionStorage.setItem('currentUser',idToken);
-        this.loadUser();
         this.router.navigate(['/']);
-      }.bind(this));
-
-    }.bind(this));
+        this.loadUser();
+      });
+    });
   }
 
   googleAuthentication() {
     let provider = new firebase.auth.GoogleAuthProvider;
-    firebase.auth().signInWithPopup(provider).then(function(result) {
-      firebase.auth().currentUser.getToken(true).then(function(idToken) {
+    firebase.auth().signInWithPopup(provider).then((result) => {
+      firebase.auth().currentUser.getToken(true).then((idToken) => {
+        this.userService.user.UID = firebase.auth().currentUser.uid;
         sessionStorage.setItem('currentUser',idToken);
-        this.loadUser();
         this.router.navigate(['/']);
-      }.bind(this));
-    }.bind(this));
+        this.loadUser()
+      });
+    });
   }
 
   isAuthenticated() {
@@ -69,24 +69,20 @@ export class AuthService {
   }
 
   private loadUser() {
-    this.userService.getClient().subscribe(
-      user => {
-        console.log(JSON.stringify(user));
-        if (user) {
-          this.userService.user = user;
+      this.userService.getClient().subscribe(
+        user => {
+          console.log(JSON.stringify(user));
+          if (!user) {
+            this.userService.user = new User();
+            this.userService.user.UID = firebase.auth().currentUser.uid;
+            if (firebase.auth().currentUser.providerData[0].email)
+              this.userService.user.email = firebase.auth().currentUser.providerData[0].email;
+            else
+              this.userService.user.email = firebase.auth().currentUser.email;
+            if (firebase.auth().currentUser.providerData[0].displayName)
+              this.userService.user.name = firebase.auth().currentUser.providerData[0].displayName;
+          }
         }
-        else {
-          console.log("No profile in database. Loading information from authentication provider.");
-          this.userService.user = new User();
-          this.userService.user.UID = firebase.auth().currentUser.uid;
-          if (firebase.auth().currentUser.providerData[0].email)
-            this.userService.user.email = firebase.auth().currentUser.providerData[0].email;
-          else
-            this.userService.user.email = firebase.auth().currentUser.email;
-          if (firebase.auth().currentUser.providerData[0].displayName)
-            this.userService.user.name = firebase.auth().currentUser.providerData[0].displayName;
-        }
-      }
-    )
+      )
   }
 }

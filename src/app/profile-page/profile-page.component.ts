@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {UserService} from "../_services/user.service";
-import {AuthService} from "../_services/auth.service";
+
 @Component({
   selector: 'fd-profile-page',
   templateUrl: './profile-page.component.html',
@@ -28,7 +28,6 @@ export class ProfilePageComponent implements OnInit {
   }
 
   onSubmit(f: NgForm) {
-
     if (f.valid)
     this.userService.updateUser(
       f.value.name,

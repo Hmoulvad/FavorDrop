@@ -5,13 +5,13 @@
       </h2>
       <div class="form-group">
         <label for="name">Fulde navn</label>
-        <input type="text" id="name" name="name" ngModel class="form-control" placeholder="Indtast navn" value="{{navn}}" minlength="4" maxlength="30" required="required">
+        <input type="text" id="name" name="name" ngModel class="form-control" placeholder="{{name}}" minlength="4" maxlength="30" required="required">
 
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" disabled="disabled" ngModel class="form-control" placeholder="Indtast e-mail" value="{{email}}">
+        <input type="email" id="email" name="email" disabled="disabled" ngModel class="form-control" placeholder="{{email}}">
 
         <label for="phone">Telefon</label>
-        <input type="number" id="phone" name="phone" ngModel class="form-control" placeholder="Telefon nr." value="{{phone}}" min="0" max="99999999" required="required">
+        <input type="number" id="phone" name="phone" ngModel class="form-control" placeholder="{{phone}}" minlength="8" maxlength="8" required="required">
         <span>
       <hr>
       </span>
@@ -19,13 +19,13 @@
           Leverings oplysninger
         </h2>
         <label for="orderaddress">Adresse</label>
-        <input type="text" id="orderaddress" name="address" ngModel class="form-control" placeholder="Indtast adresse" value="{{adresse}}" minlength="4" required="required">
+        <input type="text" id="orderaddress" name="address" ngModel class="form-control" placeholder="{{adresse}}" minlength="4" required="required">
 
         <label for="zip">Postnummer</label>
-        <input type="number" id="zip" name="zip" ngModel class="form-control" placeholder="Indtast postnummer" value="{{postnummer}}" min="0" max="9999" required="required">
+        <input type="number" id="zip" name="zip" ngModel class="form-control" placeholder="{{postnummer}}" min="0" max="9999" required="required">
 
         <label for="city">By</label>
-        <input type="text" id="city" name="city" ngModel class="form-control" placeholder="Indtast bynavn" value="{{by}}" required="required">
+        <input type="text" id="city" name="city" ngModel class="form-control" placeholder="{{by}}" required="required">
         <br>
         <button class="btn btn-primary" type="submit" >Gem ændringer</button>
       </div>
