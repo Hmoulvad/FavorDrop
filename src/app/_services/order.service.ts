@@ -4,6 +4,7 @@ import {Subject} from "rxjs/Subject";
 import {Order} from "../_models/order";
 import {UserService} from "./user.service";
 import {Headers, RequestOptions, Http, Response} from "@angular/http";
+import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class OrderService {
@@ -57,24 +58,21 @@ export class OrderService {
   }
 
   sendOrderToDB() {
-    console.log(this.currentOrder);
     this.currentOrder.time = this.getTimeStamp();
     this.currentOrder.price = this.getPrice();
+    console.log(this.currentOrder);
     this.CreateOrderInDB(this.currentOrder);
     this.currentOrder = new Order("",0,[]);
   }
 
-  getOrderHistory() {
-    return this.orderHistory;
-  }
   CreateOrderInDB(order: any){
     console.log(JSON.stringify(order));
     return this.http.post('http://52.213.91.0:8080/FavorDrop_war/clients/'+ this.userService.user.UID +'/orders/new/', JSON.stringify(order), this.jwt()).subscribe();
   }
 
   GetOrdersFromDB() {
-    return this.http.get('http://52.213.91.0:8080/FavorDrop_war/client/'+ this.userService.user.UID + '/orders',this.jwt())
-      .map((res:Response) => this.extractOrders(res))
+    return this.http.get('http://52.213.91.0:8080/FavorDrop_war/clients/'+ this.userService.user.UID + '/orders/completed',this.jwt())
+      .map((response: Response) => this.extractOrders(response));
   }
 
   private jwt() {
@@ -85,6 +83,7 @@ export class OrderService {
 
   private extractOrders(res: Response) {
     let body = res.json();
+    console.log("Orders: " + JSON.stringify(body));
     this.orderHistory = body;
     return body.data || { };
   }

@@ -7,10 +7,11 @@ import {Router} from "@angular/router";
 import Promise = firebase.Promise;
 import {UserService} from "./user.service";
 import {User} from "../_models/user";
+import {OrderService} from "./order.service";
 
 @Injectable()
 export class AuthService {
-  constructor(private  router: Router,private userService: UserService) {}
+  constructor(private  router: Router,private userService: UserService, private orderService: OrderService) {}
 
   emailAuthentication(email: string, password: string) {
     firebase.auth().signInWithEmailAndPassword(email,password).then((success) => {
@@ -84,6 +85,11 @@ export class AuthService {
               this.userService.user.name = firebase.auth().currentUser.providerData[0].displayName;
           }
         }
-      )
+      );
+    this.orderService.GetOrdersFromDB().subscribe(
+      order => {
+        this.orderService.orderHistory = order;
+      }
+    );
   }
 }
