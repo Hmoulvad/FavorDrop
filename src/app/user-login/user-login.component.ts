@@ -12,16 +12,12 @@ export class UserLoginComponent implements OnInit{
 
     loginInvalid : boolean;
 
-  constructor(private authService: AuthService) {
-    }
-    ngOnInit(){
-    }
+  constructor(private authService: AuthService) {}
+  ngOnInit(){}
+
 
   emailLogin(form: NgForm) {
-    this.authService.emailAuthentication(form.value.email, form.value.password)
-    if (!this.authService.isAuthenticated()) {
-       this.loginInvalid = true;
-    }
+    this.authService.emailAuthentication(form.value.email, form.value.password);
   }
 
   facebookLogin() {

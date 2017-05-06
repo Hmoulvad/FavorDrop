@@ -1,4 +1,3 @@
-import {User} from "./user";
 import {Stop} from "./stop";
 
 export class Order {

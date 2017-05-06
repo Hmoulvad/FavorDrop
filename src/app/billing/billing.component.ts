@@ -31,5 +31,4 @@ export class BillingComponent implements OnInit {
     this.router.navigate(['profile-page'])
     this.orderService.sendOrderToDB();
   }
-
 }
