@@ -13,8 +13,7 @@ import {BillingComponent} from "./billing/billing.component";
 import {OrderDetailComponent} from "./order-module/order-detail/order-detail.component";
 
 const APP_ROUTES: Routes = [
-  //PathMatch sættes til full, for at sikre at der ikke henvises til Intro, hvis man skriver mellemrum først.
-  { path: '', redirectTo: '/intro-page', pathMatch: 'full'},
+  { path: '', redirectTo: 'intro-page', pathMatch: 'full' },
   { path: 'user-login', component: UserLoginComponent},
   { path: 'order-module', component: OrderModuleComponent, children: [
     { path:':id', component: OrderDetailComponent}
@@ -25,6 +24,7 @@ const APP_ROUTES: Routes = [
   { path: 'profile-page', component: ProfilePageComponent, canActivate: [AuthGuard] },
   { path: 'create-intro', component: CreateUserComponent},
   { path: 'edit-password', component: EditPasswordComponent, canActivate: [AuthGuard]},
+  { path: '**', redirectTo: 'intro-page'},
 ];
 
 @NgModule({
