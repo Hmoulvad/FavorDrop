@@ -31,7 +31,7 @@ export class BillingComponent implements OnInit {
 
   onSubmit() {
     console.log("JEG HAR TRYKKET PÅ KNAPPEN")
-    this.router.navigate(['profile-page'])
+    this.router.navigate(['order-status'])
     this.orderService.sendOrderToDB();
   }
 }
