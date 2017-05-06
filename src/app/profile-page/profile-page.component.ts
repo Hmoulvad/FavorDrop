@@ -8,33 +8,34 @@ import {UserService} from "../_services/user.service";
   styles: [require('../../styles.css').toString()]
 })
 export class ProfilePageComponent implements OnInit {
-  navn: string;
-  email: string;
-  adresse: string;
-  phone: string;
-  by: string;
-  postnummer: string;
+  formname: string;
+  formemail: string;
+  formphone: number;
+  formadress: string;
+  formzip: string;
+  formcity: string;
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
     console.log("Profile onInit: " + JSON.stringify(this.userService.user));
-    this.navn = this.userService.user.name;
-    this.email = this.userService.user.email;
-    this.adresse = this.userService.user.address;
-    this.phone = this.userService.user.phone;
-    this.by = this.userService.user.city;
-    this.postnummer = this.userService.user.zip;
+    this.formname = this.userService.user.name;
+    this.formemail = this.userService.user.email;
+    this.formadress = this.userService.user.address;
+    this.formphone = this.userService.user.phone;
+    this.formcity = this.userService.user.city;
+    this.formzip = this.userService.user.zip;
   }
 
   onSubmit(f: NgForm) {
     if (f.valid)
     this.userService.updateUser(
-      f.value.name,
-      f.value.email,
-      f.value.phone,
-      f.value.address,
-      f.value.zip,
-      f.value.city);
+      this.formname,
+      this.formemail,
+      this.formphone,
+      this.formadress,
+      this.formzip,
+      this.formcity);
   }
+
 }

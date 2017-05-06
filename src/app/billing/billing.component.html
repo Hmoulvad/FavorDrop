@@ -7,23 +7,54 @@
 
 <div id="info" class="col-md-7">
 
-  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <form id="BillingForm" (ngSubmit)="onSubmit(f)" #f="ngForm">
     <div class="form-group col-md-12">
       <h3>
         Bestillings oplysninger
       </h3>
       <label for="name">Fulde navn</label>
-      <input type="name" id="name" name="name" ngModel class="form-control" pattern="[a-zA-Z0-9\s]+" value="{{username}}" placeholder="{{username}}">
+      <input type="text"
+             id="name"
+             name="name"
+             ngModel class="form-control"
+             placeholder="Fulde navn"
+             [(ngModel)]="formname"/>
 
-      <label for="deliveryadress">Levering Adresse</label>
-      <input type="address" id="deliveryadress" name="address" ngModel class="form-control" value="{{address}}" placeholder="{{address}}">
+      <label for="address">Adresse</label>
+      <input type="text"
+             id="address"
+             name="address"
+             ngModel class="form-control"
+             placeholder="Adresse"
+             [(ngModel)]="formaddress"/>
+
+      <label for="phone">Telefon</label>
+      <input type="tel"
+             id="phone"
+             name="phone"
+             ngModel class="form-control"
+             placeholder="Telefon"
+             [(ngModel)]="formphone">
+
 <div style="padding-top: 5px">
         <div class="input-group">
          <label for="zipcode">Postnummer</label>
-         <input type="zipcode" id="zipcode" name="zipcode" ngModel class="form-control" pattern="[0-9]{3,4}" value="{{zipcode}}" placeholder="{{zipcode}}">
+         <input type="zipcode"
+                id="zipcode"
+                name="zipcode"
+                ngModel class="form-control"
+                pattern="[0-9]{3,4}"
+                placeholder="Postnummer"
+                [(ngModel)]="formzip"/>
+
           <span class="input-group-btn" style="width: 30px;"></span>
          <label for="city">By</label>
-          <input type="city" id="city" name="city" ngModel class="form-control" value="{{city}}" placeholder="{{city}}">
+          <input type="city"
+                 id="city"
+                 name="city"
+                 ngModel class="form-control"
+                 placeholder="Din by"
+                 [(ngModel)]="formcity"/>
         </div>
 </div>
       <span>
@@ -34,23 +65,37 @@
       </h3>
 
       <label for="cardname">Navn på kortholder</label>
-      <input type="text" id="cardname" name="cardname" ngModel class="form-control" pattern="[a-zA-Z0-9\s]+" value="{{username}}" placeholder="{{username}}">
-
-      <label for="billingadress">Fakturerings Adresse</label>
-      <input type="address" id="billingadress" name="address" ngModel class="form-control" value="{{address}}" placeholder="{{address}}">
+      <input type="text"
+             id="cardname"
+             name="cardname"
+             ngModel class="form-control"
+             pattern="[a-zA-Z0-9\s]+"
+             placeholder="Navn på kortholder"/>
 
       <label for="cardnumber">Kortnummer</label>
-      <input type="tekst" id="cardnumber" name="cardnumber" ngModel class="form-control">
+      <input type="text"
+             id="cardnumber"
+             name="cardnumber"
+             ngModel class="form-control"
+             placeholder="Kortnummer"/>
 
       <label for="cvc">CVC</label>
-      <input type="text" id="cvc" name="cvc" ngModel class="form-control">
+      <input type="text"
+             id="cvc"
+             name="cvc"
+             placeholder="CVC"
+             ngModel class="form-control"/>
 
       <label for="exp">Udløbsdato</label>
-      <input type="date" id="exp" name="exp" ngModel class="form-control">
+      <input type="date"
+             id="exp"
+             name="exp"
+             placeholder="udløbsdato"
+             ngModel class="form-control"/>
 
       <br>
       <div class="pull-right">
-      <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Afslut betaling</button>
+      <button class="btn btn-primary" type="submit">Afslut betaling</button>
       </div>
     </div>
   </form>

@@ -16,7 +16,16 @@ export class UserLoginComponent implements OnInit{
 
 
   emailLogin(form: NgForm) {
-    this.authService.emailAuthentication(form.value.email, form.value.password);
+    try {
+      this.authService.emailAuthentication(form.value.email, form.value.password)
+    }
+    catch (e){
+      if(e instanceof RangeError) {
+        console.log('Error fætter')
+      }
+    }
+
+
   }
 
   facebookLogin() {

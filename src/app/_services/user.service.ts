@@ -9,7 +9,7 @@ export class UserService {
   user : User = new User();
   usersChanged = new Subject<User>();
 
-  updateUser(name: string, email: string, phone: string, address: string, zip: string, city: string) {
+  updateUser(name: string, email: string, phone: number, address: string, zip: string, city: string) {
     if (name)
       this.user.name = name;
     if (email)

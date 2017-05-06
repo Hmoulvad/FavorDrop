@@ -12,26 +12,25 @@ import {Router} from "@angular/router";
 export class BillingComponent implements OnInit {
   stops: Stop[] = [];
 
-  username: string;
-  email: string;
-  address: string;
-  zipcode: string;
-  city: string;
+  formname: string;
+  formphone: number;
+  formaddress: string;
+  formzip: string;
+  formcity: string;
 
   constructor(private orderService: OrderService, private userService: UserService,private router : Router) { }
 
   ngOnInit() {
-    this.username = this.userService.user.name;
-    this.email = this.userService.user.email;
-    this.address = this.userService.user.address;
-    this.zipcode = this.userService.user.zip;
-    this.city = this.userService.user.city;
+    this.formname = this.userService.user.name;
+    this.formphone = this.userService.user.phone;
+    this.formaddress = this.userService.user.address;
+    this.formzip = this.userService.user.zip;
+    this.formcity = this.userService.user.city;
     this.stops = this.orderService.getStops();
   }
 
   onSubmit() {
-    console.log("JEG HAR TRYKKET PÅ KNAPPEN")
-    this.router.navigate(['profile-page'])
+    this.router.navigate(['profile-page']);
     this.orderService.sendOrderToDB();
   }
 }
