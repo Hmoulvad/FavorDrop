@@ -7,5 +7,6 @@ export class User {
   zip: string;
   city: string;
 
+
   constructor() {}
 }
