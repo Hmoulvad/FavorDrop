@@ -21,7 +21,6 @@ export class OrderService {
     ]
   );
 
-  private timeStamp : string;
   private price : number;
 
   updatePrice() {
@@ -54,9 +53,7 @@ export class OrderService {
   }
 
   getTimeStamp() {
-    this.timeStamp = new Date().getHours().toString() + ":" +new Date().getMinutes().toString()+ " "+new Date().getDay().toString()+"/"+new Date().getMonth().toString()+"/"+new Date().getFullYear().toString()
-    console.log(this.timeStamp)
-    return this.timeStamp;
+    return new Date().getHours().toString() + ":" +new Date().getMinutes().toString()+ " "+new Date().getDay().toString()+"/"+new Date().getMonth().toString()+"/"+new Date().getFullYear().toString();
   }
 
   sendOrderToDB() {

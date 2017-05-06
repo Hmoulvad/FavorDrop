@@ -10,19 +10,22 @@ import {Router} from "@angular/router";
   styles: [require('../../styles.css').toString()]
 })
 export class BillingComponent implements OnInit {
-
   stops: Stop[] = [];
 
-  username: string = 'Hannibal B. Moulvad';
-  email: string = 'Hmoulvad@hotmail.com';
-  address: string = 'Rantzausgade 28B';
-  zipcode: string = '2200' ;
-  city: string = 'København N';
-
+  username: string;
+  email: string;
+  address: string;
+  zipcode: string;
+  city: string;
 
   constructor(private orderService: OrderService, private userService: UserService,private router : Router) { }
 
   ngOnInit() {
+    this.username = this.userService.user.name;
+    this.email = this.userService.user.email;
+    this.address = this.userService.user.address;
+    this.zipcode = this.userService.user.zip;
+    this.city = this.userService.user.city;
     this.stops = this.orderService.getStops();
   }
 
