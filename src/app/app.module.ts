@@ -28,7 +28,6 @@ import { StopItemComponent } from './profile-page/orderhistory/order-item-histor
 import {AgmCoreModule} from "angular2-google-maps/core";
 import { OrderStatusComponent } from './billing/order-status/order-status.component';
 
-
 export const firebaseConfig = {
   apiKey: "AIzaSyAYoXaVqer-feXLG-zIN0avkvbxDVYtzq4",
   authDomain: "favordrop.firebaseapp.com",
