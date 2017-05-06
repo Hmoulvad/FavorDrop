@@ -66,6 +66,7 @@ export class AuthService {
   logout(){
     sessionStorage.removeItem('currentUser');
     firebase.auth().signOut();
+    console.log("tjekker")
   }
 
   private loadUser() {
