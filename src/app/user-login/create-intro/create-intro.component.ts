@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {AuthService} from "../../_services/auth.service";
 import {Router} from "@angular/router";
+import {UserService} from "../../_services/user.service";
 
 @Component({
   selector: 'fd-create-user',
@@ -10,7 +11,7 @@ import {Router} from "@angular/router";
 })
 export class CreateUserComponent implements OnInit {
 
-  constructor(private authService: AuthService, private  rout: Router) { }
+  constructor(private authService: AuthService, private  rout: Router, private userservice: UserService) { }
 
   ngOnInit() {
   }
@@ -20,5 +21,6 @@ export class CreateUserComponent implements OnInit {
     const password = form.value.password;
     this.authService.emailSignup(email, password);
     this.rout.navigate(['/user-login']);
+    this.userservice.user.email = email;
   }
 }
