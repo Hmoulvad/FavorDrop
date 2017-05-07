@@ -4,23 +4,17 @@ import {Subject} from "rxjs/Subject";
 import {Order} from "../_models/order";
 import {UserService} from "./user.service";
 import {Headers, RequestOptions, Http, Response} from "@angular/http";
-import {Observable} from "rxjs/Observable";
-
+/*
+ OrderService - Injectable service som har ansvar for ordre objektet, og backend kald omkring ordre.
+ */
 @Injectable()
 export class OrderService {
-  constructor(private userService: UserService, private http: Http) {
-
-  }
+  constructor(private userService: UserService, private http: Http) {}
 
   ordersChanged = new Subject<Stop[]>();
   priceChanged = new Subject<number>();
-  public orderHistory: Order[] = [
-
-  ];
-  currentOrder: Order = new Order(
-    "", 0, [
-    ]
-  );
+  public orderHistory: Order[] = [];
+  currentOrder: Order = new Order("", 0, []);
 
   private price : number;
 
@@ -59,14 +53,13 @@ export class OrderService {
 
   sendOrderToDB() {
     this.currentOrder.time = this.getTimeStamp();
-    this.currentOrder.price = this.getPrice();
+    this.currentOrder.price = this.currentOrder.stops.length*80;
     console.log(this.currentOrder);
     this.CreateOrderInDB(this.currentOrder);
     this.currentOrder = new Order("",0,[]);
   }
 
   CreateOrderInDB(order: any){
-    console.log(JSON.stringify(order));
     return this.http.post('http://52.213.91.0:8080/FavorDrop_war/clients/'+ this.userService.user.UID +'/orders/new/', JSON.stringify(order), this.jwt()).subscribe();
   }
 

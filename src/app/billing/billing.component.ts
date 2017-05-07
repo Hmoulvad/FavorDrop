@@ -3,7 +3,10 @@ import {Stop} from "../_models/stop";
 import {OrderService} from "../_services/order.service";
 import {UserService} from "../_services/user.service";
 import {Router} from "@angular/router";
-
+/*
+ BillingComponent - Komponentet indeholder en form, hvor brugeren færdiggør sin bestilling,
+ til demonstration
+ */
 @Component({
   selector: 'fd-billing',
   templateUrl: './billing.component.html',
@@ -19,7 +22,9 @@ export class BillingComponent implements OnInit {
   formcity: string;
 
   constructor(private orderService: OrderService, private userService: UserService,private router : Router) { }
-
+  /*
+   OnInit metoden indlæser brugerens data direkte fra bruger objektet.
+   */
   ngOnInit() {
     this.formname = this.userService.user.name;
     this.formphone = this.userService.user.phone;
@@ -29,6 +34,9 @@ export class BillingComponent implements OnInit {
     this.stops = this.orderService.getStops();
   }
 
+  /*
+   onSubmit metoden navigere brugeren til profil siden, og sender ordren til backend.
+   */
   onSubmit() {
     this.router.navigate(['profile-page']);
     this.orderService.sendOrderToDB();

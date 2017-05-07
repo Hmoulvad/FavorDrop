@@ -1,3 +1,6 @@
+/*
+  User objekt - Indeholder alle variabler omkring brugere.
+ */
 export class User {
   UID: string;
   name: string;
@@ -6,7 +9,6 @@ export class User {
   address: string;
   zip: string;
   city: string;
-
 
   constructor() {}
 }
