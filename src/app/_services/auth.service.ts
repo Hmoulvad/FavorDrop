@@ -14,7 +14,7 @@ import {OrderService} from "./order.service";
 @Injectable()
 export class AuthService {
   constructor(private  router: Router,private userService: UserService, private orderService: OrderService) {}
-
+error: boolean;
   /*
     Email authentication tager imod email og password.
     1. Validere login med firebase.
@@ -25,6 +25,7 @@ export class AuthService {
     firebase.auth().signInWithEmailAndPassword(email,password).then((success) => {
         firebase.auth().currentUser.getToken(true).then((idToken) => {
           console.log("Email authentication success!");
+          this.error = false;
           this.userService.user.UID = firebase.auth().currentUser.uid;
           sessionStorage.setItem('currentUser', idToken);
           this.router.navigate(['/']);
@@ -32,6 +33,7 @@ export class AuthService {
         });
       },(error) => {
       if(error) console.log("Email authentication failed: " + error.message);
+      this.error = true;
       }
     );
   }

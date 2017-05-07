@@ -5,19 +5,39 @@
           Log in
         </h2>
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" ngModel class="form-control" placeholder="Email addresse">
+        <input type="email" id="email"
+               name="email"
+               ngModel class="form-control"
+               [(ngModel)]="emailform"
+               placeholder="Email addresse">
+
+
+
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" ngModel class="form-control" placeholder="Password">
-        <p *ngIf="loginInvalid">Der er fejl i email eller password</p>
+        <input type="password"
+               id="password"
+               name="password"
+               [(ngModel)]="passwordform"
+               ngModel class="form-control"
+               placeholder="Password">
       </div>
 
    <div class="col-md-12">
         <button class="btn btn-default" type="submit">
           <span class="badge">@</span> Login med Email
         </button>
+     <p id="errorlogin">{{error}}</p>
    </div>
  </form>
- 
+    <div>
+
+    </div>
+
+
+
+
+
+
     <div class="col-md-6 col-md-offset-3">
     <div class="col-md-12">
      <hr>

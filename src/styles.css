@@ -174,9 +174,9 @@ button{
   width: 400px;
   position: relative;
 }
-
-
-
+#errorlogin {
+  color: red;
+}
 
 
 

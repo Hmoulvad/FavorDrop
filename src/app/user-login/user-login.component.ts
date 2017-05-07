@@ -9,18 +9,24 @@ import {UserService} from "../_services/user.service";
   styles: [require('../../styles.css').toString()]
 })
 export class UserLoginComponent implements OnInit{
-
     loginInvalid : boolean;
+    emailform: string;
+    passwordform: string;
 
-  constructor(private authService: AuthService, private userservice: UserService) {}
+    error = '';
+
+  constructor(private authService: AuthService) {}
   ngOnInit(){
 
+
+  }
+  emailLogin() {
+    this.authService.emailAuthentication(this.emailform, this.passwordform);
+    if (this.authService.error = true) {
+      this.errormessage();
+    }
   }
 
-  emailLogin(form: NgForm) {
-      this.authService.emailAuthentication(form.value.email, form.value.password)
-      this.userservice.user.email = form.value.email;
-      }
 
   facebookLogin() {
     this.authService.facebookAuthentication();
@@ -28,5 +34,8 @@ export class UserLoginComponent implements OnInit{
 
   googleLogin() {
     this.authService.googleAuthentication();
+  }
+  errormessage() {
+    this.error = 'Wrong Email or Password';
   }
 }
