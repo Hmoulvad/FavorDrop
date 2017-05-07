@@ -4,12 +4,16 @@ import {Subject} from "rxjs/Subject";
 import {Order} from "../_models/order";
 import {UserService} from "./user.service";
 import {Headers, RequestOptions, Http, Response} from "@angular/http";
-/*
- OrderService - Injectable service som har ansvar for ordre objektet, og backend kald omkring ordre.
- */
+  /*
+  OrderService - Injectable service som har ansvar for ordre objektet, og backend kald omkring ordre.
+  */
 @Injectable()
 export class OrderService {
   constructor(private userService: UserService, private http: Http) {}
+
+  /*
+  We are passing ordersChanged and priceChanged as subjects, which makes them observable. So we an subscribe to them.
+  */
 
   ordersChanged = new Subject<Stop[]>();
   priceChanged = new Subject<number>();
