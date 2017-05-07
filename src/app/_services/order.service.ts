@@ -53,8 +53,11 @@ export class OrderService {
     this.updatePrice();
   }
 
+  datohej: string
   getTimeStamp() {
-    return new Date().getHours().toString() + ":" +new Date().getMinutes().toString()+ " "+new Date().getDay().toString()+"/"+new Date().getMonth().toString()+"/"+new Date().getFullYear().toString();
+    this.datohej = new Date().getHours().toString() + ":" +new Date().getMinutes().toString()+ " "+new Date().getDate().toString()+"/"+(new Date().getMonth()+1).toString()+"/"+new Date().getFullYear().toString();
+    console.log("datohej: " + this.datohej);
+    return this.datohej;
   }
 
   sendOrderToDB() {
