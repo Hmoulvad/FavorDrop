@@ -50,7 +50,6 @@ export class OrderService {
   dateStamp: string
   getTimeStamp() {
     this.dateStamp = new Date().getHours().toString() + ":" +new Date().getMinutes().toString()+ " "+new Date().getDate().toString()+"/"+(new Date().getMonth()+1).toString()+"/"+new Date().getFullYear().toString();
-    console.log("datohej: " + this.dateStamp);
     return this.dateStamp;
   }
 
