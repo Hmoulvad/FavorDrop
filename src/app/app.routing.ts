@@ -1,5 +1,5 @@
 import {Routes, RouterModule} from "@angular/router";
-import {OrderModuleComponent} from "./order-module/stop-module.component";
+import {OrderModuleComponent} from "./order-module/order-module.component";
 import {IntroPageComponent} from "./intro-page/intro-page.component";
 import {NgModule} from "@angular/core";
 import {UserLoginComponent} from "./user-login/user-login.component";
@@ -8,9 +8,9 @@ import {CreateUserComponent} from "./user-login/create-intro/create-intro.compon
 import {HelpPageComponent} from "./help-page/help-page.component";
 import {ProfilePageComponent} from "./profile-page/profile-page.component";
 import {AuthGuard} from "./_guards/auth.guard";
-import {BillingComponent} from "./billing/payment.component";
-import {OrderDetailComponent} from "./order-module/stop-detail/stop-detail.component";
-import {OrderStatusComponent} from "./billing/billing/billing.component";
+import {BillingComponent} from "./billing/billing.component";
+import {OrderDetailComponent} from "./order-module/order-detail/order-detail.component";
+import {OrderStatusComponent} from "./billing/order-status/order-status.component";
 
 const APP_ROUTES: Routes = [
   { path: '', redirectTo: 'intro-page', pathMatch: 'full' },
@@ -23,7 +23,7 @@ const APP_ROUTES: Routes = [
   { path: 'create-intro', component: CreateUserComponent},
   { path: 'billing', component: BillingComponent, canActivate: [AuthGuard] },
   { path: 'profile-page', component: ProfilePageComponent, canActivate: [AuthGuard] },
-  { path: 'billing', component: OrderStatusComponent, canActivate: [AuthGuard]},
+  { path: 'order-status', component: OrderStatusComponent, canActivate: [AuthGuard]},
   { path: '**', redirectTo: 'intro-page'},
 ];
 

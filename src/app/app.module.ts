@@ -4,10 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { OrderModuleComponent } from './order-module/stop-module.component';
-import { OrderListComponent } from './order-module/order-list/stop-list.component';
-import { OrderItemComponent } from './order-module/order-list/stop-item/stop-item.component';
-import { OrderDetailComponent } from './order-module/stop-detail/stop-detail.component';
+import { OrderModuleComponent } from './order-module/order-module.component';
+import { OrderListComponent } from './order-module/order-list/order-list.component';
+import { OrderItemComponent } from './order-module/order-list/order-item/order-item.component';
+import { OrderDetailComponent } from './order-module/order-detail/order-detail.component';
 import { OrderService } from "./_services/order.service";
 import { CreateUserComponent } from './user-login/create-intro/create-intro.component';
 import { IntroPageComponent } from './intro-page/intro-page.component';
@@ -19,14 +19,14 @@ import { HelpPageComponent } from './help-page/help-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { UserService } from "./_services/user.service";
-import { BillingComponent } from './billing/payment.component';
-import { OrderAddComponent} from "./order-module/stop-add/stop-add-component";
+import { BillingComponent } from './billing/billing.component';
+import { OrderAddComponent} from "./order-module/order-add/order-add-component";
 import { HelpItemComponent } from './help-page/help-item/help-item.component';
 import { OrderHistoryItemComponent } from "./profile-page/orderhistory/order-item-history/order-history-item.component";
 import { OrderHistoryComponent } from "./profile-page/orderhistory/order-history.component";
 import { StopItemComponent } from './profile-page/orderhistory/order-item-history/stop-item/stop-item.component';
 import {AgmCoreModule} from "angular2-google-maps/core";
-import { OrderStatusComponent } from './billing/billing/billing.component';
+import { OrderStatusComponent } from './billing/order-status/order-status.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAYoXaVqer-feXLG-zIN0avkvbxDVYtzq4",
