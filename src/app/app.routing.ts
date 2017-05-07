@@ -13,6 +13,7 @@ import {OrderDetailComponent} from "./order-module/order-detail/order-detail.com
 import {OrderStatusComponent} from "./billing/order-status/order-status.component";
 
 const APP_ROUTES: Routes = [
+  { path: '', redirectTo: 'intro-page', pathMatch: 'full' },
   { path: 'user-login', component: UserLoginComponent},
   { path: 'order-module', component: OrderModuleComponent, children: [
     { path:':id', component: OrderDetailComponent}
