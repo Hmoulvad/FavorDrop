@@ -54,12 +54,12 @@ export class OrderService {
   sendOrderToDB() {
     this.currentOrder.time = this.getTimeStamp();
     this.currentOrder.price = this.currentOrder.stops.length*80;
-    console.log(this.currentOrder);
     this.CreateOrderInDB(this.currentOrder);
     this.currentOrder = new Order("",0,[]);
   }
 
   CreateOrderInDB(order: any){
+    console.log("Pushing order to backend.");
     return this.http.post('http://52.213.91.0:8080/FavorDrop_war/clients/'+ this.userService.user.UID +'/orders/new/', JSON.stringify(order), this.jwt()).subscribe();
   }
 

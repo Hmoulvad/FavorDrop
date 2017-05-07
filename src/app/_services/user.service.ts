@@ -30,6 +30,7 @@ export class UserService {
   Simpel HTTP put request som gemmer brugeren i backend, og som subscriber direkte til.
    */
   CreateUserInDB(){
+    console.log("Pushing profile to backend.");
     return this.http.put('http://52.213.91.0:8080/FavorDrop_war/clients/'+this.user.UID, JSON.stringify(this.user), this.jwt()).subscribe();
   }
 
