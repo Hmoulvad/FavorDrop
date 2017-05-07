@@ -11,10 +11,15 @@
         <p *ngIf="loginInvalid">Der er fejl i email eller password</p>
       </div>
 
-   <div class="col-md-12" id="buttonlogin">
+   <div class="col-md-12">
         <button class="btn btn-default" type="submit">
           <span class="badge">@</span> Login med Email
         </button>
+   </div>
+ </form>
+ 
+    <div class="col-md-6 col-md-offset-3">
+    <div class="col-md-12">
      <hr>
        <button class="btn btn-primary" (click)="facebookLogin()" id="fb">
           <span class="badge">F</span> Login med Facebook
@@ -26,6 +31,6 @@
       <hr>
         <a id="createUser" [routerLink]="['/create-intro']" routerLinkActive="active">Ingen bruger? <strong> Opret dig her</strong></a>
       </div>
+    </div>
 
-    </form>
 

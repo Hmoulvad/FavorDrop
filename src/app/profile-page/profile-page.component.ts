@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {UserService} from "../_services/user.service";
-
+/*
+  ProfilePageComponent - Som viser brugeren data, og giver mulighed for at ændre den.
+ */
 @Component({
   selector: 'fd-profile-page',
   templateUrl: './profile-page.component.html',
@@ -16,9 +18,10 @@ export class ProfilePageComponent implements OnInit {
   formcity: string;
 
   constructor(private userService: UserService) { }
-
+/*
+  OnInit indlæses data til formen fra user objektet.
+ */
   ngOnInit() {
-    console.log("Profile onInit: " + JSON.stringify(this.userService.user));
     this.formname = this.userService.user.name;
     this.formemail = this.userService.user.email;
     this.formadress = this.userService.user.address;
@@ -26,7 +29,9 @@ export class ProfilePageComponent implements OnInit {
     this.formcity = this.userService.user.city;
     this.formzip = this.userService.user.zip;
   }
-
+/*
+  onSubmit metoden gemmer input fra form til user objekt.
+ */
   onSubmit(f: NgForm) {
     if (f.valid)
     this.userService.updateUser(

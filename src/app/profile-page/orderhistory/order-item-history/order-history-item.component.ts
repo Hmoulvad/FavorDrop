@@ -18,8 +18,8 @@ export class OrderHistoryItemComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.stops = this.order.getStops();
-    this.price = this.order.getStops().length * 80;
+    this.stops = this.order.stops;
+    this.price = this.order.stops.length * 80;
     this.time = this.order.time;
   }
 
