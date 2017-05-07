@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from "@angular/forms";
 import {AuthService} from "../_services/auth.service";
+import {UserService} from "../_services/user.service";
 
 @Component({
   selector: 'fd-user-login',
@@ -11,22 +12,15 @@ export class UserLoginComponent implements OnInit{
 
     loginInvalid : boolean;
 
-  constructor(private authService: AuthService) {}
-  ngOnInit(){}
-
-
-  emailLogin(form: NgForm) {
-    try {
-      this.authService.emailAuthentication(form.value.email, form.value.password)
-    }
-    catch (e){
-      if(e instanceof RangeError) {
-        console.log('Error fætter')
-      }
-    }
-
+  constructor(private authService: AuthService, private userservice: UserService) {}
+  ngOnInit(){
 
   }
+
+  emailLogin(form: NgForm) {
+      this.authService.emailAuthentication(form.value.email, form.value.password)
+      this.userservice.user.email = form.value.email;
+      }
 
   facebookLogin() {
     this.authService.facebookAuthentication();
