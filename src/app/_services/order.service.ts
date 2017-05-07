@@ -18,6 +18,10 @@ export class OrderService {
 
   private price : number;
 
+  /*
+   updatePrice sørger for at opdaterer prisen, og bruger .next()-metoden, for at parse det til subscription.
+   */
+
   updatePrice() {
     this.price = this.currentOrder.stops.length * 80;
     this.priceChanged.next(this.price);
@@ -31,15 +35,27 @@ export class OrderService {
     return this.currentOrder.stops;
   }
 
+  /*
+   addStop tilføjer et stop, og yderligere opdaterer stops-array'ets subscription og
+   */
+
   addStop (order : string, address: string, comment: string) {
     this.currentOrder.stops.push(new Stop(order, address, comment));
     this.ordersChanged.next(this.currentOrder.stops.slice());
     this.updatePrice();
-
   }
+
+  /*
+   Returns the stop index. Used for showing the correct stop in the OrderDetailComponent.
+   */
+
   getStopIndex(index: number) {
     return this.currentOrder.stops[index];
   }
+
+  /*
+   Deletes a stop based on its passed index.
+   */
 
   deleteStop(index: number) {
     this.currentOrder.stops.splice(index,1);
@@ -47,16 +63,26 @@ export class OrderService {
     this.updatePrice();
   }
 
+  /*
+   Used to parse a timestamp when an order is sent the the backend.
+   */
+
   dateStamp: string
   getTimeStamp() {
-    this.dateStamp = new Date().getHours().toString() + ":" +new Date().getMinutes().toString()+ " "+new Date().getDate().toString()+"/"+(new Date().getMonth()+1).toString()+"/"+new Date().getFullYear().toString();
+    this.dateStamp = new Date().getHours().toString() + ":" + new Date().getMinutes().toString() + " " + new Date().getDate().toString() + "/" + (new Date().getMonth() + 1).toString() + "/" + new Date().getFullYear().toString();
     return this.dateStamp;
   }
+
+  /*
+   Sends the order to the backend with an timestamp and a price.
+   Then initializes currentOrder with a new Order empty order objekt.
+   */
 
   sendOrderToDB() {
     this.currentOrder.time = this.getTimeStamp();
     this.currentOrder.price = this.currentOrder.stops.length*80;
     this.CreateOrderInDB(this.currentOrder);
+    this.orderHistory.push(this.currentOrder);
     this.currentOrder = new Order("",0,[]);
   }
 
