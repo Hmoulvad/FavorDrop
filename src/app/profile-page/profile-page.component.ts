@@ -42,5 +42,4 @@ export class ProfilePageComponent implements OnInit {
       this.formzip,
       this.formcity);
   }
-
 }
