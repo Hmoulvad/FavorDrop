@@ -3,30 +3,30 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { OrderModuleComponent } from './order-module/order-module.component';
-import { OrderListComponent } from './order-module/order-list/order-list.component';
-import { OrderItemComponent } from './order-module/order-list/order-item/order-item.component';
-import { OrderDetailComponent } from './order-module/order-detail/order-detail.component';
+import { HeaderComponent } from './_components/header/header.component';
+import { OrderPageComponent } from './_components/order-page/order-page.component';
+import { StopListComponent } from './_components/order-page/stop-list/stop-list.component';
+import { StopItemComponent } from './_components/order-page/stop-list/stop-item/stop-item.component';
+import { StopDetailComponent } from './_components/order-page/stop-detail/stop-detail.component';
 import { OrderService } from "./_services/order.service";
-import { CreateUserComponent } from './user-login/create-intro/create-intro.component';
-import { IntroPageComponent } from './intro-page/intro-page.component';
-import { UserLoginComponent } from './user-login/user-login.component';
+import { CreateUserComponent } from './_components/create-intro/create-intro.component';
+import { IntroPageComponent } from './_components/intro-page/intro-page.component';
+import { UserLoginComponent } from './_components/user-login/user-login.component';
 import { routing } from "./app.routing";
 import { AuthService } from "./_services/auth.service";
 import { AngularFireModule } from "angularfire2";
-import { HelpPageComponent } from './help-page/help-page.component';
-import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { HelpPageComponent } from './_components/help-page/help-page.component';
+import { ProfilePageComponent } from './_components/profile-page/profile-page.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { UserService } from "./_services/user.service";
-import { BillingComponent } from './billing/billing.component';
-import { OrderAddComponent} from "./order-module/order-add/order-add-component";
-import { HelpItemComponent } from './help-page/help-item/help-item.component';
-import { OrderHistoryItemComponent } from "./profile-page/orderhistory/order-item-history/order-history-item.component";
-import { OrderHistoryComponent } from "./profile-page/orderhistory/order-history.component";
-import { StopItemComponent } from './profile-page/orderhistory/order-item-history/stop-item/stop-item.component';
-import {AgmCoreModule} from "angular2-google-maps/core";
-import { OrderStatusComponent } from './billing/order-status/order-status.component';
+import { OrderPaymentComponent } from './_components/order-payment/order-payment.component';
+import { OrderAddComponent} from "./_components/order-page/stop-add/stop-add-component";
+import { HelpItemComponent } from './_components/help-page/help-item/help-item.component';
+import { OrderHistoryItemComponent } from "./_components/order-history/order-item-history/order-history-item.component";
+import { OrderHistoryComponent } from "./_components/order-history/order-history.component";
+import { StopHistoryItemComponent } from "./_components/order-history/order-item-history/stop-item-history/stop-history-item.component";
+import { AgmCoreModule } from "angular2-google-maps/core";
+import { OrderStatusComponent } from './_components/order-status/order-status.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAYoXaVqer-feXLG-zIN0avkvbxDVYtzq4",
@@ -34,17 +34,17 @@ export const firebaseConfig = {
   databaseURL: "https://favordrop.firebaseio.com",
   storageBucket: "favordrop.appspot.com",
   messagingSenderId: "1070909821847"
-}
+};
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    OrderModuleComponent,
-    OrderListComponent,
-    OrderItemComponent,
-    OrderDetailComponent,
+    OrderPageComponent,
+    StopListComponent,
+    StopDetailComponent,
     OrderHistoryComponent,
+    StopHistoryItemComponent,
     OrderHistoryItemComponent,
     OrderAddComponent,
     CreateUserComponent,
@@ -52,7 +52,7 @@ export const firebaseConfig = {
     UserLoginComponent,
     HelpPageComponent,
     ProfilePageComponent,
-    BillingComponent,
+    OrderPaymentComponent,
     HelpItemComponent,
     StopItemComponent,
     OrderStatusComponent,
