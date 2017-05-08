@@ -26,7 +26,7 @@ import { OrderHistoryItemComponent } from "./_components/order-history/order-ite
 import { OrderHistoryComponent } from "./_components/order-history/order-history.component";
 import { StopHistoryItemComponent } from "./_components/order-history/order-item-history/stop-item-history/stop-history-item.component";
 import { AgmCoreModule } from "angular2-google-maps/core";
-import { OrderStatusComponent } from './_components/order-status/order-status.component';
+import {BillingComponent} from "./_components/billing/billing.component";
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAYoXaVqer-feXLG-zIN0avkvbxDVYtzq4",
@@ -55,7 +55,7 @@ export const firebaseConfig = {
     OrderPaymentComponent,
     HelpItemComponent,
     StopItemComponent,
-    OrderStatusComponent,
+    BillingComponent,
   ],
 
   imports: [

@@ -37,7 +37,7 @@ export class OrderPaymentComponent implements OnInit {
    onSubmit metoden navigere brugeren til profil siden, og sender ordren til backend.
    */
   onSubmit() {
-    this.router.navigate(['order-status']);
+    this.router.navigate(['/billing']);
     this.orderService.sendOrderToDB();
   }
 }
