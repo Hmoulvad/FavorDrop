@@ -71,7 +71,7 @@ export class OrderService {
    Used to parse a timestamp when an order is sent the the backend.
    */
 
-  dateStamp: string
+  dateStamp: string;
   getTimeStamp() {
     this.dateStamp = new Date().getHours().toString() + ":" + new Date().getMinutes().toString() + " " + new Date().getDate().toString() + "/" + (new Date().getMonth() + 1).toString() + "/" + new Date().getFullYear().toString();
     return this.dateStamp;
@@ -102,8 +102,7 @@ export class OrderService {
 
   private jwt() {
     let headers = new Headers({'Authorization': 'Bearer ' + sessionStorage.getItem('currentUser'), 'Content-Type': 'application/json'});
-    let options = new RequestOptions({headers: headers});
-    return options;
+    return new RequestOptions({headers: headers});
   }
 
   private extractOrders(res: Response) {

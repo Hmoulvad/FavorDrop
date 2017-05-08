@@ -25,7 +25,7 @@ export class OrderListComponent implements OnInit, OnDestroy {
         (stops: Stop[]) => {
           this.stops = stops;
         }
-      )
+      );
     this.stops = this.orderService.getStops();
     this.subscriptionprice = this.orderService.priceChanged
       .subscribe(

@@ -98,9 +98,8 @@ export class AuthService {
   Check til om brugeren er authentikeret, sker ved at checke efter i session storage.
    */
   isAuthenticated() {
-    if (sessionStorage.getItem('currentUser'))
-      return true;
-    return false;
+    return !!sessionStorage.getItem('currentUser');
+
   }
 
   /*

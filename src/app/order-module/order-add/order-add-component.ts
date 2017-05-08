@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {OrderService} from "../../_services/order.service";
 import {NgForm} from "@angular/forms";
 
@@ -13,7 +13,7 @@ export class OrderAddComponent implements OnInit {
 
   onAddStop(form: NgForm) {
     const value = form.value;
-    this.orderService.addStop(value.order,value.address,value.comment)
+    this.orderService.addStop(value.order,value.address,value.comment);
     form.reset();
   }
 

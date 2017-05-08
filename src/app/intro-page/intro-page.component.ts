@@ -17,7 +17,7 @@ export class IntroPageComponent implements OnInit {
 
   onSearch(form : NgForm) {
     const value = form.value.zipcode;
-    this.zipcode = value.toString()
+    this.zipcode = value.toString();
     this.valuenumber = +this.zipcode;
     console.log(this.valuenumber);
     if (this.valuenumber > 1700 && this.valuenumber < 2920) {

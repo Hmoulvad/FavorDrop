@@ -1,4 +1,4 @@
-import {Component, OnInit, OnDestroy, Input} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {Stop} from "../../_models/stop";
 import {Router, ActivatedRoute, Params} from "@angular/router";
 import {OrderService} from "../../_services/order.service";
@@ -46,7 +46,7 @@ export class OrderDetailComponent implements OnInit {
   }
 
     onPositionUpdate(){
-    var url = "https://maps.googleapis.com/maps/api/geocode/json?address=venedigvej+10,+copenhagen,+denmark&key=AIzaSyBoy6D6WrByFtvwa6KwOxx5MZ8fPIAxNkY";
+    let url = "https://maps.googleapis.com/maps/api/geocode/json?address=venedigvej+10,+copenhagen,+denmark&key=AIzaSyBoy6D6WrByFtvwa6KwOxx5MZ8fPIAxNkY";
       return this.http.get(url)
         .map((res:Response) => this.extractData(res))
       }
