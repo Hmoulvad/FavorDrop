@@ -1,0 +1,14 @@
+<div class="list-group-item clearfix">
+  <h5>
+    Tidspunkt for bestilling: {{time}}
+  </h5>
+  <h5>
+    Pris for ordre: kr {{price}} ,-
+  </h5>
+  <div>
+    <hr>
+    <fd-stop-history-item *ngFor="let stop of stops"
+                           [stop]="stop"
+    ></fd-stop-history-item>
+  </div>
+</div>

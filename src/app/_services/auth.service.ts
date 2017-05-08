@@ -13,7 +13,7 @@ import {OrderService} from "./order.service";
  */
 @Injectable()
 export class AuthService {
-  constructor(private  router: Router,private userService: UserService, private orderService: OrderService) {}
+  constructor(private  router: Router,private userService: UserService) {}
   /*
     Email authentication tager imod email og password.
     1. Validere login med firebase.
@@ -41,7 +41,7 @@ export class AuthService {
    2. Hvis det er successfuldt, startes email authentication metoden.
    */
   emailSignup(email: string, password: string) {
-    firebase.auth().createUserWithEmailAndPassword(email, password).then(response => {
+    firebase.auth().createUserWithEmailAndPassword(email, password).then(success => {
       console.log("Email signup success!");
       this.emailAuthentication(email,password);
     }, (error) => {
@@ -81,7 +81,7 @@ export class AuthService {
    */
   googleAuthentication() {
     let provider = new firebase.auth.GoogleAuthProvider;
-    firebase.auth().signInWithPopup(provider).then((result) => {
+    firebase.auth().signInWithPopup(provider).then((success) => {
       firebase.auth().currentUser.getToken(true).then((idToken) => {
         console.log("Google authentication success!");
         this.userService.user.UID = firebase.auth().currentUser.uid;
@@ -92,14 +92,6 @@ export class AuthService {
     }, (error) => {
       if(error) console.log("Google authentication failed: " + error.message);
     });
-  }
-
-  /*
-  Check til om brugeren er authentikeret, sker ved at checke efter i session storage.
-   */
-  isAuthenticated() {
-    return !!sessionStorage.getItem('currentUser');
-
   }
 
   /*
