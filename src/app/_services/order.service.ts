@@ -18,7 +18,7 @@ export class OrderService {
   ordersChanged = new Subject<Stop[]>();
   priceChanged = new Subject<number>();
   public orderHistory: Order[] = [];
-  currentOrder: Order = new Order("", 0, []);
+  currentOrder: Order = new Order("", 0, [],"");
 
   private price : number;
 
@@ -85,9 +85,10 @@ export class OrderService {
   sendOrderToDB() {
     this.currentOrder.time = this.getTimeStamp();
     this.currentOrder.price = this.currentOrder.stops.length*80;
+    this.currentOrder.clientname = this.userService.user.name;
     this.CreateOrderInDB(this.currentOrder);
     this.orderHistory.push(this.currentOrder);
-    this.currentOrder = new Order("",0,[]);
+    this.currentOrder = new Order("",0,[],"");
   }
 
   CreateOrderInDB(order: any){

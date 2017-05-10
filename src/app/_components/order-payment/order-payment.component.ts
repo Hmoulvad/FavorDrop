@@ -32,7 +32,6 @@ export class OrderPaymentComponent implements OnInit {
     this.formcity = this.userService.user.city;
     this.stops = this.orderService.getStops();
   }
-
   /*
    onSubmit metoden navigere brugeren til profil siden, og sender ordren til backend.
    */

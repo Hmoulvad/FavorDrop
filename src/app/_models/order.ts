@@ -6,10 +6,12 @@ export class Order {
   time : string;
   stops : Stop[];
   price : number;
+  clientname : string;
 
-  constructor(time : string, price: number , stops : Stop[]) {
+  constructor(time : string, price: number , stops : Stop[], clientname : string) {
     this.time = time;
     this.stops = stops;
     this.price = price;
+    this.clientname = clientname;
   }
 }
