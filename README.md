@@ -19,7 +19,7 @@ Clone the repository and import to the IDE.
 ## Download dependencies.
 Run `npm install`
 
-## Serv the application
+## Serve the application
 Run `npm start`
 
 or
