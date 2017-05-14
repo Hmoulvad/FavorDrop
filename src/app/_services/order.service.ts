@@ -85,7 +85,7 @@ export class OrderService {
   sendOrderToDB() {
     this.currentOrder.time = this.getTimeStamp();
     this.currentOrder.price = this.currentOrder.stops.length*80;
-    this.currentOrder.clientname = this.userService.user.name;
+    this.currentOrder.clientName = this.userService.user.name;
     this.CreateOrderInDB(this.currentOrder);
     this.orderHistory.push(this.currentOrder);
     this.currentOrder = new Order("",0,[],"");

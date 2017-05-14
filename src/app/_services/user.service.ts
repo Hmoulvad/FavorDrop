@@ -31,7 +31,7 @@ export class UserService {
    */
   CreateUserInDB(){
     console.log("Pushing profile to backend.");
-    return this.http.put('http://52.213.91.0:8080/FavorDrop_war/clients/'+this.user.UID, JSON.stringify(this.user), this.jwt()).subscribe();
+    return this.http.patch('http://52.213.91.0:8080/FavorDrop_war/clients/'+this.user.UID, JSON.stringify(this.user), this.jwt()).subscribe();
   }
 
   /*
