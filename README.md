@@ -1,17 +1,17 @@
 # FavorDrop
-Live version: http://favordrop.s3-website-eu-west-1.amazonaws.com
+Live version: `http://favordrop.s3-website-eu-west-1.amazonaws.com`
 
 Vi har oprettet en test konto der kan bruges på hjemsiden:
 
-Brugernavn: favordrop@test.dk
+Brugernavn: `favordrop@test.dk`
 
-Password: favordrop1234
+Password: `favordrop1234`
 
 # Setting up for local deployment
 ## Requirements
 IDE: Webstorm by Jetbrains or Visual Studio Code by Microsoft.
 
-NodeJS: https://nodejs.org/en/download/
+NodeJS: `https://nodejs.org/en/download/`
 
 ## Import the project 
 Clone the repository and import to the IDE.
@@ -19,7 +19,7 @@ Clone the repository and import to the IDE.
 ## Download dependencies.
 Run `npm install`
 
-## Serve the application
+## Serv the application
 Run `npm start`
 
 or
@@ -27,4 +27,4 @@ or
 Run `ng serve`
 
 ## Browse the application
-http://localhost:4200
+`http://localhost:4200`
