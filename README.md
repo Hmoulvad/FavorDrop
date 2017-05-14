@@ -1,4 +1,4 @@
-# FavorDrop
+# FavorDrop - Angular
 Live version: `http://favordrop.s3-website-eu-west-1.amazonaws.com`
 
 Vi har oprettet en test konto der kan bruges på hjemsiden:
