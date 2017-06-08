@@ -19,4 +19,8 @@ export class OrderAddComponent implements OnInit {
   ngOnInit() {
   }
 
+  getDBOrders() {
+    this.orderService.GetOrdersFromDB();
+  }
+
 }

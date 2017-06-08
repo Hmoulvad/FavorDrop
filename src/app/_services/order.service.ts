@@ -98,7 +98,7 @@ export class OrderService {
 
   GetOrdersFromDB() {
     return this.http.get('http://52.213.91.0:8080/FavorDrop_war/clients/'+ this.userService.user.UID + '/orders/completed',this.jwt())
-      .map((response: Response) => this.extractOrders(response));
+      .map((response: Response) => this.extractOrders(response)).subscribe();
   }
 
   private jwt() {
