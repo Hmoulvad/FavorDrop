@@ -29,11 +29,6 @@ import { AgmCoreModule } from "angular2-google-maps/core";
 import {BillingComponent} from "./_components/billing/billing.component";
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyAYoXaVqer-feXLG-zIN0avkvbxDVYtzq4",
-  authDomain: "favordrop.firebaseapp.com",
-  databaseURL: "https://favordrop.firebaseio.com",
-  storageBucket: "favordrop.appspot.com",
-  messagingSenderId: "1070909821847"
 };
 
 @NgModule({
